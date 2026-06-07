@@ -1,0 +1,66 @@
+# Build and generated files
+build/
+dist/
+gen/
+*.class
+*.jar
+*.war
+*.ear
+
+# Gradle
+.gradle/
+gradlew.bat.bak
+gradle-wrapper.jar.backup
+
+# Generated code
+**/generated/
+**/target/
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+*.iml
+.DS_Store
+Thumbs.db
+
+# Node/npm/pnpm
+node_modules/
+npm-debug.log*
+pnpm-debug.log*
+yarn-error.log*
+.pnpm-store/
+dist/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.bak
+*.backup
+*.log
+
+# Proto-specific
+*.pb.go
+*.pb.python
+*.pb.rb
+*.pb.cc
+*.pb.h
