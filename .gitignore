@@ -1,7 +1,6 @@
 # Build and generated files
 build/
 dist/
-gen/
 *.class
 *.jar
 *.war
