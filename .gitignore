@@ -63,3 +63,6 @@ Thumbs.db
 *.pb.rb
 *.pb.cc
 *.pb.h
+
+# npmrc
+.npmrc
