@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package auth;
+
+option java_multiple_files = true;
+option java_package = "com.trizo1104.auth.proto";
+option java_outer_classname = "AuthMessageProto";
+
+import "auth/user_message.proto";
+
+message LoginRequest {
+  string username = 1;
+  string password = 2;
+}
+
+message LoginResponse {
+  bool success = 1;
+  string message = 2;
+  string access_token = 3;
+}
+
+message ValidateTokenRequest {}
+
+message ValidateTokenResponse {
+  bool valid = 1;
+  string user_id = 2;
+  string username = 3;
+  repeated string roles = 4;
+  repeated string permissions = 5;
+}
+
+message MeRequest {}
+
+message MeResponse {
+  User user = 1;
+}

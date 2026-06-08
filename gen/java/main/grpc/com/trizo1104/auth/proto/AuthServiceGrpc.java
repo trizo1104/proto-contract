@@ -6,7 +6,7 @@ import static io.grpc.MethodDescriptor.generateFullMethodName;
  */
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.62.2)",
-    comments = "Source: auth.proto")
+    comments = "Source: auth/service.proto")
 @io.grpc.stub.annotations.GrpcGenerated
 public final class AuthServiceGrpc {
 
@@ -1047,7 +1047,7 @@ public final class AuthServiceGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return com.trizo1104.auth.proto.AuthProto.getDescriptor();
+      return com.trizo1104.auth.proto.AuthServiceProto.getDescriptor();
     }
 
     @java.lang.Override
