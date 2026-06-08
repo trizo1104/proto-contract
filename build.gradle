@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'com.trizo1104'
-version = '1.0.2'
+version = '1.0.3'
 
 repositories {
     mavenCentral()
@@ -22,7 +22,8 @@ dependencies {
 sourceSets {
     main {
         proto {
-            srcDir 'proto'
+            srcDir 'gen/java/main/java'
+            srcDir 'gen/java/main/grpc'
         }
     }
 }
