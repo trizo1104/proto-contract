@@ -21,7 +21,11 @@ dependencies {
 
 sourceSets {
     main {
-        proto {
+         proto {
+            srcDir 'proto'
+        }
+
+        java {
             srcDir 'gen/java/main/java'
             srcDir 'gen/java/main/grpc'
         }
