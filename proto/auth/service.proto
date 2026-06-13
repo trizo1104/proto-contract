@@ -13,7 +13,6 @@ import "auth/user_message.proto";
 
 service AuthService {
   rpc Login(LoginRequest) returns (LoginResponse);
-  rpc ValidateToken(ValidateTokenRequest) returns (ValidateTokenResponse);
   rpc Me(MeRequest) returns (MeResponse);
 
   rpc CreateUser(CreateUserRequest) returns (UserResponse);

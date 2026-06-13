@@ -46,37 +46,6 @@ public final class AuthServiceGrpc {
     return getLoginMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.trizo1104.auth.proto.ValidateTokenRequest,
-      com.trizo1104.auth.proto.ValidateTokenResponse> getValidateTokenMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "ValidateToken",
-      requestType = com.trizo1104.auth.proto.ValidateTokenRequest.class,
-      responseType = com.trizo1104.auth.proto.ValidateTokenResponse.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.trizo1104.auth.proto.ValidateTokenRequest,
-      com.trizo1104.auth.proto.ValidateTokenResponse> getValidateTokenMethod() {
-    io.grpc.MethodDescriptor<com.trizo1104.auth.proto.ValidateTokenRequest, com.trizo1104.auth.proto.ValidateTokenResponse> getValidateTokenMethod;
-    if ((getValidateTokenMethod = AuthServiceGrpc.getValidateTokenMethod) == null) {
-      synchronized (AuthServiceGrpc.class) {
-        if ((getValidateTokenMethod = AuthServiceGrpc.getValidateTokenMethod) == null) {
-          AuthServiceGrpc.getValidateTokenMethod = getValidateTokenMethod =
-              io.grpc.MethodDescriptor.<com.trizo1104.auth.proto.ValidateTokenRequest, com.trizo1104.auth.proto.ValidateTokenResponse>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ValidateToken"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.trizo1104.auth.proto.ValidateTokenRequest.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.trizo1104.auth.proto.ValidateTokenResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new AuthServiceMethodDescriptorSupplier("ValidateToken"))
-              .build();
-        }
-      }
-    }
-    return getValidateTokenMethod;
-  }
-
   private static volatile io.grpc.MethodDescriptor<com.trizo1104.auth.proto.MeRequest,
       com.trizo1104.auth.proto.MeResponse> getMeMethod;
 
@@ -444,13 +413,6 @@ public final class AuthServiceGrpc {
 
     /**
      */
-    default void validateToken(com.trizo1104.auth.proto.ValidateTokenRequest request,
-        io.grpc.stub.StreamObserver<com.trizo1104.auth.proto.ValidateTokenResponse> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getValidateTokenMethod(), responseObserver);
-    }
-
-    /**
-     */
     default void me(com.trizo1104.auth.proto.MeRequest request,
         io.grpc.stub.StreamObserver<com.trizo1104.auth.proto.MeResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getMeMethod(), responseObserver);
@@ -553,14 +515,6 @@ public final class AuthServiceGrpc {
         io.grpc.stub.StreamObserver<com.trizo1104.auth.proto.LoginResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getLoginMethod(), getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     */
-    public void validateToken(com.trizo1104.auth.proto.ValidateTokenRequest request,
-        io.grpc.stub.StreamObserver<com.trizo1104.auth.proto.ValidateTokenResponse> responseObserver) {
-      io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getValidateTokenMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -669,13 +623,6 @@ public final class AuthServiceGrpc {
 
     /**
      */
-    public com.trizo1104.auth.proto.ValidateTokenResponse validateToken(com.trizo1104.auth.proto.ValidateTokenRequest request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getValidateTokenMethod(), getCallOptions(), request);
-    }
-
-    /**
-     */
     public com.trizo1104.auth.proto.MeResponse me(com.trizo1104.auth.proto.MeRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getMeMethod(), getCallOptions(), request);
@@ -771,14 +718,6 @@ public final class AuthServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.trizo1104.auth.proto.ValidateTokenResponse> validateToken(
-        com.trizo1104.auth.proto.ValidateTokenRequest request) {
-      return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getValidateTokenMethod(), getCallOptions()), request);
-    }
-
-    /**
-     */
     public com.google.common.util.concurrent.ListenableFuture<com.trizo1104.auth.proto.MeResponse> me(
         com.trizo1104.auth.proto.MeRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
@@ -859,17 +798,16 @@ public final class AuthServiceGrpc {
   }
 
   private static final int METHODID_LOGIN = 0;
-  private static final int METHODID_VALIDATE_TOKEN = 1;
-  private static final int METHODID_ME = 2;
-  private static final int METHODID_CREATE_USER = 3;
-  private static final int METHODID_GET_USER_BY_ID = 4;
-  private static final int METHODID_UPDATE_USER = 5;
-  private static final int METHODID_DELETE_USER = 6;
-  private static final int METHODID_LIST_USERS = 7;
-  private static final int METHODID_LIST_ROLES = 8;
-  private static final int METHODID_ASSIGN_ROLE_TO_USER = 9;
-  private static final int METHODID_REMOVE_ROLE_FROM_USER = 10;
-  private static final int METHODID_GET_USER_PERMISSIONS = 11;
+  private static final int METHODID_ME = 1;
+  private static final int METHODID_CREATE_USER = 2;
+  private static final int METHODID_GET_USER_BY_ID = 3;
+  private static final int METHODID_UPDATE_USER = 4;
+  private static final int METHODID_DELETE_USER = 5;
+  private static final int METHODID_LIST_USERS = 6;
+  private static final int METHODID_LIST_ROLES = 7;
+  private static final int METHODID_ASSIGN_ROLE_TO_USER = 8;
+  private static final int METHODID_REMOVE_ROLE_FROM_USER = 9;
+  private static final int METHODID_GET_USER_PERMISSIONS = 10;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -891,10 +829,6 @@ public final class AuthServiceGrpc {
         case METHODID_LOGIN:
           serviceImpl.login((com.trizo1104.auth.proto.LoginRequest) request,
               (io.grpc.stub.StreamObserver<com.trizo1104.auth.proto.LoginResponse>) responseObserver);
-          break;
-        case METHODID_VALIDATE_TOKEN:
-          serviceImpl.validateToken((com.trizo1104.auth.proto.ValidateTokenRequest) request,
-              (io.grpc.stub.StreamObserver<com.trizo1104.auth.proto.ValidateTokenResponse>) responseObserver);
           break;
         case METHODID_ME:
           serviceImpl.me((com.trizo1104.auth.proto.MeRequest) request,
@@ -961,13 +895,6 @@ public final class AuthServiceGrpc {
               com.trizo1104.auth.proto.LoginRequest,
               com.trizo1104.auth.proto.LoginResponse>(
                 service, METHODID_LOGIN)))
-        .addMethod(
-          getValidateTokenMethod(),
-          io.grpc.stub.ServerCalls.asyncUnaryCall(
-            new MethodHandlers<
-              com.trizo1104.auth.proto.ValidateTokenRequest,
-              com.trizo1104.auth.proto.ValidateTokenResponse>(
-                service, METHODID_VALIDATE_TOKEN)))
         .addMethod(
           getMeMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -1087,7 +1014,6 @@ public final class AuthServiceGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new AuthServiceFileDescriptorSupplier())
               .addMethod(getLoginMethod())
-              .addMethod(getValidateTokenMethod())
               .addMethod(getMeMethod())
               .addMethod(getCreateUserMethod())
               .addMethod(getGetUserByIdMethod())

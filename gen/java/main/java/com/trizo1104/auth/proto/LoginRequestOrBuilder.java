@@ -9,16 +9,16 @@ public interface LoginRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string username = 1;</code>
-   * @return The username.
+   * <code>string email = 1;</code>
+   * @return The email.
    */
-  java.lang.String getUsername();
+  java.lang.String getEmail();
   /**
-   * <code>string username = 1;</code>
-   * @return The bytes for username.
+   * <code>string email = 1;</code>
+   * @return The bytes for email.
    */
   com.google.protobuf.ByteString
-      getUsernameBytes();
+      getEmailBytes();
 
   /**
    * <code>string password = 2;</code>

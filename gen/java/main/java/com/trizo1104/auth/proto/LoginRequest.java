@@ -17,7 +17,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private LoginRequest() {
-    username_ = "";
+    email_ = "";
     password_ = "";
   }
 
@@ -41,39 +41,39 @@ private static final long serialVersionUID = 0L;
             com.trizo1104.auth.proto.LoginRequest.class, com.trizo1104.auth.proto.LoginRequest.Builder.class);
   }
 
-  public static final int USERNAME_FIELD_NUMBER = 1;
+  public static final int EMAIL_FIELD_NUMBER = 1;
   @SuppressWarnings("serial")
-  private volatile java.lang.Object username_ = "";
+  private volatile java.lang.Object email_ = "";
   /**
-   * <code>string username = 1;</code>
-   * @return The username.
+   * <code>string email = 1;</code>
+   * @return The email.
    */
   @java.lang.Override
-  public java.lang.String getUsername() {
-    java.lang.Object ref = username_;
+  public java.lang.String getEmail() {
+    java.lang.Object ref = email_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      username_ = s;
+      email_ = s;
       return s;
     }
   }
   /**
-   * <code>string username = 1;</code>
-   * @return The bytes for username.
+   * <code>string email = 1;</code>
+   * @return The bytes for email.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getUsernameBytes() {
-    java.lang.Object ref = username_;
+      getEmailBytes() {
+    java.lang.Object ref = email_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      username_ = b;
+      email_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -133,8 +133,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(username_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, username_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(email_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, email_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(password_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, password_);
@@ -148,8 +148,8 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(username_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, username_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(email_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, email_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(password_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, password_);
@@ -169,8 +169,8 @@ private static final long serialVersionUID = 0L;
     }
     com.trizo1104.auth.proto.LoginRequest other = (com.trizo1104.auth.proto.LoginRequest) obj;
 
-    if (!getUsername()
-        .equals(other.getUsername())) return false;
+    if (!getEmail()
+        .equals(other.getEmail())) return false;
     if (!getPassword()
         .equals(other.getPassword())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
@@ -184,8 +184,8 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + USERNAME_FIELD_NUMBER;
-    hash = (53 * hash) + getUsername().hashCode();
+    hash = (37 * hash) + EMAIL_FIELD_NUMBER;
+    hash = (53 * hash) + getEmail().hashCode();
     hash = (37 * hash) + PASSWORD_FIELD_NUMBER;
     hash = (53 * hash) + getPassword().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
@@ -319,7 +319,7 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
-      username_ = "";
+      email_ = "";
       password_ = "";
       return this;
     }
@@ -355,7 +355,7 @@ private static final long serialVersionUID = 0L;
     private void buildPartial0(com.trizo1104.auth.proto.LoginRequest result) {
       int from_bitField0_ = bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.username_ = username_;
+        result.email_ = email_;
       }
       if (((from_bitField0_ & 0x00000002) != 0)) {
         result.password_ = password_;
@@ -406,8 +406,8 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.trizo1104.auth.proto.LoginRequest other) {
       if (other == com.trizo1104.auth.proto.LoginRequest.getDefaultInstance()) return this;
-      if (!other.getUsername().isEmpty()) {
-        username_ = other.username_;
+      if (!other.getEmail().isEmpty()) {
+        email_ = other.email_;
         bitField0_ |= 0x00000001;
         onChanged();
       }
@@ -443,7 +443,7 @@ private static final long serialVersionUID = 0L;
               done = true;
               break;
             case 10: {
-              username_ = input.readStringRequireUtf8();
+              email_ = input.readStringRequireUtf8();
               bitField0_ |= 0x00000001;
               break;
             } // case 10
@@ -469,73 +469,73 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.lang.Object username_ = "";
+    private java.lang.Object email_ = "";
     /**
-     * <code>string username = 1;</code>
-     * @return The username.
+     * <code>string email = 1;</code>
+     * @return The email.
      */
-    public java.lang.String getUsername() {
-      java.lang.Object ref = username_;
+    public java.lang.String getEmail() {
+      java.lang.Object ref = email_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        username_ = s;
+        email_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string username = 1;</code>
-     * @return The bytes for username.
+     * <code>string email = 1;</code>
+     * @return The bytes for email.
      */
     public com.google.protobuf.ByteString
-        getUsernameBytes() {
-      java.lang.Object ref = username_;
+        getEmailBytes() {
+      java.lang.Object ref = email_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        username_ = b;
+        email_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string username = 1;</code>
-     * @param value The username to set.
+     * <code>string email = 1;</code>
+     * @param value The email to set.
      * @return This builder for chaining.
      */
-    public Builder setUsername(
+    public Builder setEmail(
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
-      username_ = value;
+      email_ = value;
       bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
-     * <code>string username = 1;</code>
+     * <code>string email = 1;</code>
      * @return This builder for chaining.
      */
-    public Builder clearUsername() {
-      username_ = getDefaultInstance().getUsername();
+    public Builder clearEmail() {
+      email_ = getDefaultInstance().getEmail();
       bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
-     * <code>string username = 1;</code>
-     * @param value The bytes for username to set.
+     * <code>string email = 1;</code>
+     * @param value The bytes for email to set.
      * @return This builder for chaining.
      */
-    public Builder setUsernameBytes(
+    public Builder setEmailBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
-      username_ = value;
+      email_ = value;
       bitField0_ |= 0x00000001;
       onChanged();
       return this;

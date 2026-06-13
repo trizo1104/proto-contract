@@ -11,7 +11,7 @@ import { User } from "./user_message";
 export const protobufPackage = "auth";
 
 export interface LoginRequest {
-  username: string;
+  email: string;
   password: string;
 }
 
@@ -19,17 +19,6 @@ export interface LoginResponse {
   success: boolean;
   message: string;
   accessToken: string;
-}
-
-export interface ValidateTokenRequest {
-}
-
-export interface ValidateTokenResponse {
-  valid: boolean;
-  userId: string;
-  username: string;
-  roles: string[];
-  permissions: string[];
 }
 
 export interface MeRequest {
@@ -42,13 +31,13 @@ export interface MeResponse {
 export const AUTH_PACKAGE_NAME = "auth";
 
 function createBaseLoginRequest(): LoginRequest {
-  return { username: "", password: "" };
+  return { email: "", password: "" };
 }
 
 export const LoginRequest: MessageFns<LoginRequest> = {
   encode(message: LoginRequest, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
-    if (message.username !== "") {
-      writer.uint32(10).string(message.username);
+    if (message.email !== "") {
+      writer.uint32(10).string(message.email);
     }
     if (message.password !== "") {
       writer.uint32(18).string(message.password);
@@ -68,7 +57,7 @@ export const LoginRequest: MessageFns<LoginRequest> = {
             break;
           }
 
-          message.username = reader.string();
+          message.email = reader.string();
           continue;
         }
         case 2: {
@@ -136,113 +125,6 @@ export const LoginResponse: MessageFns<LoginResponse> = {
           }
 
           message.accessToken = reader.string();
-          continue;
-        }
-      }
-      if ((tag & 7) === 4 || tag === 0) {
-        break;
-      }
-      reader.skip(tag & 7);
-    }
-    return message;
-  },
-};
-
-function createBaseValidateTokenRequest(): ValidateTokenRequest {
-  return {};
-}
-
-export const ValidateTokenRequest: MessageFns<ValidateTokenRequest> = {
-  encode(_: ValidateTokenRequest, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
-    return writer;
-  },
-
-  decode(input: BinaryReader | Uint8Array, length?: number): ValidateTokenRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
-    const end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseValidateTokenRequest();
-    while (reader.pos < end) {
-      const tag = reader.uint32();
-      switch (tag >>> 3) {
-      }
-      if ((tag & 7) === 4 || tag === 0) {
-        break;
-      }
-      reader.skip(tag & 7);
-    }
-    return message;
-  },
-};
-
-function createBaseValidateTokenResponse(): ValidateTokenResponse {
-  return { valid: false, userId: "", username: "", roles: [], permissions: [] };
-}
-
-export const ValidateTokenResponse: MessageFns<ValidateTokenResponse> = {
-  encode(message: ValidateTokenResponse, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
-    if (message.valid !== false) {
-      writer.uint32(8).bool(message.valid);
-    }
-    if (message.userId !== "") {
-      writer.uint32(18).string(message.userId);
-    }
-    if (message.username !== "") {
-      writer.uint32(26).string(message.username);
-    }
-    for (const v of message.roles) {
-      writer.uint32(34).string(v!);
-    }
-    for (const v of message.permissions) {
-      writer.uint32(42).string(v!);
-    }
-    return writer;
-  },
-
-  decode(input: BinaryReader | Uint8Array, length?: number): ValidateTokenResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
-    const end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseValidateTokenResponse();
-    while (reader.pos < end) {
-      const tag = reader.uint32();
-      switch (tag >>> 3) {
-        case 1: {
-          if (tag !== 8) {
-            break;
-          }
-
-          message.valid = reader.bool();
-          continue;
-        }
-        case 2: {
-          if (tag !== 18) {
-            break;
-          }
-
-          message.userId = reader.string();
-          continue;
-        }
-        case 3: {
-          if (tag !== 26) {
-            break;
-          }
-
-          message.username = reader.string();
-          continue;
-        }
-        case 4: {
-          if (tag !== 34) {
-            break;
-          }
-
-          message.roles.push(reader.string());
-          continue;
-        }
-        case 5: {
-          if (tag !== 42) {
-            break;
-          }
-
-          message.permissions.push(reader.string());
           continue;
         }
       }

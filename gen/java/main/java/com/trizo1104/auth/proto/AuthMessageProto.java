@@ -26,16 +26,6 @@ public final class AuthMessageProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_auth_LoginResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_auth_ValidateTokenRequest_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_auth_ValidateTokenRequest_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_auth_ValidateTokenResponse_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_auth_ValidateTokenResponse_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_auth_MeRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -55,16 +45,13 @@ public final class AuthMessageProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\027auth/auth_message.proto\022\004auth\032\027auth/us" +
-      "er_message.proto\"2\n\014LoginRequest\022\020\n\010user" +
-      "name\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"G\n\rLoginRes" +
-      "ponse\022\017\n\007success\030\001 \001(\010\022\017\n\007message\030\002 \001(\t\022" +
-      "\024\n\014access_token\030\003 \001(\t\"\026\n\024ValidateTokenRe" +
-      "quest\"m\n\025ValidateTokenResponse\022\r\n\005valid\030" +
-      "\001 \001(\010\022\017\n\007user_id\030\002 \001(\t\022\020\n\010username\030\003 \001(\t" +
-      "\022\r\n\005roles\030\004 \003(\t\022\023\n\013permissions\030\005 \003(\t\"\013\n\t" +
-      "MeRequest\"&\n\nMeResponse\022\030\n\004user\030\001 \001(\0132\n." +
-      "auth.UserB.\n\030com.trizo1104.auth.protoB\020A" +
-      "uthMessageProtoP\001b\006proto3"
+      "er_message.proto\"/\n\014LoginRequest\022\r\n\005emai" +
+      "l\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"G\n\rLoginRespon" +
+      "se\022\017\n\007success\030\001 \001(\010\022\017\n\007message\030\002 \001(\t\022\024\n\014" +
+      "access_token\030\003 \001(\t\"\013\n\tMeRequest\"&\n\nMeRes" +
+      "ponse\022\030\n\004user\030\001 \001(\0132\n.auth.UserB.\n\030com.t" +
+      "rizo1104.auth.protoB\020AuthMessageProtoP\001b" +
+      "\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -76,33 +63,21 @@ public final class AuthMessageProto {
     internal_static_auth_LoginRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_auth_LoginRequest_descriptor,
-        new java.lang.String[] { "Username", "Password", });
+        new java.lang.String[] { "Email", "Password", });
     internal_static_auth_LoginResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_auth_LoginResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_auth_LoginResponse_descriptor,
         new java.lang.String[] { "Success", "Message", "AccessToken", });
-    internal_static_auth_ValidateTokenRequest_descriptor =
-      getDescriptor().getMessageTypes().get(2);
-    internal_static_auth_ValidateTokenRequest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_auth_ValidateTokenRequest_descriptor,
-        new java.lang.String[] { });
-    internal_static_auth_ValidateTokenResponse_descriptor =
-      getDescriptor().getMessageTypes().get(3);
-    internal_static_auth_ValidateTokenResponse_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_auth_ValidateTokenResponse_descriptor,
-        new java.lang.String[] { "Valid", "UserId", "Username", "Roles", "Permissions", });
     internal_static_auth_MeRequest_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(2);
     internal_static_auth_MeRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_auth_MeRequest_descriptor,
         new java.lang.String[] { });
     internal_static_auth_MeResponse_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_auth_MeResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_auth_MeResponse_descriptor,

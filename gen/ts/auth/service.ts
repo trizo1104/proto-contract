@@ -8,14 +8,7 @@
 import type { handleUnaryCall, UntypedServiceImplementation } from "@grpc/grpc-js";
 import { GrpcMethod, GrpcStreamMethod } from "@nestjs/microservices";
 import { Observable } from "rxjs";
-import {
-  LoginRequest,
-  LoginResponse,
-  MeRequest,
-  MeResponse,
-  ValidateTokenRequest,
-  ValidateTokenResponse,
-} from "./auth_message";
+import { LoginRequest, LoginResponse, MeRequest, MeResponse } from "./auth_message";
 import { GetUserPermissionsRequest, GetUserPermissionsResponse } from "./permission_message";
 import {
   AssignRoleToUserRequest,
@@ -43,8 +36,6 @@ export const AUTH_PACKAGE_NAME = "auth";
 export interface AuthServiceClient {
   login(request: LoginRequest): Observable<LoginResponse>;
 
-  validateToken(request: ValidateTokenRequest): Observable<ValidateTokenResponse>;
-
   me(request: MeRequest): Observable<MeResponse>;
 
   createUser(request: CreateUserRequest): Observable<UserResponse>;
@@ -68,10 +59,6 @@ export interface AuthServiceClient {
 
 export interface AuthServiceController {
   login(request: LoginRequest): Promise<LoginResponse> | Observable<LoginResponse> | LoginResponse;
-
-  validateToken(
-    request: ValidateTokenRequest,
-  ): Promise<ValidateTokenResponse> | Observable<ValidateTokenResponse> | ValidateTokenResponse;
 
   me(request: MeRequest): Promise<MeResponse> | Observable<MeResponse> | MeResponse;
 
@@ -106,7 +93,6 @@ export function AuthServiceControllerMethods() {
   return function (constructor: Function) {
     const grpcMethods: string[] = [
       "login",
-      "validateToken",
       "me",
       "createUser",
       "getUserById",
@@ -142,16 +128,6 @@ export const AuthServiceService = {
     requestDeserialize: (value: Buffer): LoginRequest => LoginRequest.decode(value),
     responseSerialize: (value: LoginResponse): Buffer => Buffer.from(LoginResponse.encode(value).finish()),
     responseDeserialize: (value: Buffer): LoginResponse => LoginResponse.decode(value),
-  },
-  validateToken: {
-    path: "/auth.AuthService/ValidateToken" as const,
-    requestStream: false as const,
-    responseStream: false as const,
-    requestSerialize: (value: ValidateTokenRequest): Buffer => Buffer.from(ValidateTokenRequest.encode(value).finish()),
-    requestDeserialize: (value: Buffer): ValidateTokenRequest => ValidateTokenRequest.decode(value),
-    responseSerialize: (value: ValidateTokenResponse): Buffer =>
-      Buffer.from(ValidateTokenResponse.encode(value).finish()),
-    responseDeserialize: (value: Buffer): ValidateTokenResponse => ValidateTokenResponse.decode(value),
   },
   me: {
     path: "/auth.AuthService/Me" as const,
@@ -253,7 +229,6 @@ export const AuthServiceService = {
 
 export interface AuthServiceServer extends UntypedServiceImplementation {
   login: handleUnaryCall<LoginRequest, LoginResponse>;
-  validateToken: handleUnaryCall<ValidateTokenRequest, ValidateTokenResponse>;
   me: handleUnaryCall<MeRequest, MeResponse>;
   createUser: handleUnaryCall<CreateUserRequest, UserResponse>;
   getUserById: handleUnaryCall<GetUserByIdRequest, UserResponse>;
