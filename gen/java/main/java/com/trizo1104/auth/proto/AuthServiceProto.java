@@ -27,7 +27,7 @@ public final class AuthServiceProto {
       "\n\022auth/service.proto\022\004auth\032\027auth/auth_me" +
       "ssage.proto\032\035auth/permission_message.pro" +
       "to\032\027auth/role_message.proto\032\027auth/user_m" +
-      "essage.proto2\335\005\n\013AuthService\0220\n\005Login\022\022." +
+      "essage.proto2\255\006\n\013AuthService\0220\n\005Login\022\022." +
       "auth.LoginRequest\032\023.auth.LoginResponse\022\'" +
       "\n\002Me\022\017.auth.MeRequest\032\020.auth.MeResponse\022" +
       "9\n\nCreateUser\022\027.auth.CreateUserRequest\032\022" +
@@ -43,7 +43,9 @@ public final class AuthServiceProto {
       "nRoleToUserRequest\032\036.auth.AssignRoleToUs" +
       "erResponse\022W\n\022RemoveRoleFromUser\022\037.auth." +
       "RemoveRoleFromUserRequest\032 .auth.RemoveR" +
-      "oleFromUserResponse\022W\n\022GetUserPermission" +
+      "oleFromUserResponse\022N\n\017ListPermissions\022\034" +
+      ".auth.ListPermissionsRequest\032\035.auth.List" +
+      "PermissionsResponse\022W\n\022GetUserPermission" +
       "s\022\037.auth.GetUserPermissionsRequest\032 .aut" +
       "h.GetUserPermissionsResponseB.\n\030com.triz" +
       "o1104.auth.protoB\020AuthServiceProtoP\001b\006pr" +

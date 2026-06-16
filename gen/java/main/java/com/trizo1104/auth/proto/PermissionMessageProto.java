@@ -21,6 +21,16 @@ public final class PermissionMessageProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_auth_Permission_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_auth_ListPermissionsRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_auth_ListPermissionsRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_auth_ListPermissionsResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_auth_ListPermissionsResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_auth_GetUserPermissionsRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -41,11 +51,14 @@ public final class PermissionMessageProto {
     java.lang.String[] descriptorData = {
       "\n\035auth/permission_message.proto\022\004auth\"K\n" +
       "\nPermission\022\n\n\002id\030\001 \001(\t\022\014\n\004code\030\002 \001(\t\022\016\n" +
-      "\006module\030\003 \001(\t\022\023\n\013description\030\004 \001(\t\",\n\031Ge" +
-      "tUserPermissionsRequest\022\017\n\007user_id\030\001 \001(\t" +
-      "\"1\n\032GetUserPermissionsResponse\022\023\n\013permis" +
-      "sions\030\001 \003(\tB4\n\030com.trizo1104.auth.protoB" +
-      "\026PermissionMessageProtoP\001b\006proto3"
+      "\006module\030\003 \001(\t\022\023\n\013description\030\004 \001(\t\"\030\n\026Li" +
+      "stPermissionsRequest\"@\n\027ListPermissionsR" +
+      "esponse\022%\n\013permissions\030\001 \003(\0132\020.auth.Perm" +
+      "ission\",\n\031GetUserPermissionsRequest\022\017\n\007u" +
+      "ser_id\030\001 \001(\t\"1\n\032GetUserPermissionsRespon" +
+      "se\022\023\n\013permissions\030\001 \003(\tB4\n\030com.trizo1104" +
+      ".auth.protoB\026PermissionMessageProtoP\001b\006p" +
+      "roto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -57,14 +70,26 @@ public final class PermissionMessageProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_auth_Permission_descriptor,
         new java.lang.String[] { "Id", "Code", "Module", "Description", });
-    internal_static_auth_GetUserPermissionsRequest_descriptor =
+    internal_static_auth_ListPermissionsRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_auth_ListPermissionsRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_auth_ListPermissionsRequest_descriptor,
+        new java.lang.String[] { });
+    internal_static_auth_ListPermissionsResponse_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_auth_ListPermissionsResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_auth_ListPermissionsResponse_descriptor,
+        new java.lang.String[] { "Permissions", });
+    internal_static_auth_GetUserPermissionsRequest_descriptor =
+      getDescriptor().getMessageTypes().get(3);
     internal_static_auth_GetUserPermissionsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_auth_GetUserPermissionsRequest_descriptor,
         new java.lang.String[] { "UserId", });
     internal_static_auth_GetUserPermissionsResponse_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_auth_GetUserPermissionsResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_auth_GetUserPermissionsResponse_descriptor,
