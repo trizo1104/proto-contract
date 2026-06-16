@@ -104,32 +104,56 @@ public interface UserOrBuilder extends
       int index);
 
   /**
-   * <code>.google.protobuf.Timestamp created_at = 8;</code>
+   * <code>repeated .auth.Permission permissions = 8;</code>
+   */
+  java.util.List<com.trizo1104.auth.proto.Permission> 
+      getPermissionsList();
+  /**
+   * <code>repeated .auth.Permission permissions = 8;</code>
+   */
+  com.trizo1104.auth.proto.Permission getPermissions(int index);
+  /**
+   * <code>repeated .auth.Permission permissions = 8;</code>
+   */
+  int getPermissionsCount();
+  /**
+   * <code>repeated .auth.Permission permissions = 8;</code>
+   */
+  java.util.List<? extends com.trizo1104.auth.proto.PermissionOrBuilder> 
+      getPermissionsOrBuilderList();
+  /**
+   * <code>repeated .auth.Permission permissions = 8;</code>
+   */
+  com.trizo1104.auth.proto.PermissionOrBuilder getPermissionsOrBuilder(
+      int index);
+
+  /**
+   * <code>.google.protobuf.Timestamp created_at = 9;</code>
    * @return Whether the createdAt field is set.
    */
   boolean hasCreatedAt();
   /**
-   * <code>.google.protobuf.Timestamp created_at = 8;</code>
+   * <code>.google.protobuf.Timestamp created_at = 9;</code>
    * @return The createdAt.
    */
   com.google.protobuf.Timestamp getCreatedAt();
   /**
-   * <code>.google.protobuf.Timestamp created_at = 8;</code>
+   * <code>.google.protobuf.Timestamp created_at = 9;</code>
    */
   com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder();
 
   /**
-   * <code>.google.protobuf.Timestamp updated_at = 9;</code>
+   * <code>.google.protobuf.Timestamp updated_at = 10;</code>
    * @return Whether the updatedAt field is set.
    */
   boolean hasUpdatedAt();
   /**
-   * <code>.google.protobuf.Timestamp updated_at = 9;</code>
+   * <code>.google.protobuf.Timestamp updated_at = 10;</code>
    * @return The updatedAt.
    */
   com.google.protobuf.Timestamp getUpdatedAt();
   /**
-   * <code>.google.protobuf.Timestamp updated_at = 9;</code>
+   * <code>.google.protobuf.Timestamp updated_at = 10;</code>
    */
   com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder();
 }

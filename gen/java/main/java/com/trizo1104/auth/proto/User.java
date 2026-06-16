@@ -24,6 +24,7 @@ private static final long serialVersionUID = 0L;
     phone_ = "";
     status_ = 0;
     roles_ = java.util.Collections.emptyList();
+    permissions_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -301,10 +302,51 @@ private static final long serialVersionUID = 0L;
     return roles_.get(index);
   }
 
-  public static final int CREATED_AT_FIELD_NUMBER = 8;
+  public static final int PERMISSIONS_FIELD_NUMBER = 8;
+  @SuppressWarnings("serial")
+  private java.util.List<com.trizo1104.auth.proto.Permission> permissions_;
+  /**
+   * <code>repeated .auth.Permission permissions = 8;</code>
+   */
+  @java.lang.Override
+  public java.util.List<com.trizo1104.auth.proto.Permission> getPermissionsList() {
+    return permissions_;
+  }
+  /**
+   * <code>repeated .auth.Permission permissions = 8;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends com.trizo1104.auth.proto.PermissionOrBuilder> 
+      getPermissionsOrBuilderList() {
+    return permissions_;
+  }
+  /**
+   * <code>repeated .auth.Permission permissions = 8;</code>
+   */
+  @java.lang.Override
+  public int getPermissionsCount() {
+    return permissions_.size();
+  }
+  /**
+   * <code>repeated .auth.Permission permissions = 8;</code>
+   */
+  @java.lang.Override
+  public com.trizo1104.auth.proto.Permission getPermissions(int index) {
+    return permissions_.get(index);
+  }
+  /**
+   * <code>repeated .auth.Permission permissions = 8;</code>
+   */
+  @java.lang.Override
+  public com.trizo1104.auth.proto.PermissionOrBuilder getPermissionsOrBuilder(
+      int index) {
+    return permissions_.get(index);
+  }
+
+  public static final int CREATED_AT_FIELD_NUMBER = 9;
   private com.google.protobuf.Timestamp createdAt_;
   /**
-   * <code>.google.protobuf.Timestamp created_at = 8;</code>
+   * <code>.google.protobuf.Timestamp created_at = 9;</code>
    * @return Whether the createdAt field is set.
    */
   @java.lang.Override
@@ -312,7 +354,7 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000001) != 0);
   }
   /**
-   * <code>.google.protobuf.Timestamp created_at = 8;</code>
+   * <code>.google.protobuf.Timestamp created_at = 9;</code>
    * @return The createdAt.
    */
   @java.lang.Override
@@ -320,17 +362,17 @@ private static final long serialVersionUID = 0L;
     return createdAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createdAt_;
   }
   /**
-   * <code>.google.protobuf.Timestamp created_at = 8;</code>
+   * <code>.google.protobuf.Timestamp created_at = 9;</code>
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder() {
     return createdAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createdAt_;
   }
 
-  public static final int UPDATED_AT_FIELD_NUMBER = 9;
+  public static final int UPDATED_AT_FIELD_NUMBER = 10;
   private com.google.protobuf.Timestamp updatedAt_;
   /**
-   * <code>.google.protobuf.Timestamp updated_at = 9;</code>
+   * <code>.google.protobuf.Timestamp updated_at = 10;</code>
    * @return Whether the updatedAt field is set.
    */
   @java.lang.Override
@@ -338,7 +380,7 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000002) != 0);
   }
   /**
-   * <code>.google.protobuf.Timestamp updated_at = 9;</code>
+   * <code>.google.protobuf.Timestamp updated_at = 10;</code>
    * @return The updatedAt.
    */
   @java.lang.Override
@@ -346,7 +388,7 @@ private static final long serialVersionUID = 0L;
     return updatedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updatedAt_;
   }
   /**
-   * <code>.google.protobuf.Timestamp updated_at = 9;</code>
+   * <code>.google.protobuf.Timestamp updated_at = 10;</code>
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder() {
@@ -388,11 +430,14 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < roles_.size(); i++) {
       output.writeMessage(7, roles_.get(i));
     }
+    for (int i = 0; i < permissions_.size(); i++) {
+      output.writeMessage(8, permissions_.get(i));
+    }
     if (((bitField0_ & 0x00000001) != 0)) {
-      output.writeMessage(8, getCreatedAt());
+      output.writeMessage(9, getCreatedAt());
     }
     if (((bitField0_ & 0x00000002) != 0)) {
-      output.writeMessage(9, getUpdatedAt());
+      output.writeMessage(10, getUpdatedAt());
     }
     getUnknownFields().writeTo(output);
   }
@@ -426,13 +471,17 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(7, roles_.get(i));
     }
+    for (int i = 0; i < permissions_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(8, permissions_.get(i));
+    }
     if (((bitField0_ & 0x00000001) != 0)) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(8, getCreatedAt());
+        .computeMessageSize(9, getCreatedAt());
     }
     if (((bitField0_ & 0x00000002) != 0)) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(9, getUpdatedAt());
+        .computeMessageSize(10, getUpdatedAt());
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -462,6 +511,8 @@ private static final long serialVersionUID = 0L;
     if (status_ != other.status_) return false;
     if (!getRolesList()
         .equals(other.getRolesList())) return false;
+    if (!getPermissionsList()
+        .equals(other.getPermissionsList())) return false;
     if (hasCreatedAt() != other.hasCreatedAt()) return false;
     if (hasCreatedAt()) {
       if (!getCreatedAt()
@@ -498,6 +549,10 @@ private static final long serialVersionUID = 0L;
     if (getRolesCount() > 0) {
       hash = (37 * hash) + ROLES_FIELD_NUMBER;
       hash = (53 * hash) + getRolesList().hashCode();
+    }
+    if (getPermissionsCount() > 0) {
+      hash = (37 * hash) + PERMISSIONS_FIELD_NUMBER;
+      hash = (53 * hash) + getPermissionsList().hashCode();
     }
     if (hasCreatedAt()) {
       hash = (37 * hash) + CREATED_AT_FIELD_NUMBER;
@@ -638,6 +693,7 @@ private static final long serialVersionUID = 0L;
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
         getRolesFieldBuilder();
+        getPermissionsFieldBuilder();
         getCreatedAtFieldBuilder();
         getUpdatedAtFieldBuilder();
       }
@@ -659,6 +715,13 @@ private static final long serialVersionUID = 0L;
         rolesBuilder_.clear();
       }
       bitField0_ = (bitField0_ & ~0x00000040);
+      if (permissionsBuilder_ == null) {
+        permissions_ = java.util.Collections.emptyList();
+      } else {
+        permissions_ = null;
+        permissionsBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00000080);
       createdAt_ = null;
       if (createdAtBuilder_ != null) {
         createdAtBuilder_.dispose();
@@ -711,6 +774,15 @@ private static final long serialVersionUID = 0L;
       } else {
         result.roles_ = rolesBuilder_.build();
       }
+      if (permissionsBuilder_ == null) {
+        if (((bitField0_ & 0x00000080) != 0)) {
+          permissions_ = java.util.Collections.unmodifiableList(permissions_);
+          bitField0_ = (bitField0_ & ~0x00000080);
+        }
+        result.permissions_ = permissions_;
+      } else {
+        result.permissions_ = permissionsBuilder_.build();
+      }
     }
 
     private void buildPartial0(com.trizo1104.auth.proto.User result) {
@@ -734,13 +806,13 @@ private static final long serialVersionUID = 0L;
         result.status_ = status_;
       }
       int to_bitField0_ = 0;
-      if (((from_bitField0_ & 0x00000080) != 0)) {
+      if (((from_bitField0_ & 0x00000100) != 0)) {
         result.createdAt_ = createdAtBuilder_ == null
             ? createdAt_
             : createdAtBuilder_.build();
         to_bitField0_ |= 0x00000001;
       }
-      if (((from_bitField0_ & 0x00000100) != 0)) {
+      if (((from_bitField0_ & 0x00000200) != 0)) {
         result.updatedAt_ = updatedAtBuilder_ == null
             ? updatedAt_
             : updatedAtBuilder_.build();
@@ -847,6 +919,32 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
+      if (permissionsBuilder_ == null) {
+        if (!other.permissions_.isEmpty()) {
+          if (permissions_.isEmpty()) {
+            permissions_ = other.permissions_;
+            bitField0_ = (bitField0_ & ~0x00000080);
+          } else {
+            ensurePermissionsIsMutable();
+            permissions_.addAll(other.permissions_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.permissions_.isEmpty()) {
+          if (permissionsBuilder_.isEmpty()) {
+            permissionsBuilder_.dispose();
+            permissionsBuilder_ = null;
+            permissions_ = other.permissions_;
+            bitField0_ = (bitField0_ & ~0x00000080);
+            permissionsBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getPermissionsFieldBuilder() : null;
+          } else {
+            permissionsBuilder_.addAllMessages(other.permissions_);
+          }
+        }
+      }
       if (other.hasCreatedAt()) {
         mergeCreatedAt(other.getCreatedAt());
       }
@@ -923,19 +1021,32 @@ private static final long serialVersionUID = 0L;
               break;
             } // case 58
             case 66: {
-              input.readMessage(
-                  getCreatedAtFieldBuilder().getBuilder(),
-                  extensionRegistry);
-              bitField0_ |= 0x00000080;
+              com.trizo1104.auth.proto.Permission m =
+                  input.readMessage(
+                      com.trizo1104.auth.proto.Permission.parser(),
+                      extensionRegistry);
+              if (permissionsBuilder_ == null) {
+                ensurePermissionsIsMutable();
+                permissions_.add(m);
+              } else {
+                permissionsBuilder_.addMessage(m);
+              }
               break;
             } // case 66
             case 74: {
               input.readMessage(
-                  getUpdatedAtFieldBuilder().getBuilder(),
+                  getCreatedAtFieldBuilder().getBuilder(),
                   extensionRegistry);
               bitField0_ |= 0x00000100;
               break;
             } // case 74
+            case 82: {
+              input.readMessage(
+                  getUpdatedAtFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 82
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -1606,18 +1717,258 @@ private static final long serialVersionUID = 0L;
       return rolesBuilder_;
     }
 
+    private java.util.List<com.trizo1104.auth.proto.Permission> permissions_ =
+      java.util.Collections.emptyList();
+    private void ensurePermissionsIsMutable() {
+      if (!((bitField0_ & 0x00000080) != 0)) {
+        permissions_ = new java.util.ArrayList<com.trizo1104.auth.proto.Permission>(permissions_);
+        bitField0_ |= 0x00000080;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.trizo1104.auth.proto.Permission, com.trizo1104.auth.proto.Permission.Builder, com.trizo1104.auth.proto.PermissionOrBuilder> permissionsBuilder_;
+
+    /**
+     * <code>repeated .auth.Permission permissions = 8;</code>
+     */
+    public java.util.List<com.trizo1104.auth.proto.Permission> getPermissionsList() {
+      if (permissionsBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(permissions_);
+      } else {
+        return permissionsBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <code>repeated .auth.Permission permissions = 8;</code>
+     */
+    public int getPermissionsCount() {
+      if (permissionsBuilder_ == null) {
+        return permissions_.size();
+      } else {
+        return permissionsBuilder_.getCount();
+      }
+    }
+    /**
+     * <code>repeated .auth.Permission permissions = 8;</code>
+     */
+    public com.trizo1104.auth.proto.Permission getPermissions(int index) {
+      if (permissionsBuilder_ == null) {
+        return permissions_.get(index);
+      } else {
+        return permissionsBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <code>repeated .auth.Permission permissions = 8;</code>
+     */
+    public Builder setPermissions(
+        int index, com.trizo1104.auth.proto.Permission value) {
+      if (permissionsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensurePermissionsIsMutable();
+        permissions_.set(index, value);
+        onChanged();
+      } else {
+        permissionsBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .auth.Permission permissions = 8;</code>
+     */
+    public Builder setPermissions(
+        int index, com.trizo1104.auth.proto.Permission.Builder builderForValue) {
+      if (permissionsBuilder_ == null) {
+        ensurePermissionsIsMutable();
+        permissions_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        permissionsBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .auth.Permission permissions = 8;</code>
+     */
+    public Builder addPermissions(com.trizo1104.auth.proto.Permission value) {
+      if (permissionsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensurePermissionsIsMutable();
+        permissions_.add(value);
+        onChanged();
+      } else {
+        permissionsBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .auth.Permission permissions = 8;</code>
+     */
+    public Builder addPermissions(
+        int index, com.trizo1104.auth.proto.Permission value) {
+      if (permissionsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensurePermissionsIsMutable();
+        permissions_.add(index, value);
+        onChanged();
+      } else {
+        permissionsBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .auth.Permission permissions = 8;</code>
+     */
+    public Builder addPermissions(
+        com.trizo1104.auth.proto.Permission.Builder builderForValue) {
+      if (permissionsBuilder_ == null) {
+        ensurePermissionsIsMutable();
+        permissions_.add(builderForValue.build());
+        onChanged();
+      } else {
+        permissionsBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .auth.Permission permissions = 8;</code>
+     */
+    public Builder addPermissions(
+        int index, com.trizo1104.auth.proto.Permission.Builder builderForValue) {
+      if (permissionsBuilder_ == null) {
+        ensurePermissionsIsMutable();
+        permissions_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        permissionsBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .auth.Permission permissions = 8;</code>
+     */
+    public Builder addAllPermissions(
+        java.lang.Iterable<? extends com.trizo1104.auth.proto.Permission> values) {
+      if (permissionsBuilder_ == null) {
+        ensurePermissionsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, permissions_);
+        onChanged();
+      } else {
+        permissionsBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .auth.Permission permissions = 8;</code>
+     */
+    public Builder clearPermissions() {
+      if (permissionsBuilder_ == null) {
+        permissions_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000080);
+        onChanged();
+      } else {
+        permissionsBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .auth.Permission permissions = 8;</code>
+     */
+    public Builder removePermissions(int index) {
+      if (permissionsBuilder_ == null) {
+        ensurePermissionsIsMutable();
+        permissions_.remove(index);
+        onChanged();
+      } else {
+        permissionsBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .auth.Permission permissions = 8;</code>
+     */
+    public com.trizo1104.auth.proto.Permission.Builder getPermissionsBuilder(
+        int index) {
+      return getPermissionsFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .auth.Permission permissions = 8;</code>
+     */
+    public com.trizo1104.auth.proto.PermissionOrBuilder getPermissionsOrBuilder(
+        int index) {
+      if (permissionsBuilder_ == null) {
+        return permissions_.get(index);  } else {
+        return permissionsBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <code>repeated .auth.Permission permissions = 8;</code>
+     */
+    public java.util.List<? extends com.trizo1104.auth.proto.PermissionOrBuilder> 
+         getPermissionsOrBuilderList() {
+      if (permissionsBuilder_ != null) {
+        return permissionsBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(permissions_);
+      }
+    }
+    /**
+     * <code>repeated .auth.Permission permissions = 8;</code>
+     */
+    public com.trizo1104.auth.proto.Permission.Builder addPermissionsBuilder() {
+      return getPermissionsFieldBuilder().addBuilder(
+          com.trizo1104.auth.proto.Permission.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .auth.Permission permissions = 8;</code>
+     */
+    public com.trizo1104.auth.proto.Permission.Builder addPermissionsBuilder(
+        int index) {
+      return getPermissionsFieldBuilder().addBuilder(
+          index, com.trizo1104.auth.proto.Permission.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .auth.Permission permissions = 8;</code>
+     */
+    public java.util.List<com.trizo1104.auth.proto.Permission.Builder> 
+         getPermissionsBuilderList() {
+      return getPermissionsFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.trizo1104.auth.proto.Permission, com.trizo1104.auth.proto.Permission.Builder, com.trizo1104.auth.proto.PermissionOrBuilder> 
+        getPermissionsFieldBuilder() {
+      if (permissionsBuilder_ == null) {
+        permissionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            com.trizo1104.auth.proto.Permission, com.trizo1104.auth.proto.Permission.Builder, com.trizo1104.auth.proto.PermissionOrBuilder>(
+                permissions_,
+                ((bitField0_ & 0x00000080) != 0),
+                getParentForChildren(),
+                isClean());
+        permissions_ = null;
+      }
+      return permissionsBuilder_;
+    }
+
     private com.google.protobuf.Timestamp createdAt_;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> createdAtBuilder_;
     /**
-     * <code>.google.protobuf.Timestamp created_at = 8;</code>
+     * <code>.google.protobuf.Timestamp created_at = 9;</code>
      * @return Whether the createdAt field is set.
      */
     public boolean hasCreatedAt() {
-      return ((bitField0_ & 0x00000080) != 0);
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
-     * <code>.google.protobuf.Timestamp created_at = 8;</code>
+     * <code>.google.protobuf.Timestamp created_at = 9;</code>
      * @return The createdAt.
      */
     public com.google.protobuf.Timestamp getCreatedAt() {
@@ -1628,7 +1979,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.google.protobuf.Timestamp created_at = 8;</code>
+     * <code>.google.protobuf.Timestamp created_at = 9;</code>
      */
     public Builder setCreatedAt(com.google.protobuf.Timestamp value) {
       if (createdAtBuilder_ == null) {
@@ -1639,12 +1990,12 @@ private static final long serialVersionUID = 0L;
       } else {
         createdAtBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000080;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp created_at = 8;</code>
+     * <code>.google.protobuf.Timestamp created_at = 9;</code>
      */
     public Builder setCreatedAt(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -1653,16 +2004,16 @@ private static final long serialVersionUID = 0L;
       } else {
         createdAtBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000080;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp created_at = 8;</code>
+     * <code>.google.protobuf.Timestamp created_at = 9;</code>
      */
     public Builder mergeCreatedAt(com.google.protobuf.Timestamp value) {
       if (createdAtBuilder_ == null) {
-        if (((bitField0_ & 0x00000080) != 0) &&
+        if (((bitField0_ & 0x00000100) != 0) &&
           createdAt_ != null &&
           createdAt_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
           getCreatedAtBuilder().mergeFrom(value);
@@ -1673,16 +2024,16 @@ private static final long serialVersionUID = 0L;
         createdAtBuilder_.mergeFrom(value);
       }
       if (createdAt_ != null) {
-        bitField0_ |= 0x00000080;
+        bitField0_ |= 0x00000100;
         onChanged();
       }
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp created_at = 8;</code>
+     * <code>.google.protobuf.Timestamp created_at = 9;</code>
      */
     public Builder clearCreatedAt() {
-      bitField0_ = (bitField0_ & ~0x00000080);
+      bitField0_ = (bitField0_ & ~0x00000100);
       createdAt_ = null;
       if (createdAtBuilder_ != null) {
         createdAtBuilder_.dispose();
@@ -1692,15 +2043,15 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp created_at = 8;</code>
+     * <code>.google.protobuf.Timestamp created_at = 9;</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreatedAtBuilder() {
-      bitField0_ |= 0x00000080;
+      bitField0_ |= 0x00000100;
       onChanged();
       return getCreatedAtFieldBuilder().getBuilder();
     }
     /**
-     * <code>.google.protobuf.Timestamp created_at = 8;</code>
+     * <code>.google.protobuf.Timestamp created_at = 9;</code>
      */
     public com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder() {
       if (createdAtBuilder_ != null) {
@@ -1711,7 +2062,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.google.protobuf.Timestamp created_at = 8;</code>
+     * <code>.google.protobuf.Timestamp created_at = 9;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
@@ -1731,14 +2082,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> updatedAtBuilder_;
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 9;</code>
+     * <code>.google.protobuf.Timestamp updated_at = 10;</code>
      * @return Whether the updatedAt field is set.
      */
     public boolean hasUpdatedAt() {
-      return ((bitField0_ & 0x00000100) != 0);
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 9;</code>
+     * <code>.google.protobuf.Timestamp updated_at = 10;</code>
      * @return The updatedAt.
      */
     public com.google.protobuf.Timestamp getUpdatedAt() {
@@ -1749,7 +2100,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 9;</code>
+     * <code>.google.protobuf.Timestamp updated_at = 10;</code>
      */
     public Builder setUpdatedAt(com.google.protobuf.Timestamp value) {
       if (updatedAtBuilder_ == null) {
@@ -1760,12 +2111,12 @@ private static final long serialVersionUID = 0L;
       } else {
         updatedAtBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000100;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 9;</code>
+     * <code>.google.protobuf.Timestamp updated_at = 10;</code>
      */
     public Builder setUpdatedAt(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -1774,16 +2125,16 @@ private static final long serialVersionUID = 0L;
       } else {
         updatedAtBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000100;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 9;</code>
+     * <code>.google.protobuf.Timestamp updated_at = 10;</code>
      */
     public Builder mergeUpdatedAt(com.google.protobuf.Timestamp value) {
       if (updatedAtBuilder_ == null) {
-        if (((bitField0_ & 0x00000100) != 0) &&
+        if (((bitField0_ & 0x00000200) != 0) &&
           updatedAt_ != null &&
           updatedAt_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
           getUpdatedAtBuilder().mergeFrom(value);
@@ -1794,16 +2145,16 @@ private static final long serialVersionUID = 0L;
         updatedAtBuilder_.mergeFrom(value);
       }
       if (updatedAt_ != null) {
-        bitField0_ |= 0x00000100;
+        bitField0_ |= 0x00000200;
         onChanged();
       }
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 9;</code>
+     * <code>.google.protobuf.Timestamp updated_at = 10;</code>
      */
     public Builder clearUpdatedAt() {
-      bitField0_ = (bitField0_ & ~0x00000100);
+      bitField0_ = (bitField0_ & ~0x00000200);
       updatedAt_ = null;
       if (updatedAtBuilder_ != null) {
         updatedAtBuilder_.dispose();
@@ -1813,15 +2164,15 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 9;</code>
+     * <code>.google.protobuf.Timestamp updated_at = 10;</code>
      */
     public com.google.protobuf.Timestamp.Builder getUpdatedAtBuilder() {
-      bitField0_ |= 0x00000100;
+      bitField0_ |= 0x00000200;
       onChanged();
       return getUpdatedAtFieldBuilder().getBuilder();
     }
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 9;</code>
+     * <code>.google.protobuf.Timestamp updated_at = 10;</code>
      */
     public com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder() {
       if (updatedAtBuilder_ != null) {
@@ -1832,7 +2183,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 9;</code>
+     * <code>.google.protobuf.Timestamp updated_at = 10;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
