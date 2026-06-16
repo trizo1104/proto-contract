@@ -25,6 +25,10 @@ export interface ListRolesResponse {
   roles: Role[];
 }
 
+export interface RoleResponse {
+  role: Role | undefined;
+}
+
 export interface AssignRoleToUserRequest {
   userId: string;
   roleId: string;
@@ -43,6 +47,25 @@ export interface RemoveRoleFromUserRequest {
 export interface RemoveRoleFromUserResponse {
   success: boolean;
   message: string;
+}
+
+export interface AssignPermissionToRoleRequest {
+  roleId: string;
+  permissionId: string;
+}
+
+export interface RemovePermissionFromRoleRequest {
+  roleId: string;
+  permissionId: string;
+}
+
+export interface UpdateRolePermissionsRequest {
+  roleId: string;
+  permissionIds: string[];
+}
+
+export interface GetRolePermissionsRequest {
+  roleId: string;
 }
 
 export const AUTH_PACKAGE_NAME = "auth";
@@ -179,6 +202,43 @@ export const ListRolesResponse: MessageFns<ListRolesResponse> = {
           }
 
           message.roles.push(Role.decode(reader, reader.uint32()));
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+};
+
+function createBaseRoleResponse(): RoleResponse {
+  return { role: undefined };
+}
+
+export const RoleResponse: MessageFns<RoleResponse> = {
+  encode(message: RoleResponse, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.role !== undefined) {
+      Role.encode(message.role, writer.uint32(10).fork()).join();
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): RoleResponse {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    const end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseRoleResponse();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.role = Role.decode(reader, reader.uint32());
           continue;
         }
       }
@@ -371,6 +431,187 @@ export const RemoveRoleFromUserResponse: MessageFns<RemoveRoleFromUserResponse> 
           }
 
           message.message = reader.string();
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+};
+
+function createBaseAssignPermissionToRoleRequest(): AssignPermissionToRoleRequest {
+  return { roleId: "", permissionId: "" };
+}
+
+export const AssignPermissionToRoleRequest: MessageFns<AssignPermissionToRoleRequest> = {
+  encode(message: AssignPermissionToRoleRequest, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.roleId !== "") {
+      writer.uint32(10).string(message.roleId);
+    }
+    if (message.permissionId !== "") {
+      writer.uint32(18).string(message.permissionId);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): AssignPermissionToRoleRequest {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    const end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseAssignPermissionToRoleRequest();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.roleId = reader.string();
+          continue;
+        }
+        case 2: {
+          if (tag !== 18) {
+            break;
+          }
+
+          message.permissionId = reader.string();
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+};
+
+function createBaseRemovePermissionFromRoleRequest(): RemovePermissionFromRoleRequest {
+  return { roleId: "", permissionId: "" };
+}
+
+export const RemovePermissionFromRoleRequest: MessageFns<RemovePermissionFromRoleRequest> = {
+  encode(message: RemovePermissionFromRoleRequest, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.roleId !== "") {
+      writer.uint32(10).string(message.roleId);
+    }
+    if (message.permissionId !== "") {
+      writer.uint32(18).string(message.permissionId);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): RemovePermissionFromRoleRequest {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    const end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseRemovePermissionFromRoleRequest();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.roleId = reader.string();
+          continue;
+        }
+        case 2: {
+          if (tag !== 18) {
+            break;
+          }
+
+          message.permissionId = reader.string();
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+};
+
+function createBaseUpdateRolePermissionsRequest(): UpdateRolePermissionsRequest {
+  return { roleId: "", permissionIds: [] };
+}
+
+export const UpdateRolePermissionsRequest: MessageFns<UpdateRolePermissionsRequest> = {
+  encode(message: UpdateRolePermissionsRequest, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.roleId !== "") {
+      writer.uint32(10).string(message.roleId);
+    }
+    for (const v of message.permissionIds) {
+      writer.uint32(18).string(v!);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): UpdateRolePermissionsRequest {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    const end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseUpdateRolePermissionsRequest();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.roleId = reader.string();
+          continue;
+        }
+        case 2: {
+          if (tag !== 18) {
+            break;
+          }
+
+          message.permissionIds.push(reader.string());
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+};
+
+function createBaseGetRolePermissionsRequest(): GetRolePermissionsRequest {
+  return { roleId: "" };
+}
+
+export const GetRolePermissionsRequest: MessageFns<GetRolePermissionsRequest> = {
+  encode(message: GetRolePermissionsRequest, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.roleId !== "") {
+      writer.uint32(10).string(message.roleId);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): GetRolePermissionsRequest {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    const end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseGetRolePermissionsRequest();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.roleId = reader.string();
           continue;
         }
       }

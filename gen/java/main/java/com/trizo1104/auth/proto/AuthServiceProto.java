@@ -27,7 +27,7 @@ public final class AuthServiceProto {
       "\n\022auth/service.proto\022\004auth\032\027auth/auth_me" +
       "ssage.proto\032\035auth/permission_message.pro" +
       "to\032\027auth/role_message.proto\032\027auth/user_m" +
-      "essage.proto2\255\006\n\013AuthService\0220\n\005Login\022\022." +
+      "essage.proto2\375\010\n\013AuthService\0220\n\005Login\022\022." +
       "auth.LoginRequest\032\023.auth.LoginResponse\022\'" +
       "\n\002Me\022\017.auth.MeRequest\032\020.auth.MeResponse\022" +
       "9\n\nCreateUser\022\027.auth.CreateUserRequest\032\022" +
@@ -43,13 +43,21 @@ public final class AuthServiceProto {
       "nRoleToUserRequest\032\036.auth.AssignRoleToUs" +
       "erResponse\022W\n\022RemoveRoleFromUser\022\037.auth." +
       "RemoveRoleFromUserRequest\032 .auth.RemoveR" +
-      "oleFromUserResponse\022N\n\017ListPermissions\022\034" +
-      ".auth.ListPermissionsRequest\032\035.auth.List" +
-      "PermissionsResponse\022W\n\022GetUserPermission" +
-      "s\022\037.auth.GetUserPermissionsRequest\032 .aut" +
-      "h.GetUserPermissionsResponseB.\n\030com.triz" +
-      "o1104.auth.protoB\020AuthServiceProtoP\001b\006pr" +
-      "oto3"
+      "oleFromUserResponse\022Q\n\026AssignPermissionT" +
+      "oRole\022#.auth.AssignPermissionToRoleReque" +
+      "st\032\022.auth.RoleResponse\022U\n\030RemovePermissi" +
+      "onFromRole\022%.auth.RemovePermissionFromRo" +
+      "leRequest\032\022.auth.RoleResponse\022O\n\025UpdateR" +
+      "olePermissions\022\".auth.UpdateRolePermissi" +
+      "onsRequest\032\022.auth.RoleResponse\022S\n\022GetRol" +
+      "ePermissions\022\037.auth.GetRolePermissionsRe" +
+      "quest\032\034.auth.PermissionListResponse\022N\n\017L" +
+      "istPermissions\022\034.auth.ListPermissionsReq" +
+      "uest\032\035.auth.ListPermissionsResponse\022W\n\022G" +
+      "etUserPermissions\022\037.auth.GetUserPermissi" +
+      "onsRequest\032 .auth.GetUserPermissionsResp" +
+      "onseB.\n\030com.trizo1104.auth.protoB\020AuthSe" +
+      "rviceProtoP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

@@ -19,6 +19,10 @@ message ListPermissionsResponse {
   repeated Permission permissions = 1;
 }
 
+message PermissionListResponse {
+  repeated Permission permissions = 1;
+}
+
 message GetUserPermissionsRequest {
   string user_id = 1;
 }

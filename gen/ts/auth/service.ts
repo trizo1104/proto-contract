@@ -14,14 +14,20 @@ import {
   GetUserPermissionsResponse,
   ListPermissionsRequest,
   ListPermissionsResponse,
+  PermissionListResponse,
 } from "./permission_message";
 import {
+  AssignPermissionToRoleRequest,
   AssignRoleToUserRequest,
   AssignRoleToUserResponse,
+  GetRolePermissionsRequest,
   ListRolesRequest,
   ListRolesResponse,
+  RemovePermissionFromRoleRequest,
   RemoveRoleFromUserRequest,
   RemoveRoleFromUserResponse,
+  RoleResponse,
+  UpdateRolePermissionsRequest,
 } from "./role_message";
 import {
   CreateUserRequest,
@@ -59,6 +65,14 @@ export interface AuthServiceClient {
 
   removeRoleFromUser(request: RemoveRoleFromUserRequest): Observable<RemoveRoleFromUserResponse>;
 
+  assignPermissionToRole(request: AssignPermissionToRoleRequest): Observable<RoleResponse>;
+
+  removePermissionFromRole(request: RemovePermissionFromRoleRequest): Observable<RoleResponse>;
+
+  updateRolePermissions(request: UpdateRolePermissionsRequest): Observable<RoleResponse>;
+
+  getRolePermissions(request: GetRolePermissionsRequest): Observable<PermissionListResponse>;
+
   listPermissions(request: ListPermissionsRequest): Observable<ListPermissionsResponse>;
 
   getUserPermissions(request: GetUserPermissionsRequest): Observable<GetUserPermissionsResponse>;
@@ -91,6 +105,22 @@ export interface AuthServiceController {
     request: RemoveRoleFromUserRequest,
   ): Promise<RemoveRoleFromUserResponse> | Observable<RemoveRoleFromUserResponse> | RemoveRoleFromUserResponse;
 
+  assignPermissionToRole(
+    request: AssignPermissionToRoleRequest,
+  ): Promise<RoleResponse> | Observable<RoleResponse> | RoleResponse;
+
+  removePermissionFromRole(
+    request: RemovePermissionFromRoleRequest,
+  ): Promise<RoleResponse> | Observable<RoleResponse> | RoleResponse;
+
+  updateRolePermissions(
+    request: UpdateRolePermissionsRequest,
+  ): Promise<RoleResponse> | Observable<RoleResponse> | RoleResponse;
+
+  getRolePermissions(
+    request: GetRolePermissionsRequest,
+  ): Promise<PermissionListResponse> | Observable<PermissionListResponse> | PermissionListResponse;
+
   listPermissions(
     request: ListPermissionsRequest,
   ): Promise<ListPermissionsResponse> | Observable<ListPermissionsResponse> | ListPermissionsResponse;
@@ -113,6 +143,10 @@ export function AuthServiceControllerMethods() {
       "listRoles",
       "assignRoleToUser",
       "removeRoleFromUser",
+      "assignPermissionToRole",
+      "removePermissionFromRole",
+      "updateRolePermissions",
+      "getRolePermissions",
       "listPermissions",
       "getUserPermissions",
     ];
@@ -226,6 +260,48 @@ export const AuthServiceService = {
       Buffer.from(RemoveRoleFromUserResponse.encode(value).finish()),
     responseDeserialize: (value: Buffer): RemoveRoleFromUserResponse => RemoveRoleFromUserResponse.decode(value),
   },
+  assignPermissionToRole: {
+    path: "/auth.AuthService/AssignPermissionToRole" as const,
+    requestStream: false as const,
+    responseStream: false as const,
+    requestSerialize: (value: AssignPermissionToRoleRequest): Buffer =>
+      Buffer.from(AssignPermissionToRoleRequest.encode(value).finish()),
+    requestDeserialize: (value: Buffer): AssignPermissionToRoleRequest => AssignPermissionToRoleRequest.decode(value),
+    responseSerialize: (value: RoleResponse): Buffer => Buffer.from(RoleResponse.encode(value).finish()),
+    responseDeserialize: (value: Buffer): RoleResponse => RoleResponse.decode(value),
+  },
+  removePermissionFromRole: {
+    path: "/auth.AuthService/RemovePermissionFromRole" as const,
+    requestStream: false as const,
+    responseStream: false as const,
+    requestSerialize: (value: RemovePermissionFromRoleRequest): Buffer =>
+      Buffer.from(RemovePermissionFromRoleRequest.encode(value).finish()),
+    requestDeserialize: (value: Buffer): RemovePermissionFromRoleRequest =>
+      RemovePermissionFromRoleRequest.decode(value),
+    responseSerialize: (value: RoleResponse): Buffer => Buffer.from(RoleResponse.encode(value).finish()),
+    responseDeserialize: (value: Buffer): RoleResponse => RoleResponse.decode(value),
+  },
+  updateRolePermissions: {
+    path: "/auth.AuthService/UpdateRolePermissions" as const,
+    requestStream: false as const,
+    responseStream: false as const,
+    requestSerialize: (value: UpdateRolePermissionsRequest): Buffer =>
+      Buffer.from(UpdateRolePermissionsRequest.encode(value).finish()),
+    requestDeserialize: (value: Buffer): UpdateRolePermissionsRequest => UpdateRolePermissionsRequest.decode(value),
+    responseSerialize: (value: RoleResponse): Buffer => Buffer.from(RoleResponse.encode(value).finish()),
+    responseDeserialize: (value: Buffer): RoleResponse => RoleResponse.decode(value),
+  },
+  getRolePermissions: {
+    path: "/auth.AuthService/GetRolePermissions" as const,
+    requestStream: false as const,
+    responseStream: false as const,
+    requestSerialize: (value: GetRolePermissionsRequest): Buffer =>
+      Buffer.from(GetRolePermissionsRequest.encode(value).finish()),
+    requestDeserialize: (value: Buffer): GetRolePermissionsRequest => GetRolePermissionsRequest.decode(value),
+    responseSerialize: (value: PermissionListResponse): Buffer =>
+      Buffer.from(PermissionListResponse.encode(value).finish()),
+    responseDeserialize: (value: Buffer): PermissionListResponse => PermissionListResponse.decode(value),
+  },
   listPermissions: {
     path: "/auth.AuthService/ListPermissions" as const,
     requestStream: false as const,
@@ -261,6 +337,10 @@ export interface AuthServiceServer extends UntypedServiceImplementation {
   listRoles: handleUnaryCall<ListRolesRequest, ListRolesResponse>;
   assignRoleToUser: handleUnaryCall<AssignRoleToUserRequest, AssignRoleToUserResponse>;
   removeRoleFromUser: handleUnaryCall<RemoveRoleFromUserRequest, RemoveRoleFromUserResponse>;
+  assignPermissionToRole: handleUnaryCall<AssignPermissionToRoleRequest, RoleResponse>;
+  removePermissionFromRole: handleUnaryCall<RemovePermissionFromRoleRequest, RoleResponse>;
+  updateRolePermissions: handleUnaryCall<UpdateRolePermissionsRequest, RoleResponse>;
+  getRolePermissions: handleUnaryCall<GetRolePermissionsRequest, PermissionListResponse>;
   listPermissions: handleUnaryCall<ListPermissionsRequest, ListPermissionsResponse>;
   getUserPermissions: handleUnaryCall<GetUserPermissionsRequest, GetUserPermissionsResponse>;
 }

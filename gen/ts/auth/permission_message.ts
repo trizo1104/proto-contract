@@ -23,6 +23,10 @@ export interface ListPermissionsResponse {
   permissions: Permission[];
 }
 
+export interface PermissionListResponse {
+  permissions: Permission[];
+}
+
 export interface GetUserPermissionsRequest {
   userId: string;
 }
@@ -145,6 +149,43 @@ export const ListPermissionsResponse: MessageFns<ListPermissionsResponse> = {
     const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
     const end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseListPermissionsResponse();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.permissions.push(Permission.decode(reader, reader.uint32()));
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+};
+
+function createBasePermissionListResponse(): PermissionListResponse {
+  return { permissions: [] };
+}
+
+export const PermissionListResponse: MessageFns<PermissionListResponse> = {
+  encode(message: PermissionListResponse, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    for (const v of message.permissions) {
+      Permission.encode(v!, writer.uint32(10).fork()).join();
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): PermissionListResponse {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    const end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBasePermissionListResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {

@@ -24,6 +24,10 @@ service AuthService {
   rpc ListRoles(ListRolesRequest) returns (ListRolesResponse);
   rpc AssignRoleToUser(AssignRoleToUserRequest) returns (AssignRoleToUserResponse);
   rpc RemoveRoleFromUser(RemoveRoleFromUserRequest) returns (RemoveRoleFromUserResponse);
+  rpc AssignPermissionToRole(AssignPermissionToRoleRequest) returns (RoleResponse);
+  rpc RemovePermissionFromRole(RemovePermissionFromRoleRequest) returns (RoleResponse);
+  rpc UpdateRolePermissions(UpdateRolePermissionsRequest) returns (RoleResponse);
+  rpc GetRolePermissions(GetRolePermissionsRequest) returns (PermissionListResponse);
 
   rpc ListPermissions(ListPermissionsRequest) returns (ListPermissionsResponse);
   rpc GetUserPermissions(GetUserPermissionsRequest) returns (GetUserPermissionsResponse);

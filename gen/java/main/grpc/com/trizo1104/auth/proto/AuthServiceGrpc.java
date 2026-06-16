@@ -325,6 +325,130 @@ public final class AuthServiceGrpc {
     return getRemoveRoleFromUserMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.trizo1104.auth.proto.AssignPermissionToRoleRequest,
+      com.trizo1104.auth.proto.RoleResponse> getAssignPermissionToRoleMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "AssignPermissionToRole",
+      requestType = com.trizo1104.auth.proto.AssignPermissionToRoleRequest.class,
+      responseType = com.trizo1104.auth.proto.RoleResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.trizo1104.auth.proto.AssignPermissionToRoleRequest,
+      com.trizo1104.auth.proto.RoleResponse> getAssignPermissionToRoleMethod() {
+    io.grpc.MethodDescriptor<com.trizo1104.auth.proto.AssignPermissionToRoleRequest, com.trizo1104.auth.proto.RoleResponse> getAssignPermissionToRoleMethod;
+    if ((getAssignPermissionToRoleMethod = AuthServiceGrpc.getAssignPermissionToRoleMethod) == null) {
+      synchronized (AuthServiceGrpc.class) {
+        if ((getAssignPermissionToRoleMethod = AuthServiceGrpc.getAssignPermissionToRoleMethod) == null) {
+          AuthServiceGrpc.getAssignPermissionToRoleMethod = getAssignPermissionToRoleMethod =
+              io.grpc.MethodDescriptor.<com.trizo1104.auth.proto.AssignPermissionToRoleRequest, com.trizo1104.auth.proto.RoleResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "AssignPermissionToRole"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.trizo1104.auth.proto.AssignPermissionToRoleRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.trizo1104.auth.proto.RoleResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new AuthServiceMethodDescriptorSupplier("AssignPermissionToRole"))
+              .build();
+        }
+      }
+    }
+    return getAssignPermissionToRoleMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.trizo1104.auth.proto.RemovePermissionFromRoleRequest,
+      com.trizo1104.auth.proto.RoleResponse> getRemovePermissionFromRoleMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "RemovePermissionFromRole",
+      requestType = com.trizo1104.auth.proto.RemovePermissionFromRoleRequest.class,
+      responseType = com.trizo1104.auth.proto.RoleResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.trizo1104.auth.proto.RemovePermissionFromRoleRequest,
+      com.trizo1104.auth.proto.RoleResponse> getRemovePermissionFromRoleMethod() {
+    io.grpc.MethodDescriptor<com.trizo1104.auth.proto.RemovePermissionFromRoleRequest, com.trizo1104.auth.proto.RoleResponse> getRemovePermissionFromRoleMethod;
+    if ((getRemovePermissionFromRoleMethod = AuthServiceGrpc.getRemovePermissionFromRoleMethod) == null) {
+      synchronized (AuthServiceGrpc.class) {
+        if ((getRemovePermissionFromRoleMethod = AuthServiceGrpc.getRemovePermissionFromRoleMethod) == null) {
+          AuthServiceGrpc.getRemovePermissionFromRoleMethod = getRemovePermissionFromRoleMethod =
+              io.grpc.MethodDescriptor.<com.trizo1104.auth.proto.RemovePermissionFromRoleRequest, com.trizo1104.auth.proto.RoleResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "RemovePermissionFromRole"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.trizo1104.auth.proto.RemovePermissionFromRoleRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.trizo1104.auth.proto.RoleResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new AuthServiceMethodDescriptorSupplier("RemovePermissionFromRole"))
+              .build();
+        }
+      }
+    }
+    return getRemovePermissionFromRoleMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.trizo1104.auth.proto.UpdateRolePermissionsRequest,
+      com.trizo1104.auth.proto.RoleResponse> getUpdateRolePermissionsMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "UpdateRolePermissions",
+      requestType = com.trizo1104.auth.proto.UpdateRolePermissionsRequest.class,
+      responseType = com.trizo1104.auth.proto.RoleResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.trizo1104.auth.proto.UpdateRolePermissionsRequest,
+      com.trizo1104.auth.proto.RoleResponse> getUpdateRolePermissionsMethod() {
+    io.grpc.MethodDescriptor<com.trizo1104.auth.proto.UpdateRolePermissionsRequest, com.trizo1104.auth.proto.RoleResponse> getUpdateRolePermissionsMethod;
+    if ((getUpdateRolePermissionsMethod = AuthServiceGrpc.getUpdateRolePermissionsMethod) == null) {
+      synchronized (AuthServiceGrpc.class) {
+        if ((getUpdateRolePermissionsMethod = AuthServiceGrpc.getUpdateRolePermissionsMethod) == null) {
+          AuthServiceGrpc.getUpdateRolePermissionsMethod = getUpdateRolePermissionsMethod =
+              io.grpc.MethodDescriptor.<com.trizo1104.auth.proto.UpdateRolePermissionsRequest, com.trizo1104.auth.proto.RoleResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UpdateRolePermissions"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.trizo1104.auth.proto.UpdateRolePermissionsRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.trizo1104.auth.proto.RoleResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new AuthServiceMethodDescriptorSupplier("UpdateRolePermissions"))
+              .build();
+        }
+      }
+    }
+    return getUpdateRolePermissionsMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.trizo1104.auth.proto.GetRolePermissionsRequest,
+      com.trizo1104.auth.proto.PermissionListResponse> getGetRolePermissionsMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetRolePermissions",
+      requestType = com.trizo1104.auth.proto.GetRolePermissionsRequest.class,
+      responseType = com.trizo1104.auth.proto.PermissionListResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.trizo1104.auth.proto.GetRolePermissionsRequest,
+      com.trizo1104.auth.proto.PermissionListResponse> getGetRolePermissionsMethod() {
+    io.grpc.MethodDescriptor<com.trizo1104.auth.proto.GetRolePermissionsRequest, com.trizo1104.auth.proto.PermissionListResponse> getGetRolePermissionsMethod;
+    if ((getGetRolePermissionsMethod = AuthServiceGrpc.getGetRolePermissionsMethod) == null) {
+      synchronized (AuthServiceGrpc.class) {
+        if ((getGetRolePermissionsMethod = AuthServiceGrpc.getGetRolePermissionsMethod) == null) {
+          AuthServiceGrpc.getGetRolePermissionsMethod = getGetRolePermissionsMethod =
+              io.grpc.MethodDescriptor.<com.trizo1104.auth.proto.GetRolePermissionsRequest, com.trizo1104.auth.proto.PermissionListResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetRolePermissions"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.trizo1104.auth.proto.GetRolePermissionsRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.trizo1104.auth.proto.PermissionListResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new AuthServiceMethodDescriptorSupplier("GetRolePermissions"))
+              .build();
+        }
+      }
+    }
+    return getGetRolePermissionsMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<com.trizo1104.auth.proto.ListPermissionsRequest,
       com.trizo1104.auth.proto.ListPermissionsResponse> getListPermissionsMethod;
 
@@ -507,6 +631,34 @@ public final class AuthServiceGrpc {
 
     /**
      */
+    default void assignPermissionToRole(com.trizo1104.auth.proto.AssignPermissionToRoleRequest request,
+        io.grpc.stub.StreamObserver<com.trizo1104.auth.proto.RoleResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getAssignPermissionToRoleMethod(), responseObserver);
+    }
+
+    /**
+     */
+    default void removePermissionFromRole(com.trizo1104.auth.proto.RemovePermissionFromRoleRequest request,
+        io.grpc.stub.StreamObserver<com.trizo1104.auth.proto.RoleResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getRemovePermissionFromRoleMethod(), responseObserver);
+    }
+
+    /**
+     */
+    default void updateRolePermissions(com.trizo1104.auth.proto.UpdateRolePermissionsRequest request,
+        io.grpc.stub.StreamObserver<com.trizo1104.auth.proto.RoleResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateRolePermissionsMethod(), responseObserver);
+    }
+
+    /**
+     */
+    default void getRolePermissions(com.trizo1104.auth.proto.GetRolePermissionsRequest request,
+        io.grpc.stub.StreamObserver<com.trizo1104.auth.proto.PermissionListResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetRolePermissionsMethod(), responseObserver);
+    }
+
+    /**
+     */
     default void listPermissions(com.trizo1104.auth.proto.ListPermissionsRequest request,
         io.grpc.stub.StreamObserver<com.trizo1104.auth.proto.ListPermissionsResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListPermissionsMethod(), responseObserver);
@@ -629,6 +781,38 @@ public final class AuthServiceGrpc {
 
     /**
      */
+    public void assignPermissionToRole(com.trizo1104.auth.proto.AssignPermissionToRoleRequest request,
+        io.grpc.stub.StreamObserver<com.trizo1104.auth.proto.RoleResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getAssignPermissionToRoleMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void removePermissionFromRole(com.trizo1104.auth.proto.RemovePermissionFromRoleRequest request,
+        io.grpc.stub.StreamObserver<com.trizo1104.auth.proto.RoleResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getRemovePermissionFromRoleMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void updateRolePermissions(com.trizo1104.auth.proto.UpdateRolePermissionsRequest request,
+        io.grpc.stub.StreamObserver<com.trizo1104.auth.proto.RoleResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getUpdateRolePermissionsMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void getRolePermissions(com.trizo1104.auth.proto.GetRolePermissionsRequest request,
+        io.grpc.stub.StreamObserver<com.trizo1104.auth.proto.PermissionListResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetRolePermissionsMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
     public void listPermissions(com.trizo1104.auth.proto.ListPermissionsRequest request,
         io.grpc.stub.StreamObserver<com.trizo1104.auth.proto.ListPermissionsResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
@@ -728,6 +912,34 @@ public final class AuthServiceGrpc {
     public com.trizo1104.auth.proto.RemoveRoleFromUserResponse removeRoleFromUser(com.trizo1104.auth.proto.RemoveRoleFromUserRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getRemoveRoleFromUserMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.trizo1104.auth.proto.RoleResponse assignPermissionToRole(com.trizo1104.auth.proto.AssignPermissionToRoleRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getAssignPermissionToRoleMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.trizo1104.auth.proto.RoleResponse removePermissionFromRole(com.trizo1104.auth.proto.RemovePermissionFromRoleRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getRemovePermissionFromRoleMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.trizo1104.auth.proto.RoleResponse updateRolePermissions(com.trizo1104.auth.proto.UpdateRolePermissionsRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getUpdateRolePermissionsMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.trizo1104.auth.proto.PermissionListResponse getRolePermissions(com.trizo1104.auth.proto.GetRolePermissionsRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetRolePermissionsMethod(), getCallOptions(), request);
     }
 
     /**
@@ -843,6 +1055,38 @@ public final class AuthServiceGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<com.trizo1104.auth.proto.RoleResponse> assignPermissionToRole(
+        com.trizo1104.auth.proto.AssignPermissionToRoleRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getAssignPermissionToRoleMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.trizo1104.auth.proto.RoleResponse> removePermissionFromRole(
+        com.trizo1104.auth.proto.RemovePermissionFromRoleRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getRemovePermissionFromRoleMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.trizo1104.auth.proto.RoleResponse> updateRolePermissions(
+        com.trizo1104.auth.proto.UpdateRolePermissionsRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getUpdateRolePermissionsMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.trizo1104.auth.proto.PermissionListResponse> getRolePermissions(
+        com.trizo1104.auth.proto.GetRolePermissionsRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetRolePermissionsMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<com.trizo1104.auth.proto.ListPermissionsResponse> listPermissions(
         com.trizo1104.auth.proto.ListPermissionsRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
@@ -868,8 +1112,12 @@ public final class AuthServiceGrpc {
   private static final int METHODID_LIST_ROLES = 7;
   private static final int METHODID_ASSIGN_ROLE_TO_USER = 8;
   private static final int METHODID_REMOVE_ROLE_FROM_USER = 9;
-  private static final int METHODID_LIST_PERMISSIONS = 10;
-  private static final int METHODID_GET_USER_PERMISSIONS = 11;
+  private static final int METHODID_ASSIGN_PERMISSION_TO_ROLE = 10;
+  private static final int METHODID_REMOVE_PERMISSION_FROM_ROLE = 11;
+  private static final int METHODID_UPDATE_ROLE_PERMISSIONS = 12;
+  private static final int METHODID_GET_ROLE_PERMISSIONS = 13;
+  private static final int METHODID_LIST_PERMISSIONS = 14;
+  private static final int METHODID_GET_USER_PERMISSIONS = 15;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -927,6 +1175,22 @@ public final class AuthServiceGrpc {
         case METHODID_REMOVE_ROLE_FROM_USER:
           serviceImpl.removeRoleFromUser((com.trizo1104.auth.proto.RemoveRoleFromUserRequest) request,
               (io.grpc.stub.StreamObserver<com.trizo1104.auth.proto.RemoveRoleFromUserResponse>) responseObserver);
+          break;
+        case METHODID_ASSIGN_PERMISSION_TO_ROLE:
+          serviceImpl.assignPermissionToRole((com.trizo1104.auth.proto.AssignPermissionToRoleRequest) request,
+              (io.grpc.stub.StreamObserver<com.trizo1104.auth.proto.RoleResponse>) responseObserver);
+          break;
+        case METHODID_REMOVE_PERMISSION_FROM_ROLE:
+          serviceImpl.removePermissionFromRole((com.trizo1104.auth.proto.RemovePermissionFromRoleRequest) request,
+              (io.grpc.stub.StreamObserver<com.trizo1104.auth.proto.RoleResponse>) responseObserver);
+          break;
+        case METHODID_UPDATE_ROLE_PERMISSIONS:
+          serviceImpl.updateRolePermissions((com.trizo1104.auth.proto.UpdateRolePermissionsRequest) request,
+              (io.grpc.stub.StreamObserver<com.trizo1104.auth.proto.RoleResponse>) responseObserver);
+          break;
+        case METHODID_GET_ROLE_PERMISSIONS:
+          serviceImpl.getRolePermissions((com.trizo1104.auth.proto.GetRolePermissionsRequest) request,
+              (io.grpc.stub.StreamObserver<com.trizo1104.auth.proto.PermissionListResponse>) responseObserver);
           break;
         case METHODID_LIST_PERMISSIONS:
           serviceImpl.listPermissions((com.trizo1104.auth.proto.ListPermissionsRequest) request,
@@ -1025,6 +1289,34 @@ public final class AuthServiceGrpc {
               com.trizo1104.auth.proto.RemoveRoleFromUserResponse>(
                 service, METHODID_REMOVE_ROLE_FROM_USER)))
         .addMethod(
+          getAssignPermissionToRoleMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              com.trizo1104.auth.proto.AssignPermissionToRoleRequest,
+              com.trizo1104.auth.proto.RoleResponse>(
+                service, METHODID_ASSIGN_PERMISSION_TO_ROLE)))
+        .addMethod(
+          getRemovePermissionFromRoleMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              com.trizo1104.auth.proto.RemovePermissionFromRoleRequest,
+              com.trizo1104.auth.proto.RoleResponse>(
+                service, METHODID_REMOVE_PERMISSION_FROM_ROLE)))
+        .addMethod(
+          getUpdateRolePermissionsMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              com.trizo1104.auth.proto.UpdateRolePermissionsRequest,
+              com.trizo1104.auth.proto.RoleResponse>(
+                service, METHODID_UPDATE_ROLE_PERMISSIONS)))
+        .addMethod(
+          getGetRolePermissionsMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              com.trizo1104.auth.proto.GetRolePermissionsRequest,
+              com.trizo1104.auth.proto.PermissionListResponse>(
+                service, METHODID_GET_ROLE_PERMISSIONS)))
+        .addMethod(
           getListPermissionsMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
             new MethodHandlers<
@@ -1096,6 +1388,10 @@ public final class AuthServiceGrpc {
               .addMethod(getListRolesMethod())
               .addMethod(getAssignRoleToUserMethod())
               .addMethod(getRemoveRoleFromUserMethod())
+              .addMethod(getAssignPermissionToRoleMethod())
+              .addMethod(getRemovePermissionFromRoleMethod())
+              .addMethod(getUpdateRolePermissionsMethod())
+              .addMethod(getGetRolePermissionsMethod())
               .addMethod(getListPermissionsMethod())
               .addMethod(getGetUserPermissionsMethod())
               .build();
