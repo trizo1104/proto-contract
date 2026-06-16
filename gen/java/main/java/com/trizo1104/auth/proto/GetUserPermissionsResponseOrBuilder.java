@@ -9,26 +9,27 @@ public interface GetUserPermissionsResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated .auth.Permission permissions = 1;</code>
+   * <code>repeated string permissions = 1;</code>
+   * @return A list containing the permissions.
    */
-  java.util.List<com.trizo1104.auth.proto.Permission> 
+  java.util.List<java.lang.String>
       getPermissionsList();
   /**
-   * <code>repeated .auth.Permission permissions = 1;</code>
-   */
-  com.trizo1104.auth.proto.Permission getPermissions(int index);
-  /**
-   * <code>repeated .auth.Permission permissions = 1;</code>
+   * <code>repeated string permissions = 1;</code>
+   * @return The count of permissions.
    */
   int getPermissionsCount();
   /**
-   * <code>repeated .auth.Permission permissions = 1;</code>
+   * <code>repeated string permissions = 1;</code>
+   * @param index The index of the element to return.
+   * @return The permissions at the given index.
    */
-  java.util.List<? extends com.trizo1104.auth.proto.PermissionOrBuilder> 
-      getPermissionsOrBuilderList();
+  java.lang.String getPermissions(int index);
   /**
-   * <code>repeated .auth.Permission permissions = 1;</code>
+   * <code>repeated string permissions = 1;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the permissions at the given index.
    */
-  com.trizo1104.auth.proto.PermissionOrBuilder getPermissionsOrBuilder(
-      int index);
+  com.google.protobuf.ByteString
+      getPermissionsBytes(int index);
 }

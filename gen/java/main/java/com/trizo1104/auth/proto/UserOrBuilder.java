@@ -45,115 +45,76 @@ public interface UserOrBuilder extends
       getEmailBytes();
 
   /**
-   * <code>string full_name = 4;</code>
-   * @return The fullName.
-   */
-  java.lang.String getFullName();
-  /**
-   * <code>string full_name = 4;</code>
-   * @return The bytes for fullName.
-   */
-  com.google.protobuf.ByteString
-      getFullNameBytes();
-
-  /**
-   * <code>string phone = 5;</code>
+   * <code>string phone = 4;</code>
    * @return The phone.
    */
   java.lang.String getPhone();
   /**
-   * <code>string phone = 5;</code>
+   * <code>string phone = 4;</code>
    * @return The bytes for phone.
    */
   com.google.protobuf.ByteString
       getPhoneBytes();
 
   /**
-   * <code>.auth.UserStatus status = 6;</code>
-   * @return The enum numeric value on the wire for status.
-   */
-  int getStatusValue();
-  /**
-   * <code>.auth.UserStatus status = 6;</code>
+   * <code>string status = 5;</code>
    * @return The status.
    */
-  com.trizo1104.auth.proto.UserStatus getStatus();
+  java.lang.String getStatus();
+  /**
+   * <code>string status = 5;</code>
+   * @return The bytes for status.
+   */
+  com.google.protobuf.ByteString
+      getStatusBytes();
 
   /**
-   * <code>repeated .auth.Role roles = 7;</code>
+   * <code>repeated string roles = 6;</code>
+   * @return A list containing the roles.
    */
-  java.util.List<com.trizo1104.auth.proto.Role> 
+  java.util.List<java.lang.String>
       getRolesList();
   /**
-   * <code>repeated .auth.Role roles = 7;</code>
-   */
-  com.trizo1104.auth.proto.Role getRoles(int index);
-  /**
-   * <code>repeated .auth.Role roles = 7;</code>
+   * <code>repeated string roles = 6;</code>
+   * @return The count of roles.
    */
   int getRolesCount();
   /**
-   * <code>repeated .auth.Role roles = 7;</code>
+   * <code>repeated string roles = 6;</code>
+   * @param index The index of the element to return.
+   * @return The roles at the given index.
    */
-  java.util.List<? extends com.trizo1104.auth.proto.RoleOrBuilder> 
-      getRolesOrBuilderList();
+  java.lang.String getRoles(int index);
   /**
-   * <code>repeated .auth.Role roles = 7;</code>
+   * <code>repeated string roles = 6;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the roles at the given index.
    */
-  com.trizo1104.auth.proto.RoleOrBuilder getRolesOrBuilder(
-      int index);
+  com.google.protobuf.ByteString
+      getRolesBytes(int index);
 
   /**
-   * <code>repeated .auth.Permission permissions = 8;</code>
+   * <code>repeated string permissions = 7;</code>
+   * @return A list containing the permissions.
    */
-  java.util.List<com.trizo1104.auth.proto.Permission> 
+  java.util.List<java.lang.String>
       getPermissionsList();
   /**
-   * <code>repeated .auth.Permission permissions = 8;</code>
-   */
-  com.trizo1104.auth.proto.Permission getPermissions(int index);
-  /**
-   * <code>repeated .auth.Permission permissions = 8;</code>
+   * <code>repeated string permissions = 7;</code>
+   * @return The count of permissions.
    */
   int getPermissionsCount();
   /**
-   * <code>repeated .auth.Permission permissions = 8;</code>
+   * <code>repeated string permissions = 7;</code>
+   * @param index The index of the element to return.
+   * @return The permissions at the given index.
    */
-  java.util.List<? extends com.trizo1104.auth.proto.PermissionOrBuilder> 
-      getPermissionsOrBuilderList();
+  java.lang.String getPermissions(int index);
   /**
-   * <code>repeated .auth.Permission permissions = 8;</code>
+   * <code>repeated string permissions = 7;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the permissions at the given index.
    */
-  com.trizo1104.auth.proto.PermissionOrBuilder getPermissionsOrBuilder(
-      int index);
-
-  /**
-   * <code>.google.protobuf.Timestamp created_at = 9;</code>
-   * @return Whether the createdAt field is set.
-   */
-  boolean hasCreatedAt();
-  /**
-   * <code>.google.protobuf.Timestamp created_at = 9;</code>
-   * @return The createdAt.
-   */
-  com.google.protobuf.Timestamp getCreatedAt();
-  /**
-   * <code>.google.protobuf.Timestamp created_at = 9;</code>
-   */
-  com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder();
-
-  /**
-   * <code>.google.protobuf.Timestamp updated_at = 10;</code>
-   * @return Whether the updatedAt field is set.
-   */
-  boolean hasUpdatedAt();
-  /**
-   * <code>.google.protobuf.Timestamp updated_at = 10;</code>
-   * @return The updatedAt.
-   */
-  com.google.protobuf.Timestamp getUpdatedAt();
-  /**
-   * <code>.google.protobuf.Timestamp updated_at = 10;</code>
-   */
-  com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder();
+  com.google.protobuf.ByteString
+      getPermissionsBytes(int index);
 }

@@ -20,7 +20,6 @@ private static final long serialVersionUID = 0L;
     username_ = "";
     email_ = "";
     password_ = "";
-    fullName_ = "";
     phone_ = "";
   }
 
@@ -161,50 +160,11 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int FULL_NAME_FIELD_NUMBER = 4;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object fullName_ = "";
-  /**
-   * <code>string full_name = 4;</code>
-   * @return The fullName.
-   */
-  @java.lang.Override
-  public java.lang.String getFullName() {
-    java.lang.Object ref = fullName_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      fullName_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string full_name = 4;</code>
-   * @return The bytes for fullName.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getFullNameBytes() {
-    java.lang.Object ref = fullName_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      fullName_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int PHONE_FIELD_NUMBER = 5;
+  public static final int PHONE_FIELD_NUMBER = 4;
   @SuppressWarnings("serial")
   private volatile java.lang.Object phone_ = "";
   /**
-   * <code>string phone = 5;</code>
+   * <code>string phone = 4;</code>
    * @return The phone.
    */
   @java.lang.Override
@@ -221,7 +181,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string phone = 5;</code>
+   * <code>string phone = 4;</code>
    * @return The bytes for phone.
    */
   @java.lang.Override
@@ -262,11 +222,8 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(password_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, password_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fullName_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, fullName_);
-    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(phone_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, phone_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, phone_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -286,11 +243,8 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(password_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, password_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fullName_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, fullName_);
-    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(phone_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, phone_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, phone_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -313,8 +267,6 @@ private static final long serialVersionUID = 0L;
         .equals(other.getEmail())) return false;
     if (!getPassword()
         .equals(other.getPassword())) return false;
-    if (!getFullName()
-        .equals(other.getFullName())) return false;
     if (!getPhone()
         .equals(other.getPhone())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
@@ -334,8 +286,6 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getEmail().hashCode();
     hash = (37 * hash) + PASSWORD_FIELD_NUMBER;
     hash = (53 * hash) + getPassword().hashCode();
-    hash = (37 * hash) + FULL_NAME_FIELD_NUMBER;
-    hash = (53 * hash) + getFullName().hashCode();
     hash = (37 * hash) + PHONE_FIELD_NUMBER;
     hash = (53 * hash) + getPhone().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
@@ -472,7 +422,6 @@ private static final long serialVersionUID = 0L;
       username_ = "";
       email_ = "";
       password_ = "";
-      fullName_ = "";
       phone_ = "";
       return this;
     }
@@ -517,9 +466,6 @@ private static final long serialVersionUID = 0L;
         result.password_ = password_;
       }
       if (((from_bitField0_ & 0x00000008) != 0)) {
-        result.fullName_ = fullName_;
-      }
-      if (((from_bitField0_ & 0x00000010) != 0)) {
         result.phone_ = phone_;
       }
     }
@@ -583,14 +529,9 @@ private static final long serialVersionUID = 0L;
         bitField0_ |= 0x00000004;
         onChanged();
       }
-      if (!other.getFullName().isEmpty()) {
-        fullName_ = other.fullName_;
-        bitField0_ |= 0x00000008;
-        onChanged();
-      }
       if (!other.getPhone().isEmpty()) {
         phone_ = other.phone_;
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
@@ -635,15 +576,10 @@ private static final long serialVersionUID = 0L;
               break;
             } // case 26
             case 34: {
-              fullName_ = input.readStringRequireUtf8();
+              phone_ = input.readStringRequireUtf8();
               bitField0_ |= 0x00000008;
               break;
             } // case 34
-            case 42: {
-              phone_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000010;
-              break;
-            } // case 42
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -877,81 +813,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object fullName_ = "";
-    /**
-     * <code>string full_name = 4;</code>
-     * @return The fullName.
-     */
-    public java.lang.String getFullName() {
-      java.lang.Object ref = fullName_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        fullName_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string full_name = 4;</code>
-     * @return The bytes for fullName.
-     */
-    public com.google.protobuf.ByteString
-        getFullNameBytes() {
-      java.lang.Object ref = fullName_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        fullName_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string full_name = 4;</code>
-     * @param value The fullName to set.
-     * @return This builder for chaining.
-     */
-    public Builder setFullName(
-        java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
-      fullName_ = value;
-      bitField0_ |= 0x00000008;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string full_name = 4;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearFullName() {
-      fullName_ = getDefaultInstance().getFullName();
-      bitField0_ = (bitField0_ & ~0x00000008);
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string full_name = 4;</code>
-     * @param value The bytes for fullName to set.
-     * @return This builder for chaining.
-     */
-    public Builder setFullNameBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
-      fullName_ = value;
-      bitField0_ |= 0x00000008;
-      onChanged();
-      return this;
-    }
-
     private java.lang.Object phone_ = "";
     /**
-     * <code>string phone = 5;</code>
+     * <code>string phone = 4;</code>
      * @return The phone.
      */
     public java.lang.String getPhone() {
@@ -967,7 +831,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string phone = 5;</code>
+     * <code>string phone = 4;</code>
      * @return The bytes for phone.
      */
     public com.google.protobuf.ByteString
@@ -984,7 +848,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string phone = 5;</code>
+     * <code>string phone = 4;</code>
      * @param value The phone to set.
      * @return This builder for chaining.
      */
@@ -992,22 +856,22 @@ private static final long serialVersionUID = 0L;
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
       phone_ = value;
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
     /**
-     * <code>string phone = 5;</code>
+     * <code>string phone = 4;</code>
      * @return This builder for chaining.
      */
     public Builder clearPhone() {
       phone_ = getDefaultInstance().getPhone();
-      bitField0_ = (bitField0_ & ~0x00000010);
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
     /**
-     * <code>string phone = 5;</code>
+     * <code>string phone = 4;</code>
      * @param value The bytes for phone to set.
      * @return This builder for chaining.
      */
@@ -1016,7 +880,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
       phone_ = value;
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }

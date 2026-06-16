@@ -17,7 +17,8 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private GetUserPermissionsResponse() {
-    permissions_ = java.util.Collections.emptyList();
+    permissions_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
   }
 
   @java.lang.Override
@@ -42,43 +43,39 @@ private static final long serialVersionUID = 0L;
 
   public static final int PERMISSIONS_FIELD_NUMBER = 1;
   @SuppressWarnings("serial")
-  private java.util.List<com.trizo1104.auth.proto.Permission> permissions_;
+  private com.google.protobuf.LazyStringArrayList permissions_ =
+      com.google.protobuf.LazyStringArrayList.emptyList();
   /**
-   * <code>repeated .auth.Permission permissions = 1;</code>
+   * <code>repeated string permissions = 1;</code>
+   * @return A list containing the permissions.
    */
-  @java.lang.Override
-  public java.util.List<com.trizo1104.auth.proto.Permission> getPermissionsList() {
+  public com.google.protobuf.ProtocolStringList
+      getPermissionsList() {
     return permissions_;
   }
   /**
-   * <code>repeated .auth.Permission permissions = 1;</code>
+   * <code>repeated string permissions = 1;</code>
+   * @return The count of permissions.
    */
-  @java.lang.Override
-  public java.util.List<? extends com.trizo1104.auth.proto.PermissionOrBuilder> 
-      getPermissionsOrBuilderList() {
-    return permissions_;
-  }
-  /**
-   * <code>repeated .auth.Permission permissions = 1;</code>
-   */
-  @java.lang.Override
   public int getPermissionsCount() {
     return permissions_.size();
   }
   /**
-   * <code>repeated .auth.Permission permissions = 1;</code>
+   * <code>repeated string permissions = 1;</code>
+   * @param index The index of the element to return.
+   * @return The permissions at the given index.
    */
-  @java.lang.Override
-  public com.trizo1104.auth.proto.Permission getPermissions(int index) {
+  public java.lang.String getPermissions(int index) {
     return permissions_.get(index);
   }
   /**
-   * <code>repeated .auth.Permission permissions = 1;</code>
+   * <code>repeated string permissions = 1;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the permissions at the given index.
    */
-  @java.lang.Override
-  public com.trizo1104.auth.proto.PermissionOrBuilder getPermissionsOrBuilder(
-      int index) {
-    return permissions_.get(index);
+  public com.google.protobuf.ByteString
+      getPermissionsBytes(int index) {
+    return permissions_.getByteString(index);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -96,7 +93,7 @@ private static final long serialVersionUID = 0L;
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     for (int i = 0; i < permissions_.size(); i++) {
-      output.writeMessage(1, permissions_.get(i));
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, permissions_.getRaw(i));
     }
     getUnknownFields().writeTo(output);
   }
@@ -107,9 +104,13 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    for (int i = 0; i < permissions_.size(); i++) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, permissions_.get(i));
+    {
+      int dataSize = 0;
+      for (int i = 0; i < permissions_.size(); i++) {
+        dataSize += computeStringSizeNoTag(permissions_.getRaw(i));
+      }
+      size += dataSize;
+      size += 1 * getPermissionsList().size();
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -274,13 +275,8 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
-      if (permissionsBuilder_ == null) {
-        permissions_ = java.util.Collections.emptyList();
-      } else {
-        permissions_ = null;
-        permissionsBuilder_.clear();
-      }
-      bitField0_ = (bitField0_ & ~0x00000001);
+      permissions_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
       return this;
     }
 
@@ -307,26 +303,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.trizo1104.auth.proto.GetUserPermissionsResponse buildPartial() {
       com.trizo1104.auth.proto.GetUserPermissionsResponse result = new com.trizo1104.auth.proto.GetUserPermissionsResponse(this);
-      buildPartialRepeatedFields(result);
       if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
     }
 
-    private void buildPartialRepeatedFields(com.trizo1104.auth.proto.GetUserPermissionsResponse result) {
-      if (permissionsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
-          permissions_ = java.util.Collections.unmodifiableList(permissions_);
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.permissions_ = permissions_;
-      } else {
-        result.permissions_ = permissionsBuilder_.build();
-      }
-    }
-
     private void buildPartial0(com.trizo1104.auth.proto.GetUserPermissionsResponse result) {
       int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        permissions_.makeImmutable();
+        result.permissions_ = permissions_;
+      }
     }
 
     @java.lang.Override
@@ -373,31 +360,15 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.trizo1104.auth.proto.GetUserPermissionsResponse other) {
       if (other == com.trizo1104.auth.proto.GetUserPermissionsResponse.getDefaultInstance()) return this;
-      if (permissionsBuilder_ == null) {
-        if (!other.permissions_.isEmpty()) {
-          if (permissions_.isEmpty()) {
-            permissions_ = other.permissions_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-          } else {
-            ensurePermissionsIsMutable();
-            permissions_.addAll(other.permissions_);
-          }
-          onChanged();
+      if (!other.permissions_.isEmpty()) {
+        if (permissions_.isEmpty()) {
+          permissions_ = other.permissions_;
+          bitField0_ |= 0x00000001;
+        } else {
+          ensurePermissionsIsMutable();
+          permissions_.addAll(other.permissions_);
         }
-      } else {
-        if (!other.permissions_.isEmpty()) {
-          if (permissionsBuilder_.isEmpty()) {
-            permissionsBuilder_.dispose();
-            permissionsBuilder_ = null;
-            permissions_ = other.permissions_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-            permissionsBuilder_ = 
-              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                 getPermissionsFieldBuilder() : null;
-          } else {
-            permissionsBuilder_.addAllMessages(other.permissions_);
-          }
-        }
+        onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -426,16 +397,9 @@ private static final long serialVersionUID = 0L;
               done = true;
               break;
             case 10: {
-              com.trizo1104.auth.proto.Permission m =
-                  input.readMessage(
-                      com.trizo1104.auth.proto.Permission.parser(),
-                      extensionRegistry);
-              if (permissionsBuilder_ == null) {
-                ensurePermissionsIsMutable();
-                permissions_.add(m);
-              } else {
-                permissionsBuilder_.addMessage(m);
-              }
+              java.lang.String s = input.readStringRequireUtf8();
+              ensurePermissionsIsMutable();
+              permissions_.add(s);
               break;
             } // case 10
             default: {
@@ -455,244 +419,115 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.util.List<com.trizo1104.auth.proto.Permission> permissions_ =
-      java.util.Collections.emptyList();
+    private com.google.protobuf.LazyStringArrayList permissions_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
     private void ensurePermissionsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
-        permissions_ = new java.util.ArrayList<com.trizo1104.auth.proto.Permission>(permissions_);
-        bitField0_ |= 0x00000001;
-       }
-    }
-
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-        com.trizo1104.auth.proto.Permission, com.trizo1104.auth.proto.Permission.Builder, com.trizo1104.auth.proto.PermissionOrBuilder> permissionsBuilder_;
-
-    /**
-     * <code>repeated .auth.Permission permissions = 1;</code>
-     */
-    public java.util.List<com.trizo1104.auth.proto.Permission> getPermissionsList() {
-      if (permissionsBuilder_ == null) {
-        return java.util.Collections.unmodifiableList(permissions_);
-      } else {
-        return permissionsBuilder_.getMessageList();
+      if (!permissions_.isModifiable()) {
+        permissions_ = new com.google.protobuf.LazyStringArrayList(permissions_);
       }
+      bitField0_ |= 0x00000001;
     }
     /**
-     * <code>repeated .auth.Permission permissions = 1;</code>
+     * <code>repeated string permissions = 1;</code>
+     * @return A list containing the permissions.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getPermissionsList() {
+      permissions_.makeImmutable();
+      return permissions_;
+    }
+    /**
+     * <code>repeated string permissions = 1;</code>
+     * @return The count of permissions.
      */
     public int getPermissionsCount() {
-      if (permissionsBuilder_ == null) {
-        return permissions_.size();
-      } else {
-        return permissionsBuilder_.getCount();
-      }
+      return permissions_.size();
     }
     /**
-     * <code>repeated .auth.Permission permissions = 1;</code>
+     * <code>repeated string permissions = 1;</code>
+     * @param index The index of the element to return.
+     * @return The permissions at the given index.
      */
-    public com.trizo1104.auth.proto.Permission getPermissions(int index) {
-      if (permissionsBuilder_ == null) {
-        return permissions_.get(index);
-      } else {
-        return permissionsBuilder_.getMessage(index);
-      }
+    public java.lang.String getPermissions(int index) {
+      return permissions_.get(index);
     }
     /**
-     * <code>repeated .auth.Permission permissions = 1;</code>
+     * <code>repeated string permissions = 1;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the permissions at the given index.
      */
-    public Builder setPermissions(
-        int index, com.trizo1104.auth.proto.Permission value) {
-      if (permissionsBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensurePermissionsIsMutable();
-        permissions_.set(index, value);
-        onChanged();
-      } else {
-        permissionsBuilder_.setMessage(index, value);
-      }
-      return this;
+    public com.google.protobuf.ByteString
+        getPermissionsBytes(int index) {
+      return permissions_.getByteString(index);
     }
     /**
-     * <code>repeated .auth.Permission permissions = 1;</code>
+     * <code>repeated string permissions = 1;</code>
+     * @param index The index to set the value at.
+     * @param value The permissions to set.
+     * @return This builder for chaining.
      */
     public Builder setPermissions(
-        int index, com.trizo1104.auth.proto.Permission.Builder builderForValue) {
-      if (permissionsBuilder_ == null) {
-        ensurePermissionsIsMutable();
-        permissions_.set(index, builderForValue.build());
-        onChanged();
-      } else {
-        permissionsBuilder_.setMessage(index, builderForValue.build());
-      }
+        int index, java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      ensurePermissionsIsMutable();
+      permissions_.set(index, value);
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
-     * <code>repeated .auth.Permission permissions = 1;</code>
-     */
-    public Builder addPermissions(com.trizo1104.auth.proto.Permission value) {
-      if (permissionsBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensurePermissionsIsMutable();
-        permissions_.add(value);
-        onChanged();
-      } else {
-        permissionsBuilder_.addMessage(value);
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .auth.Permission permissions = 1;</code>
+     * <code>repeated string permissions = 1;</code>
+     * @param value The permissions to add.
+     * @return This builder for chaining.
      */
     public Builder addPermissions(
-        int index, com.trizo1104.auth.proto.Permission value) {
-      if (permissionsBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensurePermissionsIsMutable();
-        permissions_.add(index, value);
-        onChanged();
-      } else {
-        permissionsBuilder_.addMessage(index, value);
-      }
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      ensurePermissionsIsMutable();
+      permissions_.add(value);
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
-     * <code>repeated .auth.Permission permissions = 1;</code>
-     */
-    public Builder addPermissions(
-        com.trizo1104.auth.proto.Permission.Builder builderForValue) {
-      if (permissionsBuilder_ == null) {
-        ensurePermissionsIsMutable();
-        permissions_.add(builderForValue.build());
-        onChanged();
-      } else {
-        permissionsBuilder_.addMessage(builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .auth.Permission permissions = 1;</code>
-     */
-    public Builder addPermissions(
-        int index, com.trizo1104.auth.proto.Permission.Builder builderForValue) {
-      if (permissionsBuilder_ == null) {
-        ensurePermissionsIsMutable();
-        permissions_.add(index, builderForValue.build());
-        onChanged();
-      } else {
-        permissionsBuilder_.addMessage(index, builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .auth.Permission permissions = 1;</code>
+     * <code>repeated string permissions = 1;</code>
+     * @param values The permissions to add.
+     * @return This builder for chaining.
      */
     public Builder addAllPermissions(
-        java.lang.Iterable<? extends com.trizo1104.auth.proto.Permission> values) {
-      if (permissionsBuilder_ == null) {
-        ensurePermissionsIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, permissions_);
-        onChanged();
-      } else {
-        permissionsBuilder_.addAllMessages(values);
-      }
+        java.lang.Iterable<java.lang.String> values) {
+      ensurePermissionsIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, permissions_);
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
-     * <code>repeated .auth.Permission permissions = 1;</code>
+     * <code>repeated string permissions = 1;</code>
+     * @return This builder for chaining.
      */
     public Builder clearPermissions() {
-      if (permissionsBuilder_ == null) {
-        permissions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
-        onChanged();
-      } else {
-        permissionsBuilder_.clear();
-      }
+      permissions_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
+      bitField0_ = (bitField0_ & ~0x00000001);;
+      onChanged();
       return this;
     }
     /**
-     * <code>repeated .auth.Permission permissions = 1;</code>
+     * <code>repeated string permissions = 1;</code>
+     * @param value The bytes of the permissions to add.
+     * @return This builder for chaining.
      */
-    public Builder removePermissions(int index) {
-      if (permissionsBuilder_ == null) {
-        ensurePermissionsIsMutable();
-        permissions_.remove(index);
-        onChanged();
-      } else {
-        permissionsBuilder_.remove(index);
-      }
+    public Builder addPermissionsBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      ensurePermissionsIsMutable();
+      permissions_.add(value);
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
-    }
-    /**
-     * <code>repeated .auth.Permission permissions = 1;</code>
-     */
-    public com.trizo1104.auth.proto.Permission.Builder getPermissionsBuilder(
-        int index) {
-      return getPermissionsFieldBuilder().getBuilder(index);
-    }
-    /**
-     * <code>repeated .auth.Permission permissions = 1;</code>
-     */
-    public com.trizo1104.auth.proto.PermissionOrBuilder getPermissionsOrBuilder(
-        int index) {
-      if (permissionsBuilder_ == null) {
-        return permissions_.get(index);  } else {
-        return permissionsBuilder_.getMessageOrBuilder(index);
-      }
-    }
-    /**
-     * <code>repeated .auth.Permission permissions = 1;</code>
-     */
-    public java.util.List<? extends com.trizo1104.auth.proto.PermissionOrBuilder> 
-         getPermissionsOrBuilderList() {
-      if (permissionsBuilder_ != null) {
-        return permissionsBuilder_.getMessageOrBuilderList();
-      } else {
-        return java.util.Collections.unmodifiableList(permissions_);
-      }
-    }
-    /**
-     * <code>repeated .auth.Permission permissions = 1;</code>
-     */
-    public com.trizo1104.auth.proto.Permission.Builder addPermissionsBuilder() {
-      return getPermissionsFieldBuilder().addBuilder(
-          com.trizo1104.auth.proto.Permission.getDefaultInstance());
-    }
-    /**
-     * <code>repeated .auth.Permission permissions = 1;</code>
-     */
-    public com.trizo1104.auth.proto.Permission.Builder addPermissionsBuilder(
-        int index) {
-      return getPermissionsFieldBuilder().addBuilder(
-          index, com.trizo1104.auth.proto.Permission.getDefaultInstance());
-    }
-    /**
-     * <code>repeated .auth.Permission permissions = 1;</code>
-     */
-    public java.util.List<com.trizo1104.auth.proto.Permission.Builder> 
-         getPermissionsBuilderList() {
-      return getPermissionsFieldBuilder().getBuilderList();
-    }
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-        com.trizo1104.auth.proto.Permission, com.trizo1104.auth.proto.Permission.Builder, com.trizo1104.auth.proto.PermissionOrBuilder> 
-        getPermissionsFieldBuilder() {
-      if (permissionsBuilder_ == null) {
-        permissionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-            com.trizo1104.auth.proto.Permission, com.trizo1104.auth.proto.Permission.Builder, com.trizo1104.auth.proto.PermissionOrBuilder>(
-                permissions_,
-                ((bitField0_ & 0x00000001) != 0),
-                getParentForChildren(),
-                isClean());
-        permissions_ = null;
-      }
-      return permissionsBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

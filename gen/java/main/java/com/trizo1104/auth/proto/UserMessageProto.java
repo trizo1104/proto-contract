@@ -69,59 +69,49 @@ public final class UserMessageProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\027auth/user_message.proto\022\004auth\032\027auth/ro" +
-      "le_message.proto\032\037google/protobuf/timest" +
-      "amp.proto\032\035auth/permission_message.proto" +
-      "\"\231\002\n\004User\022\n\n\002id\030\001 \001(\t\022\020\n\010username\030\002 \001(\t\022" +
-      "\r\n\005email\030\003 \001(\t\022\021\n\tfull_name\030\004 \001(\t\022\r\n\005pho" +
-      "ne\030\005 \001(\t\022 \n\006status\030\006 \001(\0162\020.auth.UserStat" +
-      "us\022\031\n\005roles\030\007 \003(\0132\n.auth.Role\022%\n\013permiss" +
-      "ions\030\010 \003(\0132\020.auth.Permission\022.\n\ncreated_" +
-      "at\030\t \001(\0132\032.google.protobuf.Timestamp\022.\n\n" +
-      "updated_at\030\n \001(\0132\032.google.protobuf.Times" +
-      "tamp\"h\n\021CreateUserRequest\022\020\n\010username\030\001 " +
-      "\001(\t\022\r\n\005email\030\002 \001(\t\022\020\n\010password\030\003 \001(\t\022\021\n\t" +
-      "full_name\030\004 \001(\t\022\r\n\005phone\030\005 \001(\t\"r\n\021Update" +
-      "UserRequest\022\n\n\002id\030\001 \001(\t\022\r\n\005email\030\002 \001(\t\022\021" +
-      "\n\tfull_name\030\003 \001(\t\022\r\n\005phone\030\004 \001(\t\022 \n\006stat" +
-      "us\030\005 \001(\0162\020.auth.UserStatus\"\037\n\021DeleteUser" +
-      "Request\022\n\n\002id\030\001 \001(\t\"6\n\022DeleteUserRespons" +
-      "e\022\017\n\007success\030\001 \001(\010\022\017\n\007message\030\002 \001(\t\" \n\022G" +
-      "etUserByIdRequest\022\n\n\002id\030\001 \001(\t\"(\n\014UserRes" +
-      "ponse\022\030\n\004user\030\001 \001(\0132\n.auth.User\"?\n\020ListU" +
-      "sersRequest\022\014\n\004page\030\001 \001(\005\022\014\n\004size\030\002 \001(\005\022" +
-      "\017\n\007keyword\030\003 \001(\t\"=\n\021ListUsersResponse\022\031\n" +
-      "\005users\030\001 \003(\0132\n.auth.User\022\r\n\005total\030\002 \001(\003*" +
-      "O\n\nUserStatus\022\033\n\027USER_STATUS_UNSPECIFIED" +
-      "\020\000\022\n\n\006ACTIVE\020\001\022\014\n\010INACTIVE\020\002\022\n\n\006LOCKED\020\003" +
-      "B.\n\030com.trizo1104.auth.protoB\020UserMessag" +
-      "eProtoP\001b\006proto3"
+      "\n\027auth/user_message.proto\022\004auth\"v\n\004User\022" +
+      "\n\n\002id\030\001 \001(\t\022\020\n\010username\030\002 \001(\t\022\r\n\005email\030\003" +
+      " \001(\t\022\r\n\005phone\030\004 \001(\t\022\016\n\006status\030\005 \001(\t\022\r\n\005r" +
+      "oles\030\006 \003(\t\022\023\n\013permissions\030\007 \003(\t\"U\n\021Creat" +
+      "eUserRequest\022\020\n\010username\030\001 \001(\t\022\r\n\005email\030" +
+      "\002 \001(\t\022\020\n\010password\030\003 \001(\t\022\r\n\005phone\030\004 \001(\t\"_" +
+      "\n\021UpdateUserRequest\022\n\n\002id\030\001 \001(\t\022\r\n\005email" +
+      "\030\002 \001(\t\022\r\n\005phone\030\003 \001(\t\022 \n\006status\030\004 \001(\0162\020." +
+      "auth.UserStatus\"\037\n\021DeleteUserRequest\022\n\n\002" +
+      "id\030\001 \001(\t\"6\n\022DeleteUserResponse\022\017\n\007succes" +
+      "s\030\001 \001(\010\022\017\n\007message\030\002 \001(\t\" \n\022GetUserByIdR" +
+      "equest\022\n\n\002id\030\001 \001(\t\"(\n\014UserResponse\022\030\n\004us" +
+      "er\030\001 \001(\0132\n.auth.User\"?\n\020ListUsersRequest" +
+      "\022\014\n\004page\030\001 \001(\005\022\014\n\004size\030\002 \001(\005\022\017\n\007keyword\030" +
+      "\003 \001(\t\"=\n\021ListUsersResponse\022\031\n\005users\030\001 \003(" +
+      "\0132\n.auth.User\022\r\n\005total\030\002 \001(\003*O\n\nUserStat" +
+      "us\022\033\n\027USER_STATUS_UNSPECIFIED\020\000\022\n\n\006ACTIV" +
+      "E\020\001\022\014\n\010INACTIVE\020\002\022\n\n\006LOCKED\020\003B.\n\030com.tri" +
+      "zo1104.auth.protoB\020UserMessageProtoP\001b\006p" +
+      "roto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          com.trizo1104.auth.proto.RoleMessageProto.getDescriptor(),
-          com.google.protobuf.TimestampProto.getDescriptor(),
-          com.trizo1104.auth.proto.PermissionMessageProto.getDescriptor(),
         });
     internal_static_auth_User_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_auth_User_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_auth_User_descriptor,
-        new java.lang.String[] { "Id", "Username", "Email", "FullName", "Phone", "Status", "Roles", "Permissions", "CreatedAt", "UpdatedAt", });
+        new java.lang.String[] { "Id", "Username", "Email", "Phone", "Status", "Roles", "Permissions", });
     internal_static_auth_CreateUserRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_auth_CreateUserRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_auth_CreateUserRequest_descriptor,
-        new java.lang.String[] { "Username", "Email", "Password", "FullName", "Phone", });
+        new java.lang.String[] { "Username", "Email", "Password", "Phone", });
     internal_static_auth_UpdateUserRequest_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_auth_UpdateUserRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_auth_UpdateUserRequest_descriptor,
-        new java.lang.String[] { "Id", "Email", "FullName", "Phone", "Status", });
+        new java.lang.String[] { "Id", "Email", "Phone", "Status", });
     internal_static_auth_DeleteUserRequest_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_auth_DeleteUserRequest_fieldAccessorTable = new
@@ -158,9 +148,6 @@ public final class UserMessageProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_auth_ListUsersResponse_descriptor,
         new java.lang.String[] { "Users", "Total", });
-    com.trizo1104.auth.proto.RoleMessageProto.getDescriptor();
-    com.google.protobuf.TimestampProto.getDescriptor();
-    com.trizo1104.auth.proto.PermissionMessageProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

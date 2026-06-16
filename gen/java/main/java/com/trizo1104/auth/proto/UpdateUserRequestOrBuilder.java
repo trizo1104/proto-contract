@@ -33,36 +33,24 @@ public interface UpdateUserRequestOrBuilder extends
       getEmailBytes();
 
   /**
-   * <code>string full_name = 3;</code>
-   * @return The fullName.
-   */
-  java.lang.String getFullName();
-  /**
-   * <code>string full_name = 3;</code>
-   * @return The bytes for fullName.
-   */
-  com.google.protobuf.ByteString
-      getFullNameBytes();
-
-  /**
-   * <code>string phone = 4;</code>
+   * <code>string phone = 3;</code>
    * @return The phone.
    */
   java.lang.String getPhone();
   /**
-   * <code>string phone = 4;</code>
+   * <code>string phone = 3;</code>
    * @return The bytes for phone.
    */
   com.google.protobuf.ByteString
       getPhoneBytes();
 
   /**
-   * <code>.auth.UserStatus status = 5;</code>
+   * <code>.auth.UserStatus status = 4;</code>
    * @return The enum numeric value on the wire for status.
    */
   int getStatusValue();
   /**
-   * <code>.auth.UserStatus status = 5;</code>
+   * <code>.auth.UserStatus status = 4;</code>
    * @return The status.
    */
   com.trizo1104.auth.proto.UserStatus getStatus();

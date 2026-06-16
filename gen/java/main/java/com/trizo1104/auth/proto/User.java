@@ -20,11 +20,12 @@ private static final long serialVersionUID = 0L;
     id_ = "";
     username_ = "";
     email_ = "";
-    fullName_ = "";
     phone_ = "";
-    status_ = 0;
-    roles_ = java.util.Collections.emptyList();
-    permissions_ = java.util.Collections.emptyList();
+    status_ = "";
+    roles_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
+    permissions_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
   }
 
   @java.lang.Override
@@ -47,7 +48,6 @@ private static final long serialVersionUID = 0L;
             com.trizo1104.auth.proto.User.class, com.trizo1104.auth.proto.User.Builder.class);
   }
 
-  private int bitField0_;
   public static final int ID_FIELD_NUMBER = 1;
   @SuppressWarnings("serial")
   private volatile java.lang.Object id_ = "";
@@ -165,50 +165,11 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int FULL_NAME_FIELD_NUMBER = 4;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object fullName_ = "";
-  /**
-   * <code>string full_name = 4;</code>
-   * @return The fullName.
-   */
-  @java.lang.Override
-  public java.lang.String getFullName() {
-    java.lang.Object ref = fullName_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      fullName_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string full_name = 4;</code>
-   * @return The bytes for fullName.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getFullNameBytes() {
-    java.lang.Object ref = fullName_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      fullName_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int PHONE_FIELD_NUMBER = 5;
+  public static final int PHONE_FIELD_NUMBER = 4;
   @SuppressWarnings("serial")
   private volatile java.lang.Object phone_ = "";
   /**
-   * <code>string phone = 5;</code>
+   * <code>string phone = 4;</code>
    * @return The phone.
    */
   @java.lang.Override
@@ -225,7 +186,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string phone = 5;</code>
+   * <code>string phone = 4;</code>
    * @return The bytes for phone.
    */
   @java.lang.Override
@@ -243,156 +204,117 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int STATUS_FIELD_NUMBER = 6;
-  private int status_ = 0;
+  public static final int STATUS_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object status_ = "";
   /**
-   * <code>.auth.UserStatus status = 6;</code>
-   * @return The enum numeric value on the wire for status.
-   */
-  @java.lang.Override public int getStatusValue() {
-    return status_;
-  }
-  /**
-   * <code>.auth.UserStatus status = 6;</code>
+   * <code>string status = 5;</code>
    * @return The status.
    */
-  @java.lang.Override public com.trizo1104.auth.proto.UserStatus getStatus() {
-    com.trizo1104.auth.proto.UserStatus result = com.trizo1104.auth.proto.UserStatus.forNumber(status_);
-    return result == null ? com.trizo1104.auth.proto.UserStatus.UNRECOGNIZED : result;
+  @java.lang.Override
+  public java.lang.String getStatus() {
+    java.lang.Object ref = status_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      status_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string status = 5;</code>
+   * @return The bytes for status.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getStatusBytes() {
+    java.lang.Object ref = status_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      status_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
-  public static final int ROLES_FIELD_NUMBER = 7;
+  public static final int ROLES_FIELD_NUMBER = 6;
   @SuppressWarnings("serial")
-  private java.util.List<com.trizo1104.auth.proto.Role> roles_;
+  private com.google.protobuf.LazyStringArrayList roles_ =
+      com.google.protobuf.LazyStringArrayList.emptyList();
   /**
-   * <code>repeated .auth.Role roles = 7;</code>
+   * <code>repeated string roles = 6;</code>
+   * @return A list containing the roles.
    */
-  @java.lang.Override
-  public java.util.List<com.trizo1104.auth.proto.Role> getRolesList() {
+  public com.google.protobuf.ProtocolStringList
+      getRolesList() {
     return roles_;
   }
   /**
-   * <code>repeated .auth.Role roles = 7;</code>
+   * <code>repeated string roles = 6;</code>
+   * @return The count of roles.
    */
-  @java.lang.Override
-  public java.util.List<? extends com.trizo1104.auth.proto.RoleOrBuilder> 
-      getRolesOrBuilderList() {
-    return roles_;
-  }
-  /**
-   * <code>repeated .auth.Role roles = 7;</code>
-   */
-  @java.lang.Override
   public int getRolesCount() {
     return roles_.size();
   }
   /**
-   * <code>repeated .auth.Role roles = 7;</code>
+   * <code>repeated string roles = 6;</code>
+   * @param index The index of the element to return.
+   * @return The roles at the given index.
    */
-  @java.lang.Override
-  public com.trizo1104.auth.proto.Role getRoles(int index) {
+  public java.lang.String getRoles(int index) {
     return roles_.get(index);
   }
   /**
-   * <code>repeated .auth.Role roles = 7;</code>
+   * <code>repeated string roles = 6;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the roles at the given index.
    */
-  @java.lang.Override
-  public com.trizo1104.auth.proto.RoleOrBuilder getRolesOrBuilder(
-      int index) {
-    return roles_.get(index);
+  public com.google.protobuf.ByteString
+      getRolesBytes(int index) {
+    return roles_.getByteString(index);
   }
 
-  public static final int PERMISSIONS_FIELD_NUMBER = 8;
+  public static final int PERMISSIONS_FIELD_NUMBER = 7;
   @SuppressWarnings("serial")
-  private java.util.List<com.trizo1104.auth.proto.Permission> permissions_;
+  private com.google.protobuf.LazyStringArrayList permissions_ =
+      com.google.protobuf.LazyStringArrayList.emptyList();
   /**
-   * <code>repeated .auth.Permission permissions = 8;</code>
+   * <code>repeated string permissions = 7;</code>
+   * @return A list containing the permissions.
    */
-  @java.lang.Override
-  public java.util.List<com.trizo1104.auth.proto.Permission> getPermissionsList() {
+  public com.google.protobuf.ProtocolStringList
+      getPermissionsList() {
     return permissions_;
   }
   /**
-   * <code>repeated .auth.Permission permissions = 8;</code>
+   * <code>repeated string permissions = 7;</code>
+   * @return The count of permissions.
    */
-  @java.lang.Override
-  public java.util.List<? extends com.trizo1104.auth.proto.PermissionOrBuilder> 
-      getPermissionsOrBuilderList() {
-    return permissions_;
-  }
-  /**
-   * <code>repeated .auth.Permission permissions = 8;</code>
-   */
-  @java.lang.Override
   public int getPermissionsCount() {
     return permissions_.size();
   }
   /**
-   * <code>repeated .auth.Permission permissions = 8;</code>
+   * <code>repeated string permissions = 7;</code>
+   * @param index The index of the element to return.
+   * @return The permissions at the given index.
    */
-  @java.lang.Override
-  public com.trizo1104.auth.proto.Permission getPermissions(int index) {
+  public java.lang.String getPermissions(int index) {
     return permissions_.get(index);
   }
   /**
-   * <code>repeated .auth.Permission permissions = 8;</code>
+   * <code>repeated string permissions = 7;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the permissions at the given index.
    */
-  @java.lang.Override
-  public com.trizo1104.auth.proto.PermissionOrBuilder getPermissionsOrBuilder(
-      int index) {
-    return permissions_.get(index);
-  }
-
-  public static final int CREATED_AT_FIELD_NUMBER = 9;
-  private com.google.protobuf.Timestamp createdAt_;
-  /**
-   * <code>.google.protobuf.Timestamp created_at = 9;</code>
-   * @return Whether the createdAt field is set.
-   */
-  @java.lang.Override
-  public boolean hasCreatedAt() {
-    return ((bitField0_ & 0x00000001) != 0);
-  }
-  /**
-   * <code>.google.protobuf.Timestamp created_at = 9;</code>
-   * @return The createdAt.
-   */
-  @java.lang.Override
-  public com.google.protobuf.Timestamp getCreatedAt() {
-    return createdAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createdAt_;
-  }
-  /**
-   * <code>.google.protobuf.Timestamp created_at = 9;</code>
-   */
-  @java.lang.Override
-  public com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder() {
-    return createdAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createdAt_;
-  }
-
-  public static final int UPDATED_AT_FIELD_NUMBER = 10;
-  private com.google.protobuf.Timestamp updatedAt_;
-  /**
-   * <code>.google.protobuf.Timestamp updated_at = 10;</code>
-   * @return Whether the updatedAt field is set.
-   */
-  @java.lang.Override
-  public boolean hasUpdatedAt() {
-    return ((bitField0_ & 0x00000002) != 0);
-  }
-  /**
-   * <code>.google.protobuf.Timestamp updated_at = 10;</code>
-   * @return The updatedAt.
-   */
-  @java.lang.Override
-  public com.google.protobuf.Timestamp getUpdatedAt() {
-    return updatedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updatedAt_;
-  }
-  /**
-   * <code>.google.protobuf.Timestamp updated_at = 10;</code>
-   */
-  @java.lang.Override
-  public com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder() {
-    return updatedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updatedAt_;
+  public com.google.protobuf.ByteString
+      getPermissionsBytes(int index) {
+    return permissions_.getByteString(index);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -418,26 +340,17 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(email_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, email_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fullName_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, fullName_);
-    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(phone_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, phone_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, phone_);
     }
-    if (status_ != com.trizo1104.auth.proto.UserStatus.USER_STATUS_UNSPECIFIED.getNumber()) {
-      output.writeEnum(6, status_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(status_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, status_);
     }
     for (int i = 0; i < roles_.size(); i++) {
-      output.writeMessage(7, roles_.get(i));
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, roles_.getRaw(i));
     }
     for (int i = 0; i < permissions_.size(); i++) {
-      output.writeMessage(8, permissions_.get(i));
-    }
-    if (((bitField0_ & 0x00000001) != 0)) {
-      output.writeMessage(9, getCreatedAt());
-    }
-    if (((bitField0_ & 0x00000002) != 0)) {
-      output.writeMessage(10, getUpdatedAt());
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, permissions_.getRaw(i));
     }
     getUnknownFields().writeTo(output);
   }
@@ -457,31 +370,27 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(email_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, email_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fullName_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, fullName_);
-    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(phone_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, phone_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, phone_);
     }
-    if (status_ != com.trizo1104.auth.proto.UserStatus.USER_STATUS_UNSPECIFIED.getNumber()) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(6, status_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(status_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, status_);
     }
-    for (int i = 0; i < roles_.size(); i++) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(7, roles_.get(i));
+    {
+      int dataSize = 0;
+      for (int i = 0; i < roles_.size(); i++) {
+        dataSize += computeStringSizeNoTag(roles_.getRaw(i));
+      }
+      size += dataSize;
+      size += 1 * getRolesList().size();
     }
-    for (int i = 0; i < permissions_.size(); i++) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(8, permissions_.get(i));
-    }
-    if (((bitField0_ & 0x00000001) != 0)) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(9, getCreatedAt());
-    }
-    if (((bitField0_ & 0x00000002) != 0)) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(10, getUpdatedAt());
+    {
+      int dataSize = 0;
+      for (int i = 0; i < permissions_.size(); i++) {
+        dataSize += computeStringSizeNoTag(permissions_.getRaw(i));
+      }
+      size += dataSize;
+      size += 1 * getPermissionsList().size();
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -504,25 +413,14 @@ private static final long serialVersionUID = 0L;
         .equals(other.getUsername())) return false;
     if (!getEmail()
         .equals(other.getEmail())) return false;
-    if (!getFullName()
-        .equals(other.getFullName())) return false;
     if (!getPhone()
         .equals(other.getPhone())) return false;
-    if (status_ != other.status_) return false;
+    if (!getStatus()
+        .equals(other.getStatus())) return false;
     if (!getRolesList()
         .equals(other.getRolesList())) return false;
     if (!getPermissionsList()
         .equals(other.getPermissionsList())) return false;
-    if (hasCreatedAt() != other.hasCreatedAt()) return false;
-    if (hasCreatedAt()) {
-      if (!getCreatedAt()
-          .equals(other.getCreatedAt())) return false;
-    }
-    if (hasUpdatedAt() != other.hasUpdatedAt()) return false;
-    if (hasUpdatedAt()) {
-      if (!getUpdatedAt()
-          .equals(other.getUpdatedAt())) return false;
-    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -540,12 +438,10 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getUsername().hashCode();
     hash = (37 * hash) + EMAIL_FIELD_NUMBER;
     hash = (53 * hash) + getEmail().hashCode();
-    hash = (37 * hash) + FULL_NAME_FIELD_NUMBER;
-    hash = (53 * hash) + getFullName().hashCode();
     hash = (37 * hash) + PHONE_FIELD_NUMBER;
     hash = (53 * hash) + getPhone().hashCode();
     hash = (37 * hash) + STATUS_FIELD_NUMBER;
-    hash = (53 * hash) + status_;
+    hash = (53 * hash) + getStatus().hashCode();
     if (getRolesCount() > 0) {
       hash = (37 * hash) + ROLES_FIELD_NUMBER;
       hash = (53 * hash) + getRolesList().hashCode();
@@ -553,14 +449,6 @@ private static final long serialVersionUID = 0L;
     if (getPermissionsCount() > 0) {
       hash = (37 * hash) + PERMISSIONS_FIELD_NUMBER;
       hash = (53 * hash) + getPermissionsList().hashCode();
-    }
-    if (hasCreatedAt()) {
-      hash = (37 * hash) + CREATED_AT_FIELD_NUMBER;
-      hash = (53 * hash) + getCreatedAt().hashCode();
-    }
-    if (hasUpdatedAt()) {
-      hash = (37 * hash) + UPDATED_AT_FIELD_NUMBER;
-      hash = (53 * hash) + getUpdatedAt().hashCode();
     }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
@@ -681,22 +569,13 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.trizo1104.auth.proto.User.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getRolesFieldBuilder();
-        getPermissionsFieldBuilder();
-        getCreatedAtFieldBuilder();
-        getUpdatedAtFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
@@ -705,33 +584,12 @@ private static final long serialVersionUID = 0L;
       id_ = "";
       username_ = "";
       email_ = "";
-      fullName_ = "";
       phone_ = "";
-      status_ = 0;
-      if (rolesBuilder_ == null) {
-        roles_ = java.util.Collections.emptyList();
-      } else {
-        roles_ = null;
-        rolesBuilder_.clear();
-      }
-      bitField0_ = (bitField0_ & ~0x00000040);
-      if (permissionsBuilder_ == null) {
-        permissions_ = java.util.Collections.emptyList();
-      } else {
-        permissions_ = null;
-        permissionsBuilder_.clear();
-      }
-      bitField0_ = (bitField0_ & ~0x00000080);
-      createdAt_ = null;
-      if (createdAtBuilder_ != null) {
-        createdAtBuilder_.dispose();
-        createdAtBuilder_ = null;
-      }
-      updatedAt_ = null;
-      if (updatedAtBuilder_ != null) {
-        updatedAtBuilder_.dispose();
-        updatedAtBuilder_ = null;
-      }
+      status_ = "";
+      roles_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      permissions_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
       return this;
     }
 
@@ -758,31 +616,9 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.trizo1104.auth.proto.User buildPartial() {
       com.trizo1104.auth.proto.User result = new com.trizo1104.auth.proto.User(this);
-      buildPartialRepeatedFields(result);
       if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
-    }
-
-    private void buildPartialRepeatedFields(com.trizo1104.auth.proto.User result) {
-      if (rolesBuilder_ == null) {
-        if (((bitField0_ & 0x00000040) != 0)) {
-          roles_ = java.util.Collections.unmodifiableList(roles_);
-          bitField0_ = (bitField0_ & ~0x00000040);
-        }
-        result.roles_ = roles_;
-      } else {
-        result.roles_ = rolesBuilder_.build();
-      }
-      if (permissionsBuilder_ == null) {
-        if (((bitField0_ & 0x00000080) != 0)) {
-          permissions_ = java.util.Collections.unmodifiableList(permissions_);
-          bitField0_ = (bitField0_ & ~0x00000080);
-        }
-        result.permissions_ = permissions_;
-      } else {
-        result.permissions_ = permissionsBuilder_.build();
-      }
     }
 
     private void buildPartial0(com.trizo1104.auth.proto.User result) {
@@ -797,28 +633,19 @@ private static final long serialVersionUID = 0L;
         result.email_ = email_;
       }
       if (((from_bitField0_ & 0x00000008) != 0)) {
-        result.fullName_ = fullName_;
-      }
-      if (((from_bitField0_ & 0x00000010) != 0)) {
         result.phone_ = phone_;
       }
-      if (((from_bitField0_ & 0x00000020) != 0)) {
+      if (((from_bitField0_ & 0x00000010) != 0)) {
         result.status_ = status_;
       }
-      int to_bitField0_ = 0;
-      if (((from_bitField0_ & 0x00000100) != 0)) {
-        result.createdAt_ = createdAtBuilder_ == null
-            ? createdAt_
-            : createdAtBuilder_.build();
-        to_bitField0_ |= 0x00000001;
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        roles_.makeImmutable();
+        result.roles_ = roles_;
       }
-      if (((from_bitField0_ & 0x00000200) != 0)) {
-        result.updatedAt_ = updatedAtBuilder_ == null
-            ? updatedAt_
-            : updatedAtBuilder_.build();
-        to_bitField0_ |= 0x00000002;
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        permissions_.makeImmutable();
+        result.permissions_ = permissions_;
       }
-      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -880,76 +707,35 @@ private static final long serialVersionUID = 0L;
         bitField0_ |= 0x00000004;
         onChanged();
       }
-      if (!other.getFullName().isEmpty()) {
-        fullName_ = other.fullName_;
+      if (!other.getPhone().isEmpty()) {
+        phone_ = other.phone_;
         bitField0_ |= 0x00000008;
         onChanged();
       }
-      if (!other.getPhone().isEmpty()) {
-        phone_ = other.phone_;
+      if (!other.getStatus().isEmpty()) {
+        status_ = other.status_;
         bitField0_ |= 0x00000010;
         onChanged();
       }
-      if (other.status_ != 0) {
-        setStatusValue(other.getStatusValue());
-      }
-      if (rolesBuilder_ == null) {
-        if (!other.roles_.isEmpty()) {
-          if (roles_.isEmpty()) {
-            roles_ = other.roles_;
-            bitField0_ = (bitField0_ & ~0x00000040);
-          } else {
-            ensureRolesIsMutable();
-            roles_.addAll(other.roles_);
-          }
-          onChanged();
+      if (!other.roles_.isEmpty()) {
+        if (roles_.isEmpty()) {
+          roles_ = other.roles_;
+          bitField0_ |= 0x00000020;
+        } else {
+          ensureRolesIsMutable();
+          roles_.addAll(other.roles_);
         }
-      } else {
-        if (!other.roles_.isEmpty()) {
-          if (rolesBuilder_.isEmpty()) {
-            rolesBuilder_.dispose();
-            rolesBuilder_ = null;
-            roles_ = other.roles_;
-            bitField0_ = (bitField0_ & ~0x00000040);
-            rolesBuilder_ = 
-              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                 getRolesFieldBuilder() : null;
-          } else {
-            rolesBuilder_.addAllMessages(other.roles_);
-          }
-        }
+        onChanged();
       }
-      if (permissionsBuilder_ == null) {
-        if (!other.permissions_.isEmpty()) {
-          if (permissions_.isEmpty()) {
-            permissions_ = other.permissions_;
-            bitField0_ = (bitField0_ & ~0x00000080);
-          } else {
-            ensurePermissionsIsMutable();
-            permissions_.addAll(other.permissions_);
-          }
-          onChanged();
+      if (!other.permissions_.isEmpty()) {
+        if (permissions_.isEmpty()) {
+          permissions_ = other.permissions_;
+          bitField0_ |= 0x00000040;
+        } else {
+          ensurePermissionsIsMutable();
+          permissions_.addAll(other.permissions_);
         }
-      } else {
-        if (!other.permissions_.isEmpty()) {
-          if (permissionsBuilder_.isEmpty()) {
-            permissionsBuilder_.dispose();
-            permissionsBuilder_ = null;
-            permissions_ = other.permissions_;
-            bitField0_ = (bitField0_ & ~0x00000080);
-            permissionsBuilder_ = 
-              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                 getPermissionsFieldBuilder() : null;
-          } else {
-            permissionsBuilder_.addAllMessages(other.permissions_);
-          }
-        }
-      }
-      if (other.hasCreatedAt()) {
-        mergeCreatedAt(other.getCreatedAt());
-      }
-      if (other.hasUpdatedAt()) {
-        mergeUpdatedAt(other.getUpdatedAt());
+        onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -993,60 +779,27 @@ private static final long serialVersionUID = 0L;
               break;
             } // case 26
             case 34: {
-              fullName_ = input.readStringRequireUtf8();
+              phone_ = input.readStringRequireUtf8();
               bitField0_ |= 0x00000008;
               break;
             } // case 34
             case 42: {
-              phone_ = input.readStringRequireUtf8();
+              status_ = input.readStringRequireUtf8();
               bitField0_ |= 0x00000010;
               break;
             } // case 42
-            case 48: {
-              status_ = input.readEnum();
-              bitField0_ |= 0x00000020;
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureRolesIsMutable();
+              roles_.add(s);
               break;
-            } // case 48
+            } // case 50
             case 58: {
-              com.trizo1104.auth.proto.Role m =
-                  input.readMessage(
-                      com.trizo1104.auth.proto.Role.parser(),
-                      extensionRegistry);
-              if (rolesBuilder_ == null) {
-                ensureRolesIsMutable();
-                roles_.add(m);
-              } else {
-                rolesBuilder_.addMessage(m);
-              }
+              java.lang.String s = input.readStringRequireUtf8();
+              ensurePermissionsIsMutable();
+              permissions_.add(s);
               break;
             } // case 58
-            case 66: {
-              com.trizo1104.auth.proto.Permission m =
-                  input.readMessage(
-                      com.trizo1104.auth.proto.Permission.parser(),
-                      extensionRegistry);
-              if (permissionsBuilder_ == null) {
-                ensurePermissionsIsMutable();
-                permissions_.add(m);
-              } else {
-                permissionsBuilder_.addMessage(m);
-              }
-              break;
-            } // case 66
-            case 74: {
-              input.readMessage(
-                  getCreatedAtFieldBuilder().getBuilder(),
-                  extensionRegistry);
-              bitField0_ |= 0x00000100;
-              break;
-            } // case 74
-            case 82: {
-              input.readMessage(
-                  getUpdatedAtFieldBuilder().getBuilder(),
-                  extensionRegistry);
-              bitField0_ |= 0x00000200;
-              break;
-            } // case 82
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -1280,81 +1033,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object fullName_ = "";
-    /**
-     * <code>string full_name = 4;</code>
-     * @return The fullName.
-     */
-    public java.lang.String getFullName() {
-      java.lang.Object ref = fullName_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        fullName_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string full_name = 4;</code>
-     * @return The bytes for fullName.
-     */
-    public com.google.protobuf.ByteString
-        getFullNameBytes() {
-      java.lang.Object ref = fullName_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        fullName_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string full_name = 4;</code>
-     * @param value The fullName to set.
-     * @return This builder for chaining.
-     */
-    public Builder setFullName(
-        java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
-      fullName_ = value;
-      bitField0_ |= 0x00000008;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string full_name = 4;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearFullName() {
-      fullName_ = getDefaultInstance().getFullName();
-      bitField0_ = (bitField0_ & ~0x00000008);
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string full_name = 4;</code>
-     * @param value The bytes for fullName to set.
-     * @return This builder for chaining.
-     */
-    public Builder setFullNameBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
-      fullName_ = value;
-      bitField0_ |= 0x00000008;
-      onChanged();
-      return this;
-    }
-
     private java.lang.Object phone_ = "";
     /**
-     * <code>string phone = 5;</code>
+     * <code>string phone = 4;</code>
      * @return The phone.
      */
     public java.lang.String getPhone() {
@@ -1370,7 +1051,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string phone = 5;</code>
+     * <code>string phone = 4;</code>
      * @return The bytes for phone.
      */
     public com.google.protobuf.ByteString
@@ -1387,7 +1068,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string phone = 5;</code>
+     * <code>string phone = 4;</code>
      * @param value The phone to set.
      * @return This builder for chaining.
      */
@@ -1395,22 +1076,22 @@ private static final long serialVersionUID = 0L;
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
       phone_ = value;
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
     /**
-     * <code>string phone = 5;</code>
+     * <code>string phone = 4;</code>
      * @return This builder for chaining.
      */
     public Builder clearPhone() {
       phone_ = getDefaultInstance().getPhone();
-      bitField0_ = (bitField0_ & ~0x00000010);
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
     /**
-     * <code>string phone = 5;</code>
+     * <code>string phone = 4;</code>
      * @param value The bytes for phone to set.
      * @return This builder for chaining.
      */
@@ -1419,784 +1100,303 @@ private static final long serialVersionUID = 0L;
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
       phone_ = value;
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object status_ = "";
+    /**
+     * <code>string status = 5;</code>
+     * @return The status.
+     */
+    public java.lang.String getStatus() {
+      java.lang.Object ref = status_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        status_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string status = 5;</code>
+     * @return The bytes for status.
+     */
+    public com.google.protobuf.ByteString
+        getStatusBytes() {
+      java.lang.Object ref = status_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        status_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string status = 5;</code>
+     * @param value The status to set.
+     * @return This builder for chaining.
+     */
+    public Builder setStatus(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      status_ = value;
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string status = 5;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearStatus() {
+      status_ = getDefaultInstance().getStatus();
+      bitField0_ = (bitField0_ & ~0x00000010);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string status = 5;</code>
+     * @param value The bytes for status to set.
+     * @return This builder for chaining.
+     */
+    public Builder setStatusBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      status_ = value;
       bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
 
-    private int status_ = 0;
-    /**
-     * <code>.auth.UserStatus status = 6;</code>
-     * @return The enum numeric value on the wire for status.
-     */
-    @java.lang.Override public int getStatusValue() {
-      return status_;
-    }
-    /**
-     * <code>.auth.UserStatus status = 6;</code>
-     * @param value The enum numeric value on the wire for status to set.
-     * @return This builder for chaining.
-     */
-    public Builder setStatusValue(int value) {
-      status_ = value;
-      bitField0_ |= 0x00000020;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.auth.UserStatus status = 6;</code>
-     * @return The status.
-     */
-    @java.lang.Override
-    public com.trizo1104.auth.proto.UserStatus getStatus() {
-      com.trizo1104.auth.proto.UserStatus result = com.trizo1104.auth.proto.UserStatus.forNumber(status_);
-      return result == null ? com.trizo1104.auth.proto.UserStatus.UNRECOGNIZED : result;
-    }
-    /**
-     * <code>.auth.UserStatus status = 6;</code>
-     * @param value The status to set.
-     * @return This builder for chaining.
-     */
-    public Builder setStatus(com.trizo1104.auth.proto.UserStatus value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      bitField0_ |= 0x00000020;
-      status_ = value.getNumber();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.auth.UserStatus status = 6;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearStatus() {
-      bitField0_ = (bitField0_ & ~0x00000020);
-      status_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private java.util.List<com.trizo1104.auth.proto.Role> roles_ =
-      java.util.Collections.emptyList();
+    private com.google.protobuf.LazyStringArrayList roles_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
     private void ensureRolesIsMutable() {
-      if (!((bitField0_ & 0x00000040) != 0)) {
-        roles_ = new java.util.ArrayList<com.trizo1104.auth.proto.Role>(roles_);
-        bitField0_ |= 0x00000040;
-       }
-    }
-
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-        com.trizo1104.auth.proto.Role, com.trizo1104.auth.proto.Role.Builder, com.trizo1104.auth.proto.RoleOrBuilder> rolesBuilder_;
-
-    /**
-     * <code>repeated .auth.Role roles = 7;</code>
-     */
-    public java.util.List<com.trizo1104.auth.proto.Role> getRolesList() {
-      if (rolesBuilder_ == null) {
-        return java.util.Collections.unmodifiableList(roles_);
-      } else {
-        return rolesBuilder_.getMessageList();
+      if (!roles_.isModifiable()) {
+        roles_ = new com.google.protobuf.LazyStringArrayList(roles_);
       }
+      bitField0_ |= 0x00000020;
     }
     /**
-     * <code>repeated .auth.Role roles = 7;</code>
+     * <code>repeated string roles = 6;</code>
+     * @return A list containing the roles.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getRolesList() {
+      roles_.makeImmutable();
+      return roles_;
+    }
+    /**
+     * <code>repeated string roles = 6;</code>
+     * @return The count of roles.
      */
     public int getRolesCount() {
-      if (rolesBuilder_ == null) {
-        return roles_.size();
-      } else {
-        return rolesBuilder_.getCount();
-      }
+      return roles_.size();
     }
     /**
-     * <code>repeated .auth.Role roles = 7;</code>
+     * <code>repeated string roles = 6;</code>
+     * @param index The index of the element to return.
+     * @return The roles at the given index.
      */
-    public com.trizo1104.auth.proto.Role getRoles(int index) {
-      if (rolesBuilder_ == null) {
-        return roles_.get(index);
-      } else {
-        return rolesBuilder_.getMessage(index);
-      }
+    public java.lang.String getRoles(int index) {
+      return roles_.get(index);
     }
     /**
-     * <code>repeated .auth.Role roles = 7;</code>
+     * <code>repeated string roles = 6;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the roles at the given index.
      */
-    public Builder setRoles(
-        int index, com.trizo1104.auth.proto.Role value) {
-      if (rolesBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureRolesIsMutable();
-        roles_.set(index, value);
-        onChanged();
-      } else {
-        rolesBuilder_.setMessage(index, value);
-      }
-      return this;
+    public com.google.protobuf.ByteString
+        getRolesBytes(int index) {
+      return roles_.getByteString(index);
     }
     /**
-     * <code>repeated .auth.Role roles = 7;</code>
+     * <code>repeated string roles = 6;</code>
+     * @param index The index to set the value at.
+     * @param value The roles to set.
+     * @return This builder for chaining.
      */
     public Builder setRoles(
-        int index, com.trizo1104.auth.proto.Role.Builder builderForValue) {
-      if (rolesBuilder_ == null) {
-        ensureRolesIsMutable();
-        roles_.set(index, builderForValue.build());
-        onChanged();
-      } else {
-        rolesBuilder_.setMessage(index, builderForValue.build());
-      }
+        int index, java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      ensureRolesIsMutable();
+      roles_.set(index, value);
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
-     * <code>repeated .auth.Role roles = 7;</code>
-     */
-    public Builder addRoles(com.trizo1104.auth.proto.Role value) {
-      if (rolesBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureRolesIsMutable();
-        roles_.add(value);
-        onChanged();
-      } else {
-        rolesBuilder_.addMessage(value);
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .auth.Role roles = 7;</code>
+     * <code>repeated string roles = 6;</code>
+     * @param value The roles to add.
+     * @return This builder for chaining.
      */
     public Builder addRoles(
-        int index, com.trizo1104.auth.proto.Role value) {
-      if (rolesBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureRolesIsMutable();
-        roles_.add(index, value);
-        onChanged();
-      } else {
-        rolesBuilder_.addMessage(index, value);
-      }
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      ensureRolesIsMutable();
+      roles_.add(value);
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
-     * <code>repeated .auth.Role roles = 7;</code>
-     */
-    public Builder addRoles(
-        com.trizo1104.auth.proto.Role.Builder builderForValue) {
-      if (rolesBuilder_ == null) {
-        ensureRolesIsMutable();
-        roles_.add(builderForValue.build());
-        onChanged();
-      } else {
-        rolesBuilder_.addMessage(builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .auth.Role roles = 7;</code>
-     */
-    public Builder addRoles(
-        int index, com.trizo1104.auth.proto.Role.Builder builderForValue) {
-      if (rolesBuilder_ == null) {
-        ensureRolesIsMutable();
-        roles_.add(index, builderForValue.build());
-        onChanged();
-      } else {
-        rolesBuilder_.addMessage(index, builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .auth.Role roles = 7;</code>
+     * <code>repeated string roles = 6;</code>
+     * @param values The roles to add.
+     * @return This builder for chaining.
      */
     public Builder addAllRoles(
-        java.lang.Iterable<? extends com.trizo1104.auth.proto.Role> values) {
-      if (rolesBuilder_ == null) {
-        ensureRolesIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, roles_);
-        onChanged();
-      } else {
-        rolesBuilder_.addAllMessages(values);
-      }
+        java.lang.Iterable<java.lang.String> values) {
+      ensureRolesIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, roles_);
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
-     * <code>repeated .auth.Role roles = 7;</code>
+     * <code>repeated string roles = 6;</code>
+     * @return This builder for chaining.
      */
     public Builder clearRoles() {
-      if (rolesBuilder_ == null) {
-        roles_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000040);
-        onChanged();
-      } else {
-        rolesBuilder_.clear();
-      }
+      roles_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
+      bitField0_ = (bitField0_ & ~0x00000020);;
+      onChanged();
       return this;
     }
     /**
-     * <code>repeated .auth.Role roles = 7;</code>
+     * <code>repeated string roles = 6;</code>
+     * @param value The bytes of the roles to add.
+     * @return This builder for chaining.
      */
-    public Builder removeRoles(int index) {
-      if (rolesBuilder_ == null) {
-        ensureRolesIsMutable();
-        roles_.remove(index);
-        onChanged();
-      } else {
-        rolesBuilder_.remove(index);
-      }
+    public Builder addRolesBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      ensureRolesIsMutable();
+      roles_.add(value);
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
-    }
-    /**
-     * <code>repeated .auth.Role roles = 7;</code>
-     */
-    public com.trizo1104.auth.proto.Role.Builder getRolesBuilder(
-        int index) {
-      return getRolesFieldBuilder().getBuilder(index);
-    }
-    /**
-     * <code>repeated .auth.Role roles = 7;</code>
-     */
-    public com.trizo1104.auth.proto.RoleOrBuilder getRolesOrBuilder(
-        int index) {
-      if (rolesBuilder_ == null) {
-        return roles_.get(index);  } else {
-        return rolesBuilder_.getMessageOrBuilder(index);
-      }
-    }
-    /**
-     * <code>repeated .auth.Role roles = 7;</code>
-     */
-    public java.util.List<? extends com.trizo1104.auth.proto.RoleOrBuilder> 
-         getRolesOrBuilderList() {
-      if (rolesBuilder_ != null) {
-        return rolesBuilder_.getMessageOrBuilderList();
-      } else {
-        return java.util.Collections.unmodifiableList(roles_);
-      }
-    }
-    /**
-     * <code>repeated .auth.Role roles = 7;</code>
-     */
-    public com.trizo1104.auth.proto.Role.Builder addRolesBuilder() {
-      return getRolesFieldBuilder().addBuilder(
-          com.trizo1104.auth.proto.Role.getDefaultInstance());
-    }
-    /**
-     * <code>repeated .auth.Role roles = 7;</code>
-     */
-    public com.trizo1104.auth.proto.Role.Builder addRolesBuilder(
-        int index) {
-      return getRolesFieldBuilder().addBuilder(
-          index, com.trizo1104.auth.proto.Role.getDefaultInstance());
-    }
-    /**
-     * <code>repeated .auth.Role roles = 7;</code>
-     */
-    public java.util.List<com.trizo1104.auth.proto.Role.Builder> 
-         getRolesBuilderList() {
-      return getRolesFieldBuilder().getBuilderList();
-    }
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-        com.trizo1104.auth.proto.Role, com.trizo1104.auth.proto.Role.Builder, com.trizo1104.auth.proto.RoleOrBuilder> 
-        getRolesFieldBuilder() {
-      if (rolesBuilder_ == null) {
-        rolesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-            com.trizo1104.auth.proto.Role, com.trizo1104.auth.proto.Role.Builder, com.trizo1104.auth.proto.RoleOrBuilder>(
-                roles_,
-                ((bitField0_ & 0x00000040) != 0),
-                getParentForChildren(),
-                isClean());
-        roles_ = null;
-      }
-      return rolesBuilder_;
     }
 
-    private java.util.List<com.trizo1104.auth.proto.Permission> permissions_ =
-      java.util.Collections.emptyList();
+    private com.google.protobuf.LazyStringArrayList permissions_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
     private void ensurePermissionsIsMutable() {
-      if (!((bitField0_ & 0x00000080) != 0)) {
-        permissions_ = new java.util.ArrayList<com.trizo1104.auth.proto.Permission>(permissions_);
-        bitField0_ |= 0x00000080;
-       }
-    }
-
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-        com.trizo1104.auth.proto.Permission, com.trizo1104.auth.proto.Permission.Builder, com.trizo1104.auth.proto.PermissionOrBuilder> permissionsBuilder_;
-
-    /**
-     * <code>repeated .auth.Permission permissions = 8;</code>
-     */
-    public java.util.List<com.trizo1104.auth.proto.Permission> getPermissionsList() {
-      if (permissionsBuilder_ == null) {
-        return java.util.Collections.unmodifiableList(permissions_);
-      } else {
-        return permissionsBuilder_.getMessageList();
+      if (!permissions_.isModifiable()) {
+        permissions_ = new com.google.protobuf.LazyStringArrayList(permissions_);
       }
+      bitField0_ |= 0x00000040;
     }
     /**
-     * <code>repeated .auth.Permission permissions = 8;</code>
+     * <code>repeated string permissions = 7;</code>
+     * @return A list containing the permissions.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getPermissionsList() {
+      permissions_.makeImmutable();
+      return permissions_;
+    }
+    /**
+     * <code>repeated string permissions = 7;</code>
+     * @return The count of permissions.
      */
     public int getPermissionsCount() {
-      if (permissionsBuilder_ == null) {
-        return permissions_.size();
-      } else {
-        return permissionsBuilder_.getCount();
-      }
+      return permissions_.size();
     }
     /**
-     * <code>repeated .auth.Permission permissions = 8;</code>
+     * <code>repeated string permissions = 7;</code>
+     * @param index The index of the element to return.
+     * @return The permissions at the given index.
      */
-    public com.trizo1104.auth.proto.Permission getPermissions(int index) {
-      if (permissionsBuilder_ == null) {
-        return permissions_.get(index);
-      } else {
-        return permissionsBuilder_.getMessage(index);
-      }
+    public java.lang.String getPermissions(int index) {
+      return permissions_.get(index);
     }
     /**
-     * <code>repeated .auth.Permission permissions = 8;</code>
+     * <code>repeated string permissions = 7;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the permissions at the given index.
      */
-    public Builder setPermissions(
-        int index, com.trizo1104.auth.proto.Permission value) {
-      if (permissionsBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensurePermissionsIsMutable();
-        permissions_.set(index, value);
-        onChanged();
-      } else {
-        permissionsBuilder_.setMessage(index, value);
-      }
-      return this;
+    public com.google.protobuf.ByteString
+        getPermissionsBytes(int index) {
+      return permissions_.getByteString(index);
     }
     /**
-     * <code>repeated .auth.Permission permissions = 8;</code>
+     * <code>repeated string permissions = 7;</code>
+     * @param index The index to set the value at.
+     * @param value The permissions to set.
+     * @return This builder for chaining.
      */
     public Builder setPermissions(
-        int index, com.trizo1104.auth.proto.Permission.Builder builderForValue) {
-      if (permissionsBuilder_ == null) {
-        ensurePermissionsIsMutable();
-        permissions_.set(index, builderForValue.build());
-        onChanged();
-      } else {
-        permissionsBuilder_.setMessage(index, builderForValue.build());
-      }
+        int index, java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      ensurePermissionsIsMutable();
+      permissions_.set(index, value);
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
-     * <code>repeated .auth.Permission permissions = 8;</code>
-     */
-    public Builder addPermissions(com.trizo1104.auth.proto.Permission value) {
-      if (permissionsBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensurePermissionsIsMutable();
-        permissions_.add(value);
-        onChanged();
-      } else {
-        permissionsBuilder_.addMessage(value);
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .auth.Permission permissions = 8;</code>
+     * <code>repeated string permissions = 7;</code>
+     * @param value The permissions to add.
+     * @return This builder for chaining.
      */
     public Builder addPermissions(
-        int index, com.trizo1104.auth.proto.Permission value) {
-      if (permissionsBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensurePermissionsIsMutable();
-        permissions_.add(index, value);
-        onChanged();
-      } else {
-        permissionsBuilder_.addMessage(index, value);
-      }
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      ensurePermissionsIsMutable();
+      permissions_.add(value);
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
-     * <code>repeated .auth.Permission permissions = 8;</code>
-     */
-    public Builder addPermissions(
-        com.trizo1104.auth.proto.Permission.Builder builderForValue) {
-      if (permissionsBuilder_ == null) {
-        ensurePermissionsIsMutable();
-        permissions_.add(builderForValue.build());
-        onChanged();
-      } else {
-        permissionsBuilder_.addMessage(builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .auth.Permission permissions = 8;</code>
-     */
-    public Builder addPermissions(
-        int index, com.trizo1104.auth.proto.Permission.Builder builderForValue) {
-      if (permissionsBuilder_ == null) {
-        ensurePermissionsIsMutable();
-        permissions_.add(index, builderForValue.build());
-        onChanged();
-      } else {
-        permissionsBuilder_.addMessage(index, builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .auth.Permission permissions = 8;</code>
+     * <code>repeated string permissions = 7;</code>
+     * @param values The permissions to add.
+     * @return This builder for chaining.
      */
     public Builder addAllPermissions(
-        java.lang.Iterable<? extends com.trizo1104.auth.proto.Permission> values) {
-      if (permissionsBuilder_ == null) {
-        ensurePermissionsIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, permissions_);
-        onChanged();
-      } else {
-        permissionsBuilder_.addAllMessages(values);
-      }
+        java.lang.Iterable<java.lang.String> values) {
+      ensurePermissionsIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, permissions_);
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
-     * <code>repeated .auth.Permission permissions = 8;</code>
+     * <code>repeated string permissions = 7;</code>
+     * @return This builder for chaining.
      */
     public Builder clearPermissions() {
-      if (permissionsBuilder_ == null) {
-        permissions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000080);
-        onChanged();
-      } else {
-        permissionsBuilder_.clear();
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .auth.Permission permissions = 8;</code>
-     */
-    public Builder removePermissions(int index) {
-      if (permissionsBuilder_ == null) {
-        ensurePermissionsIsMutable();
-        permissions_.remove(index);
-        onChanged();
-      } else {
-        permissionsBuilder_.remove(index);
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .auth.Permission permissions = 8;</code>
-     */
-    public com.trizo1104.auth.proto.Permission.Builder getPermissionsBuilder(
-        int index) {
-      return getPermissionsFieldBuilder().getBuilder(index);
-    }
-    /**
-     * <code>repeated .auth.Permission permissions = 8;</code>
-     */
-    public com.trizo1104.auth.proto.PermissionOrBuilder getPermissionsOrBuilder(
-        int index) {
-      if (permissionsBuilder_ == null) {
-        return permissions_.get(index);  } else {
-        return permissionsBuilder_.getMessageOrBuilder(index);
-      }
-    }
-    /**
-     * <code>repeated .auth.Permission permissions = 8;</code>
-     */
-    public java.util.List<? extends com.trizo1104.auth.proto.PermissionOrBuilder> 
-         getPermissionsOrBuilderList() {
-      if (permissionsBuilder_ != null) {
-        return permissionsBuilder_.getMessageOrBuilderList();
-      } else {
-        return java.util.Collections.unmodifiableList(permissions_);
-      }
-    }
-    /**
-     * <code>repeated .auth.Permission permissions = 8;</code>
-     */
-    public com.trizo1104.auth.proto.Permission.Builder addPermissionsBuilder() {
-      return getPermissionsFieldBuilder().addBuilder(
-          com.trizo1104.auth.proto.Permission.getDefaultInstance());
-    }
-    /**
-     * <code>repeated .auth.Permission permissions = 8;</code>
-     */
-    public com.trizo1104.auth.proto.Permission.Builder addPermissionsBuilder(
-        int index) {
-      return getPermissionsFieldBuilder().addBuilder(
-          index, com.trizo1104.auth.proto.Permission.getDefaultInstance());
-    }
-    /**
-     * <code>repeated .auth.Permission permissions = 8;</code>
-     */
-    public java.util.List<com.trizo1104.auth.proto.Permission.Builder> 
-         getPermissionsBuilderList() {
-      return getPermissionsFieldBuilder().getBuilderList();
-    }
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-        com.trizo1104.auth.proto.Permission, com.trizo1104.auth.proto.Permission.Builder, com.trizo1104.auth.proto.PermissionOrBuilder> 
-        getPermissionsFieldBuilder() {
-      if (permissionsBuilder_ == null) {
-        permissionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-            com.trizo1104.auth.proto.Permission, com.trizo1104.auth.proto.Permission.Builder, com.trizo1104.auth.proto.PermissionOrBuilder>(
-                permissions_,
-                ((bitField0_ & 0x00000080) != 0),
-                getParentForChildren(),
-                isClean());
-        permissions_ = null;
-      }
-      return permissionsBuilder_;
-    }
-
-    private com.google.protobuf.Timestamp createdAt_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> createdAtBuilder_;
-    /**
-     * <code>.google.protobuf.Timestamp created_at = 9;</code>
-     * @return Whether the createdAt field is set.
-     */
-    public boolean hasCreatedAt() {
-      return ((bitField0_ & 0x00000100) != 0);
-    }
-    /**
-     * <code>.google.protobuf.Timestamp created_at = 9;</code>
-     * @return The createdAt.
-     */
-    public com.google.protobuf.Timestamp getCreatedAt() {
-      if (createdAtBuilder_ == null) {
-        return createdAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createdAt_;
-      } else {
-        return createdAtBuilder_.getMessage();
-      }
-    }
-    /**
-     * <code>.google.protobuf.Timestamp created_at = 9;</code>
-     */
-    public Builder setCreatedAt(com.google.protobuf.Timestamp value) {
-      if (createdAtBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        createdAt_ = value;
-      } else {
-        createdAtBuilder_.setMessage(value);
-      }
-      bitField0_ |= 0x00000100;
+      permissions_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
+      bitField0_ = (bitField0_ & ~0x00000040);;
       onChanged();
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp created_at = 9;</code>
+     * <code>repeated string permissions = 7;</code>
+     * @param value The bytes of the permissions to add.
+     * @return This builder for chaining.
      */
-    public Builder setCreatedAt(
-        com.google.protobuf.Timestamp.Builder builderForValue) {
-      if (createdAtBuilder_ == null) {
-        createdAt_ = builderForValue.build();
-      } else {
-        createdAtBuilder_.setMessage(builderForValue.build());
-      }
-      bitField0_ |= 0x00000100;
+    public Builder addPermissionsBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      ensurePermissionsIsMutable();
+      permissions_.add(value);
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
-    }
-    /**
-     * <code>.google.protobuf.Timestamp created_at = 9;</code>
-     */
-    public Builder mergeCreatedAt(com.google.protobuf.Timestamp value) {
-      if (createdAtBuilder_ == null) {
-        if (((bitField0_ & 0x00000100) != 0) &&
-          createdAt_ != null &&
-          createdAt_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
-          getCreatedAtBuilder().mergeFrom(value);
-        } else {
-          createdAt_ = value;
-        }
-      } else {
-        createdAtBuilder_.mergeFrom(value);
-      }
-      if (createdAt_ != null) {
-        bitField0_ |= 0x00000100;
-        onChanged();
-      }
-      return this;
-    }
-    /**
-     * <code>.google.protobuf.Timestamp created_at = 9;</code>
-     */
-    public Builder clearCreatedAt() {
-      bitField0_ = (bitField0_ & ~0x00000100);
-      createdAt_ = null;
-      if (createdAtBuilder_ != null) {
-        createdAtBuilder_.dispose();
-        createdAtBuilder_ = null;
-      }
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.google.protobuf.Timestamp created_at = 9;</code>
-     */
-    public com.google.protobuf.Timestamp.Builder getCreatedAtBuilder() {
-      bitField0_ |= 0x00000100;
-      onChanged();
-      return getCreatedAtFieldBuilder().getBuilder();
-    }
-    /**
-     * <code>.google.protobuf.Timestamp created_at = 9;</code>
-     */
-    public com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder() {
-      if (createdAtBuilder_ != null) {
-        return createdAtBuilder_.getMessageOrBuilder();
-      } else {
-        return createdAt_ == null ?
-            com.google.protobuf.Timestamp.getDefaultInstance() : createdAt_;
-      }
-    }
-    /**
-     * <code>.google.protobuf.Timestamp created_at = 9;</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
-        getCreatedAtFieldBuilder() {
-      if (createdAtBuilder_ == null) {
-        createdAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
-                getCreatedAt(),
-                getParentForChildren(),
-                isClean());
-        createdAt_ = null;
-      }
-      return createdAtBuilder_;
-    }
-
-    private com.google.protobuf.Timestamp updatedAt_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> updatedAtBuilder_;
-    /**
-     * <code>.google.protobuf.Timestamp updated_at = 10;</code>
-     * @return Whether the updatedAt field is set.
-     */
-    public boolean hasUpdatedAt() {
-      return ((bitField0_ & 0x00000200) != 0);
-    }
-    /**
-     * <code>.google.protobuf.Timestamp updated_at = 10;</code>
-     * @return The updatedAt.
-     */
-    public com.google.protobuf.Timestamp getUpdatedAt() {
-      if (updatedAtBuilder_ == null) {
-        return updatedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updatedAt_;
-      } else {
-        return updatedAtBuilder_.getMessage();
-      }
-    }
-    /**
-     * <code>.google.protobuf.Timestamp updated_at = 10;</code>
-     */
-    public Builder setUpdatedAt(com.google.protobuf.Timestamp value) {
-      if (updatedAtBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        updatedAt_ = value;
-      } else {
-        updatedAtBuilder_.setMessage(value);
-      }
-      bitField0_ |= 0x00000200;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.google.protobuf.Timestamp updated_at = 10;</code>
-     */
-    public Builder setUpdatedAt(
-        com.google.protobuf.Timestamp.Builder builderForValue) {
-      if (updatedAtBuilder_ == null) {
-        updatedAt_ = builderForValue.build();
-      } else {
-        updatedAtBuilder_.setMessage(builderForValue.build());
-      }
-      bitField0_ |= 0x00000200;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.google.protobuf.Timestamp updated_at = 10;</code>
-     */
-    public Builder mergeUpdatedAt(com.google.protobuf.Timestamp value) {
-      if (updatedAtBuilder_ == null) {
-        if (((bitField0_ & 0x00000200) != 0) &&
-          updatedAt_ != null &&
-          updatedAt_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
-          getUpdatedAtBuilder().mergeFrom(value);
-        } else {
-          updatedAt_ = value;
-        }
-      } else {
-        updatedAtBuilder_.mergeFrom(value);
-      }
-      if (updatedAt_ != null) {
-        bitField0_ |= 0x00000200;
-        onChanged();
-      }
-      return this;
-    }
-    /**
-     * <code>.google.protobuf.Timestamp updated_at = 10;</code>
-     */
-    public Builder clearUpdatedAt() {
-      bitField0_ = (bitField0_ & ~0x00000200);
-      updatedAt_ = null;
-      if (updatedAtBuilder_ != null) {
-        updatedAtBuilder_.dispose();
-        updatedAtBuilder_ = null;
-      }
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.google.protobuf.Timestamp updated_at = 10;</code>
-     */
-    public com.google.protobuf.Timestamp.Builder getUpdatedAtBuilder() {
-      bitField0_ |= 0x00000200;
-      onChanged();
-      return getUpdatedAtFieldBuilder().getBuilder();
-    }
-    /**
-     * <code>.google.protobuf.Timestamp updated_at = 10;</code>
-     */
-    public com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder() {
-      if (updatedAtBuilder_ != null) {
-        return updatedAtBuilder_.getMessageOrBuilder();
-      } else {
-        return updatedAt_ == null ?
-            com.google.protobuf.Timestamp.getDefaultInstance() : updatedAt_;
-      }
-    }
-    /**
-     * <code>.google.protobuf.Timestamp updated_at = 10;</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
-        getUpdatedAtFieldBuilder() {
-      if (updatedAtBuilder_ == null) {
-        updatedAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
-                getUpdatedAt(),
-                getParentForChildren(),
-                isClean());
-        updatedAt_ = null;
-      }
-      return updatedAtBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

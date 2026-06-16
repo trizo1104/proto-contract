@@ -43,10 +43,9 @@ public final class PermissionMessageProto {
       "\nPermission\022\n\n\002id\030\001 \001(\t\022\014\n\004code\030\002 \001(\t\022\016\n" +
       "\006module\030\003 \001(\t\022\023\n\013description\030\004 \001(\t\",\n\031Ge" +
       "tUserPermissionsRequest\022\017\n\007user_id\030\001 \001(\t" +
-      "\"C\n\032GetUserPermissionsResponse\022%\n\013permis" +
-      "sions\030\001 \003(\0132\020.auth.PermissionB4\n\030com.tri" +
-      "zo1104.auth.protoB\026PermissionMessageProt" +
-      "oP\001b\006proto3"
+      "\"1\n\032GetUserPermissionsResponse\022\023\n\013permis" +
+      "sions\030\001 \003(\tB4\n\030com.trizo1104.auth.protoB" +
+      "\026PermissionMessageProtoP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

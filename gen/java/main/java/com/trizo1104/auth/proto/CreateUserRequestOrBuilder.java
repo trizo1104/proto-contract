@@ -45,24 +45,12 @@ public interface CreateUserRequestOrBuilder extends
       getPasswordBytes();
 
   /**
-   * <code>string full_name = 4;</code>
-   * @return The fullName.
-   */
-  java.lang.String getFullName();
-  /**
-   * <code>string full_name = 4;</code>
-   * @return The bytes for fullName.
-   */
-  com.google.protobuf.ByteString
-      getFullNameBytes();
-
-  /**
-   * <code>string phone = 5;</code>
+   * <code>string phone = 4;</code>
    * @return The phone.
    */
   java.lang.String getPhone();
   /**
-   * <code>string phone = 5;</code>
+   * <code>string phone = 4;</code>
    * @return The bytes for phone.
    */
   com.google.protobuf.ByteString
