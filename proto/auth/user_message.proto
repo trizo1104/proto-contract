@@ -6,10 +6,6 @@ option java_multiple_files = true;
 option java_package = "com.trizo1104.auth.proto";
 option java_outer_classname = "UserMessageProto";
 
-import "auth/role_message.proto";
-import "google/protobuf/timestamp.proto";
-import "auth/permission_message.proto";
-
 enum UserStatus {
   USER_STATUS_UNSPECIFIED = 0;
   ACTIVE = 1;
@@ -21,29 +17,24 @@ message User {
   string id = 1;
   string username = 2;
   string email = 3;
-  string full_name = 4;
-  string phone = 5;
-  UserStatus status = 6;
-  repeated Role roles = 7;
-  repeated Permission permissions = 8;
-  google.protobuf.Timestamp created_at = 9;
-  google.protobuf.Timestamp updated_at = 10;
+  string phone = 4;
+  string status = 5;
+  repeated string roles = 6;
+  repeated string permissions = 7;
 }
 
 message CreateUserRequest {
   string username = 1;
   string email = 2;
   string password = 3;
-  string full_name = 4;
-  string phone = 5;
+  string phone = 4;
 }
 
 message UpdateUserRequest {
   string id = 1;
   string email = 2;
-  string full_name = 3;
-  string phone = 4;
-  UserStatus status = 5;
+  string phone = 3;
+  UserStatus status = 4;
 }
 
 message DeleteUserRequest {

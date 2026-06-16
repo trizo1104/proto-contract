@@ -18,5 +18,5 @@ message GetUserPermissionsRequest {
 }
 
 message GetUserPermissionsResponse {
-  repeated Permission permissions = 1;
+  repeated string permissions = 1;
 }
