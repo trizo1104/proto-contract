@@ -9,7 +9,12 @@ import type { handleUnaryCall, UntypedServiceImplementation } from "@grpc/grpc-j
 import { GrpcMethod, GrpcStreamMethod } from "@nestjs/microservices";
 import { Observable } from "rxjs";
 import { LoginRequest, LoginResponse, MeRequest, MeResponse } from "./auth_message";
-import { GetUserPermissionsRequest, GetUserPermissionsResponse } from "./permission_message";
+import {
+  GetUserPermissionsRequest,
+  GetUserPermissionsResponse,
+  ListPermissionsRequest,
+  ListPermissionsResponse,
+} from "./permission_message";
 import {
   AssignRoleToUserRequest,
   AssignRoleToUserResponse,
@@ -54,6 +59,8 @@ export interface AuthServiceClient {
 
   removeRoleFromUser(request: RemoveRoleFromUserRequest): Observable<RemoveRoleFromUserResponse>;
 
+  listPermissions(request: ListPermissionsRequest): Observable<ListPermissionsResponse>;
+
   getUserPermissions(request: GetUserPermissionsRequest): Observable<GetUserPermissionsResponse>;
 }
 
@@ -84,6 +91,10 @@ export interface AuthServiceController {
     request: RemoveRoleFromUserRequest,
   ): Promise<RemoveRoleFromUserResponse> | Observable<RemoveRoleFromUserResponse> | RemoveRoleFromUserResponse;
 
+  listPermissions(
+    request: ListPermissionsRequest,
+  ): Promise<ListPermissionsResponse> | Observable<ListPermissionsResponse> | ListPermissionsResponse;
+
   getUserPermissions(
     request: GetUserPermissionsRequest,
   ): Promise<GetUserPermissionsResponse> | Observable<GetUserPermissionsResponse> | GetUserPermissionsResponse;
@@ -102,6 +113,7 @@ export function AuthServiceControllerMethods() {
       "listRoles",
       "assignRoleToUser",
       "removeRoleFromUser",
+      "listPermissions",
       "getUserPermissions",
     ];
     for (const method of grpcMethods) {
@@ -214,6 +226,17 @@ export const AuthServiceService = {
       Buffer.from(RemoveRoleFromUserResponse.encode(value).finish()),
     responseDeserialize: (value: Buffer): RemoveRoleFromUserResponse => RemoveRoleFromUserResponse.decode(value),
   },
+  listPermissions: {
+    path: "/auth.AuthService/ListPermissions" as const,
+    requestStream: false as const,
+    responseStream: false as const,
+    requestSerialize: (value: ListPermissionsRequest): Buffer =>
+      Buffer.from(ListPermissionsRequest.encode(value).finish()),
+    requestDeserialize: (value: Buffer): ListPermissionsRequest => ListPermissionsRequest.decode(value),
+    responseSerialize: (value: ListPermissionsResponse): Buffer =>
+      Buffer.from(ListPermissionsResponse.encode(value).finish()),
+    responseDeserialize: (value: Buffer): ListPermissionsResponse => ListPermissionsResponse.decode(value),
+  },
   getUserPermissions: {
     path: "/auth.AuthService/GetUserPermissions" as const,
     requestStream: false as const,
@@ -238,5 +261,6 @@ export interface AuthServiceServer extends UntypedServiceImplementation {
   listRoles: handleUnaryCall<ListRolesRequest, ListRolesResponse>;
   assignRoleToUser: handleUnaryCall<AssignRoleToUserRequest, AssignRoleToUserResponse>;
   removeRoleFromUser: handleUnaryCall<RemoveRoleFromUserRequest, RemoveRoleFromUserResponse>;
+  listPermissions: handleUnaryCall<ListPermissionsRequest, ListPermissionsResponse>;
   getUserPermissions: handleUnaryCall<GetUserPermissionsRequest, GetUserPermissionsResponse>;
 }

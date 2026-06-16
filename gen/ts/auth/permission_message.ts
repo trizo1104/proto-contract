@@ -16,12 +16,19 @@ export interface Permission {
   description: string;
 }
 
+export interface ListPermissionsRequest {
+}
+
+export interface ListPermissionsResponse {
+  permissions: Permission[];
+}
+
 export interface GetUserPermissionsRequest {
   userId: string;
 }
 
 export interface GetUserPermissionsResponse {
-  permissions: Permission[];
+  permissions: string[];
 }
 
 export const AUTH_PACKAGE_NAME = "auth";
@@ -96,6 +103,69 @@ export const Permission: MessageFns<Permission> = {
   },
 };
 
+function createBaseListPermissionsRequest(): ListPermissionsRequest {
+  return {};
+}
+
+export const ListPermissionsRequest: MessageFns<ListPermissionsRequest> = {
+  encode(_: ListPermissionsRequest, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): ListPermissionsRequest {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    const end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseListPermissionsRequest();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+};
+
+function createBaseListPermissionsResponse(): ListPermissionsResponse {
+  return { permissions: [] };
+}
+
+export const ListPermissionsResponse: MessageFns<ListPermissionsResponse> = {
+  encode(message: ListPermissionsResponse, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    for (const v of message.permissions) {
+      Permission.encode(v!, writer.uint32(10).fork()).join();
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): ListPermissionsResponse {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    const end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseListPermissionsResponse();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.permissions.push(Permission.decode(reader, reader.uint32()));
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+};
+
 function createBaseGetUserPermissionsRequest(): GetUserPermissionsRequest {
   return { userId: "" };
 }
@@ -140,7 +210,7 @@ function createBaseGetUserPermissionsResponse(): GetUserPermissionsResponse {
 export const GetUserPermissionsResponse: MessageFns<GetUserPermissionsResponse> = {
   encode(message: GetUserPermissionsResponse, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
     for (const v of message.permissions) {
-      Permission.encode(v!, writer.uint32(10).fork()).join();
+      writer.uint32(10).string(v!);
     }
     return writer;
   },
@@ -157,7 +227,7 @@ export const GetUserPermissionsResponse: MessageFns<GetUserPermissionsResponse> 
             break;
           }
 
-          message.permissions.push(Permission.decode(reader, reader.uint32()));
+          message.permissions.push(reader.string());
           continue;
         }
       }

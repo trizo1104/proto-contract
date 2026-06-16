@@ -6,8 +6,6 @@
 
 /* eslint-disable */
 import { BinaryReader, BinaryWriter } from "@bufbuild/protobuf/wire";
-import { Timestamp } from "../google/protobuf/timestamp";
-import { Role } from "./role_message";
 
 export const protobufPackage = "auth";
 
@@ -23,26 +21,22 @@ export interface User {
   id: string;
   username: string;
   email: string;
-  fullName: string;
   phone: string;
-  status: UserStatus;
-  roles: Role[];
-  createdAt: Timestamp | undefined;
-  updatedAt: Timestamp | undefined;
+  status: string;
+  roles: string[];
+  permissions: string[];
 }
 
 export interface CreateUserRequest {
   username: string;
   email: string;
   password: string;
-  fullName: string;
   phone: string;
 }
 
 export interface UpdateUserRequest {
   id: string;
   email: string;
-  fullName: string;
   phone: string;
   status: UserStatus;
 }
@@ -78,17 +72,7 @@ export interface ListUsersResponse {
 export const AUTH_PACKAGE_NAME = "auth";
 
 function createBaseUser(): User {
-  return {
-    id: "",
-    username: "",
-    email: "",
-    fullName: "",
-    phone: "",
-    status: 0,
-    roles: [],
-    createdAt: undefined,
-    updatedAt: undefined,
-  };
+  return { id: "", username: "", email: "", phone: "", status: "", roles: [], permissions: [] };
 }
 
 export const User: MessageFns<User> = {
@@ -102,23 +86,17 @@ export const User: MessageFns<User> = {
     if (message.email !== "") {
       writer.uint32(26).string(message.email);
     }
-    if (message.fullName !== "") {
-      writer.uint32(34).string(message.fullName);
-    }
     if (message.phone !== "") {
-      writer.uint32(42).string(message.phone);
+      writer.uint32(34).string(message.phone);
     }
-    if (message.status !== 0) {
-      writer.uint32(48).int32(message.status);
+    if (message.status !== "") {
+      writer.uint32(42).string(message.status);
     }
     for (const v of message.roles) {
-      Role.encode(v!, writer.uint32(58).fork()).join();
+      writer.uint32(50).string(v!);
     }
-    if (message.createdAt !== undefined) {
-      Timestamp.encode(message.createdAt, writer.uint32(66).fork()).join();
-    }
-    if (message.updatedAt !== undefined) {
-      Timestamp.encode(message.updatedAt, writer.uint32(74).fork()).join();
+    for (const v of message.permissions) {
+      writer.uint32(58).string(v!);
     }
     return writer;
   },
@@ -159,7 +137,7 @@ export const User: MessageFns<User> = {
             break;
           }
 
-          message.fullName = reader.string();
+          message.phone = reader.string();
           continue;
         }
         case 5: {
@@ -167,15 +145,15 @@ export const User: MessageFns<User> = {
             break;
           }
 
-          message.phone = reader.string();
+          message.status = reader.string();
           continue;
         }
         case 6: {
-          if (tag !== 48) {
+          if (tag !== 50) {
             break;
           }
 
-          message.status = reader.int32() as any;
+          message.roles.push(reader.string());
           continue;
         }
         case 7: {
@@ -183,23 +161,7 @@ export const User: MessageFns<User> = {
             break;
           }
 
-          message.roles.push(Role.decode(reader, reader.uint32()));
-          continue;
-        }
-        case 8: {
-          if (tag !== 66) {
-            break;
-          }
-
-          message.createdAt = Timestamp.decode(reader, reader.uint32());
-          continue;
-        }
-        case 9: {
-          if (tag !== 74) {
-            break;
-          }
-
-          message.updatedAt = Timestamp.decode(reader, reader.uint32());
+          message.permissions.push(reader.string());
           continue;
         }
       }
@@ -213,7 +175,7 @@ export const User: MessageFns<User> = {
 };
 
 function createBaseCreateUserRequest(): CreateUserRequest {
-  return { username: "", email: "", password: "", fullName: "", phone: "" };
+  return { username: "", email: "", password: "", phone: "" };
 }
 
 export const CreateUserRequest: MessageFns<CreateUserRequest> = {
@@ -227,11 +189,8 @@ export const CreateUserRequest: MessageFns<CreateUserRequest> = {
     if (message.password !== "") {
       writer.uint32(26).string(message.password);
     }
-    if (message.fullName !== "") {
-      writer.uint32(34).string(message.fullName);
-    }
     if (message.phone !== "") {
-      writer.uint32(42).string(message.phone);
+      writer.uint32(34).string(message.phone);
     }
     return writer;
   },
@@ -272,14 +231,6 @@ export const CreateUserRequest: MessageFns<CreateUserRequest> = {
             break;
           }
 
-          message.fullName = reader.string();
-          continue;
-        }
-        case 5: {
-          if (tag !== 42) {
-            break;
-          }
-
           message.phone = reader.string();
           continue;
         }
@@ -294,7 +245,7 @@ export const CreateUserRequest: MessageFns<CreateUserRequest> = {
 };
 
 function createBaseUpdateUserRequest(): UpdateUserRequest {
-  return { id: "", email: "", fullName: "", phone: "", status: 0 };
+  return { id: "", email: "", phone: "", status: 0 };
 }
 
 export const UpdateUserRequest: MessageFns<UpdateUserRequest> = {
@@ -305,14 +256,11 @@ export const UpdateUserRequest: MessageFns<UpdateUserRequest> = {
     if (message.email !== "") {
       writer.uint32(18).string(message.email);
     }
-    if (message.fullName !== "") {
-      writer.uint32(26).string(message.fullName);
-    }
     if (message.phone !== "") {
-      writer.uint32(34).string(message.phone);
+      writer.uint32(26).string(message.phone);
     }
     if (message.status !== 0) {
-      writer.uint32(40).int32(message.status);
+      writer.uint32(32).int32(message.status);
     }
     return writer;
   },
@@ -345,19 +293,11 @@ export const UpdateUserRequest: MessageFns<UpdateUserRequest> = {
             break;
           }
 
-          message.fullName = reader.string();
-          continue;
-        }
-        case 4: {
-          if (tag !== 34) {
-            break;
-          }
-
           message.phone = reader.string();
           continue;
         }
-        case 5: {
-          if (tag !== 40) {
+        case 4: {
+          if (tag !== 32) {
             break;
           }
 
