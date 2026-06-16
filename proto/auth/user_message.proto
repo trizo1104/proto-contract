@@ -24,8 +24,9 @@ message User {
   string phone = 5;
   UserStatus status = 6;
   repeated Role roles = 7;
-  google.protobuf.Timestamp created_at = 8;
-  google.protobuf.Timestamp updated_at = 9;
+  repeated Permission permissions = 8;
+  google.protobuf.Timestamp created_at = 9;
+  google.protobuf.Timestamp updated_at = 10;
 }
 
 message CreateUserRequest {
