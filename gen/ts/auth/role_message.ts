@@ -29,6 +29,22 @@ export interface RoleResponse {
   role: Role | undefined;
 }
 
+export interface CreateRoleRequest {
+  code: string;
+  name: string;
+  description: string;
+  permissionIds: string[];
+}
+
+export interface DeleteRoleRequest {
+  roleId: string;
+}
+
+export interface DeleteRoleResponse {
+  success: boolean;
+  message: string;
+}
+
 export interface AssignRoleToUserRequest {
   userId: string;
   roleId: string;
@@ -239,6 +255,161 @@ export const RoleResponse: MessageFns<RoleResponse> = {
           }
 
           message.role = Role.decode(reader, reader.uint32());
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+};
+
+function createBaseCreateRoleRequest(): CreateRoleRequest {
+  return { code: "", name: "", description: "", permissionIds: [] };
+}
+
+export const CreateRoleRequest: MessageFns<CreateRoleRequest> = {
+  encode(message: CreateRoleRequest, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.code !== "") {
+      writer.uint32(10).string(message.code);
+    }
+    if (message.name !== "") {
+      writer.uint32(18).string(message.name);
+    }
+    if (message.description !== "") {
+      writer.uint32(26).string(message.description);
+    }
+    for (const v of message.permissionIds) {
+      writer.uint32(34).string(v!);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): CreateRoleRequest {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    const end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseCreateRoleRequest();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.code = reader.string();
+          continue;
+        }
+        case 2: {
+          if (tag !== 18) {
+            break;
+          }
+
+          message.name = reader.string();
+          continue;
+        }
+        case 3: {
+          if (tag !== 26) {
+            break;
+          }
+
+          message.description = reader.string();
+          continue;
+        }
+        case 4: {
+          if (tag !== 34) {
+            break;
+          }
+
+          message.permissionIds.push(reader.string());
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+};
+
+function createBaseDeleteRoleRequest(): DeleteRoleRequest {
+  return { roleId: "" };
+}
+
+export const DeleteRoleRequest: MessageFns<DeleteRoleRequest> = {
+  encode(message: DeleteRoleRequest, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.roleId !== "") {
+      writer.uint32(10).string(message.roleId);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): DeleteRoleRequest {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    const end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseDeleteRoleRequest();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.roleId = reader.string();
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+};
+
+function createBaseDeleteRoleResponse(): DeleteRoleResponse {
+  return { success: false, message: "" };
+}
+
+export const DeleteRoleResponse: MessageFns<DeleteRoleResponse> = {
+  encode(message: DeleteRoleResponse, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.success !== false) {
+      writer.uint32(8).bool(message.success);
+    }
+    if (message.message !== "") {
+      writer.uint32(18).string(message.message);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): DeleteRoleResponse {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    const end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseDeleteRoleResponse();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 8) {
+            break;
+          }
+
+          message.success = reader.bool();
+          continue;
+        }
+        case 2: {
+          if (tag !== 18) {
+            break;
+          }
+
+          message.message = reader.string();
           continue;
         }
       }

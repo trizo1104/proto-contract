@@ -1,6 +1,6 @@
 {
   "name": "@trizo1104/proto-contracts",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Private protobuf contracts for microservices",
   "files": [
     "proto",

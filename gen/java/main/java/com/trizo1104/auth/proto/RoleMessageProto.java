@@ -36,6 +36,21 @@ public final class RoleMessageProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_auth_RoleResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_auth_CreateRoleRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_auth_CreateRoleRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_auth_DeleteRoleRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_auth_DeleteRoleRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_auth_DeleteRoleResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_auth_DeleteRoleResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_auth_AssignRoleToUserRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -91,21 +106,26 @@ public final class RoleMessageProto {
       "Permission\"\022\n\020ListRolesRequest\".\n\021ListRo" +
       "lesResponse\022\031\n\005roles\030\001 \003(\0132\n.auth.Role\"(" +
       "\n\014RoleResponse\022\030\n\004role\030\001 \001(\0132\n.auth.Role" +
-      "\";\n\027AssignRoleToUserRequest\022\017\n\007user_id\030\001" +
-      " \001(\t\022\017\n\007role_id\030\002 \001(\t\"<\n\030AssignRoleToUse" +
-      "rResponse\022\017\n\007success\030\001 \001(\010\022\017\n\007message\030\002 " +
-      "\001(\t\"=\n\031RemoveRoleFromUserRequest\022\017\n\007user" +
-      "_id\030\001 \001(\t\022\017\n\007role_id\030\002 \001(\t\">\n\032RemoveRole" +
-      "FromUserResponse\022\017\n\007success\030\001 \001(\010\022\017\n\007mes" +
-      "sage\030\002 \001(\t\"G\n\035AssignPermissionToRoleRequ" +
-      "est\022\017\n\007role_id\030\001 \001(\t\022\025\n\rpermission_id\030\002 " +
-      "\001(\t\"I\n\037RemovePermissionFromRoleRequest\022\017" +
-      "\n\007role_id\030\001 \001(\t\022\025\n\rpermission_id\030\002 \001(\t\"G" +
-      "\n\034UpdateRolePermissionsRequest\022\017\n\007role_i" +
-      "d\030\001 \001(\t\022\026\n\016permission_ids\030\002 \003(\t\",\n\031GetRo" +
-      "lePermissionsRequest\022\017\n\007role_id\030\001 \001(\tB.\n" +
-      "\030com.trizo1104.auth.protoB\020RoleMessagePr" +
-      "otoP\001b\006proto3"
+      "\"\\\n\021CreateRoleRequest\022\014\n\004code\030\001 \001(\t\022\014\n\004n" +
+      "ame\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\022\026\n\016permis" +
+      "sion_ids\030\004 \003(\t\"$\n\021DeleteRoleRequest\022\017\n\007r" +
+      "ole_id\030\001 \001(\t\"6\n\022DeleteRoleResponse\022\017\n\007su" +
+      "ccess\030\001 \001(\010\022\017\n\007message\030\002 \001(\t\";\n\027AssignRo" +
+      "leToUserRequest\022\017\n\007user_id\030\001 \001(\t\022\017\n\007role" +
+      "_id\030\002 \001(\t\"<\n\030AssignRoleToUserResponse\022\017\n" +
+      "\007success\030\001 \001(\010\022\017\n\007message\030\002 \001(\t\"=\n\031Remov" +
+      "eRoleFromUserRequest\022\017\n\007user_id\030\001 \001(\t\022\017\n" +
+      "\007role_id\030\002 \001(\t\">\n\032RemoveRoleFromUserResp" +
+      "onse\022\017\n\007success\030\001 \001(\010\022\017\n\007message\030\002 \001(\t\"G" +
+      "\n\035AssignPermissionToRoleRequest\022\017\n\007role_" +
+      "id\030\001 \001(\t\022\025\n\rpermission_id\030\002 \001(\t\"I\n\037Remov" +
+      "ePermissionFromRoleRequest\022\017\n\007role_id\030\001 " +
+      "\001(\t\022\025\n\rpermission_id\030\002 \001(\t\"G\n\034UpdateRole" +
+      "PermissionsRequest\022\017\n\007role_id\030\001 \001(\t\022\026\n\016p" +
+      "ermission_ids\030\002 \003(\t\",\n\031GetRolePermission" +
+      "sRequest\022\017\n\007role_id\030\001 \001(\tB.\n\030com.trizo11" +
+      "04.auth.protoB\020RoleMessageProtoP\001b\006proto" +
+      "3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -136,50 +156,68 @@ public final class RoleMessageProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_auth_RoleResponse_descriptor,
         new java.lang.String[] { "Role", });
-    internal_static_auth_AssignRoleToUserRequest_descriptor =
+    internal_static_auth_CreateRoleRequest_descriptor =
       getDescriptor().getMessageTypes().get(4);
+    internal_static_auth_CreateRoleRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_auth_CreateRoleRequest_descriptor,
+        new java.lang.String[] { "Code", "Name", "Description", "PermissionIds", });
+    internal_static_auth_DeleteRoleRequest_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_auth_DeleteRoleRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_auth_DeleteRoleRequest_descriptor,
+        new java.lang.String[] { "RoleId", });
+    internal_static_auth_DeleteRoleResponse_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_auth_DeleteRoleResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_auth_DeleteRoleResponse_descriptor,
+        new java.lang.String[] { "Success", "Message", });
+    internal_static_auth_AssignRoleToUserRequest_descriptor =
+      getDescriptor().getMessageTypes().get(7);
     internal_static_auth_AssignRoleToUserRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_auth_AssignRoleToUserRequest_descriptor,
         new java.lang.String[] { "UserId", "RoleId", });
     internal_static_auth_AssignRoleToUserResponse_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_auth_AssignRoleToUserResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_auth_AssignRoleToUserResponse_descriptor,
         new java.lang.String[] { "Success", "Message", });
     internal_static_auth_RemoveRoleFromUserRequest_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_auth_RemoveRoleFromUserRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_auth_RemoveRoleFromUserRequest_descriptor,
         new java.lang.String[] { "UserId", "RoleId", });
     internal_static_auth_RemoveRoleFromUserResponse_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_auth_RemoveRoleFromUserResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_auth_RemoveRoleFromUserResponse_descriptor,
         new java.lang.String[] { "Success", "Message", });
     internal_static_auth_AssignPermissionToRoleRequest_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_auth_AssignPermissionToRoleRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_auth_AssignPermissionToRoleRequest_descriptor,
         new java.lang.String[] { "RoleId", "PermissionId", });
     internal_static_auth_RemovePermissionFromRoleRequest_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_auth_RemovePermissionFromRoleRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_auth_RemovePermissionFromRoleRequest_descriptor,
         new java.lang.String[] { "RoleId", "PermissionId", });
     internal_static_auth_UpdateRolePermissionsRequest_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_auth_UpdateRolePermissionsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_auth_UpdateRolePermissionsRequest_descriptor,
         new java.lang.String[] { "RoleId", "PermissionIds", });
     internal_static_auth_GetRolePermissionsRequest_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_auth_GetRolePermissionsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_auth_GetRolePermissionsRequest_descriptor,

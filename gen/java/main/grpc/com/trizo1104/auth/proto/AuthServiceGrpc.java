@@ -263,6 +263,68 @@ public final class AuthServiceGrpc {
     return getListRolesMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.trizo1104.auth.proto.CreateRoleRequest,
+      com.trizo1104.auth.proto.RoleResponse> getCreateRoleMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "CreateRole",
+      requestType = com.trizo1104.auth.proto.CreateRoleRequest.class,
+      responseType = com.trizo1104.auth.proto.RoleResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.trizo1104.auth.proto.CreateRoleRequest,
+      com.trizo1104.auth.proto.RoleResponse> getCreateRoleMethod() {
+    io.grpc.MethodDescriptor<com.trizo1104.auth.proto.CreateRoleRequest, com.trizo1104.auth.proto.RoleResponse> getCreateRoleMethod;
+    if ((getCreateRoleMethod = AuthServiceGrpc.getCreateRoleMethod) == null) {
+      synchronized (AuthServiceGrpc.class) {
+        if ((getCreateRoleMethod = AuthServiceGrpc.getCreateRoleMethod) == null) {
+          AuthServiceGrpc.getCreateRoleMethod = getCreateRoleMethod =
+              io.grpc.MethodDescriptor.<com.trizo1104.auth.proto.CreateRoleRequest, com.trizo1104.auth.proto.RoleResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "CreateRole"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.trizo1104.auth.proto.CreateRoleRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.trizo1104.auth.proto.RoleResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new AuthServiceMethodDescriptorSupplier("CreateRole"))
+              .build();
+        }
+      }
+    }
+    return getCreateRoleMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.trizo1104.auth.proto.DeleteRoleRequest,
+      com.trizo1104.auth.proto.DeleteRoleResponse> getDeleteRoleMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "DeleteRole",
+      requestType = com.trizo1104.auth.proto.DeleteRoleRequest.class,
+      responseType = com.trizo1104.auth.proto.DeleteRoleResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.trizo1104.auth.proto.DeleteRoleRequest,
+      com.trizo1104.auth.proto.DeleteRoleResponse> getDeleteRoleMethod() {
+    io.grpc.MethodDescriptor<com.trizo1104.auth.proto.DeleteRoleRequest, com.trizo1104.auth.proto.DeleteRoleResponse> getDeleteRoleMethod;
+    if ((getDeleteRoleMethod = AuthServiceGrpc.getDeleteRoleMethod) == null) {
+      synchronized (AuthServiceGrpc.class) {
+        if ((getDeleteRoleMethod = AuthServiceGrpc.getDeleteRoleMethod) == null) {
+          AuthServiceGrpc.getDeleteRoleMethod = getDeleteRoleMethod =
+              io.grpc.MethodDescriptor.<com.trizo1104.auth.proto.DeleteRoleRequest, com.trizo1104.auth.proto.DeleteRoleResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "DeleteRole"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.trizo1104.auth.proto.DeleteRoleRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.trizo1104.auth.proto.DeleteRoleResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new AuthServiceMethodDescriptorSupplier("DeleteRole"))
+              .build();
+        }
+      }
+    }
+    return getDeleteRoleMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<com.trizo1104.auth.proto.AssignRoleToUserRequest,
       com.trizo1104.auth.proto.AssignRoleToUserResponse> getAssignRoleToUserMethod;
 
@@ -617,6 +679,20 @@ public final class AuthServiceGrpc {
 
     /**
      */
+    default void createRole(com.trizo1104.auth.proto.CreateRoleRequest request,
+        io.grpc.stub.StreamObserver<com.trizo1104.auth.proto.RoleResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateRoleMethod(), responseObserver);
+    }
+
+    /**
+     */
+    default void deleteRole(com.trizo1104.auth.proto.DeleteRoleRequest request,
+        io.grpc.stub.StreamObserver<com.trizo1104.auth.proto.DeleteRoleResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDeleteRoleMethod(), responseObserver);
+    }
+
+    /**
+     */
     default void assignRoleToUser(com.trizo1104.auth.proto.AssignRoleToUserRequest request,
         io.grpc.stub.StreamObserver<com.trizo1104.auth.proto.AssignRoleToUserResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getAssignRoleToUserMethod(), responseObserver);
@@ -765,6 +841,22 @@ public final class AuthServiceGrpc {
 
     /**
      */
+    public void createRole(com.trizo1104.auth.proto.CreateRoleRequest request,
+        io.grpc.stub.StreamObserver<com.trizo1104.auth.proto.RoleResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getCreateRoleMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void deleteRole(com.trizo1104.auth.proto.DeleteRoleRequest request,
+        io.grpc.stub.StreamObserver<com.trizo1104.auth.proto.DeleteRoleResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getDeleteRoleMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
     public void assignRoleToUser(com.trizo1104.auth.proto.AssignRoleToUserRequest request,
         io.grpc.stub.StreamObserver<com.trizo1104.auth.proto.AssignRoleToUserResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
@@ -898,6 +990,20 @@ public final class AuthServiceGrpc {
     public com.trizo1104.auth.proto.ListRolesResponse listRoles(com.trizo1104.auth.proto.ListRolesRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getListRolesMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.trizo1104.auth.proto.RoleResponse createRole(com.trizo1104.auth.proto.CreateRoleRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getCreateRoleMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.trizo1104.auth.proto.DeleteRoleResponse deleteRole(com.trizo1104.auth.proto.DeleteRoleRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getDeleteRoleMethod(), getCallOptions(), request);
     }
 
     /**
@@ -1039,6 +1145,22 @@ public final class AuthServiceGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<com.trizo1104.auth.proto.RoleResponse> createRole(
+        com.trizo1104.auth.proto.CreateRoleRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getCreateRoleMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.trizo1104.auth.proto.DeleteRoleResponse> deleteRole(
+        com.trizo1104.auth.proto.DeleteRoleRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getDeleteRoleMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<com.trizo1104.auth.proto.AssignRoleToUserResponse> assignRoleToUser(
         com.trizo1104.auth.proto.AssignRoleToUserRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
@@ -1110,14 +1232,16 @@ public final class AuthServiceGrpc {
   private static final int METHODID_DELETE_USER = 5;
   private static final int METHODID_LIST_USERS = 6;
   private static final int METHODID_LIST_ROLES = 7;
-  private static final int METHODID_ASSIGN_ROLE_TO_USER = 8;
-  private static final int METHODID_REMOVE_ROLE_FROM_USER = 9;
-  private static final int METHODID_ASSIGN_PERMISSION_TO_ROLE = 10;
-  private static final int METHODID_REMOVE_PERMISSION_FROM_ROLE = 11;
-  private static final int METHODID_UPDATE_ROLE_PERMISSIONS = 12;
-  private static final int METHODID_GET_ROLE_PERMISSIONS = 13;
-  private static final int METHODID_LIST_PERMISSIONS = 14;
-  private static final int METHODID_GET_USER_PERMISSIONS = 15;
+  private static final int METHODID_CREATE_ROLE = 8;
+  private static final int METHODID_DELETE_ROLE = 9;
+  private static final int METHODID_ASSIGN_ROLE_TO_USER = 10;
+  private static final int METHODID_REMOVE_ROLE_FROM_USER = 11;
+  private static final int METHODID_ASSIGN_PERMISSION_TO_ROLE = 12;
+  private static final int METHODID_REMOVE_PERMISSION_FROM_ROLE = 13;
+  private static final int METHODID_UPDATE_ROLE_PERMISSIONS = 14;
+  private static final int METHODID_GET_ROLE_PERMISSIONS = 15;
+  private static final int METHODID_LIST_PERMISSIONS = 16;
+  private static final int METHODID_GET_USER_PERMISSIONS = 17;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -1167,6 +1291,14 @@ public final class AuthServiceGrpc {
         case METHODID_LIST_ROLES:
           serviceImpl.listRoles((com.trizo1104.auth.proto.ListRolesRequest) request,
               (io.grpc.stub.StreamObserver<com.trizo1104.auth.proto.ListRolesResponse>) responseObserver);
+          break;
+        case METHODID_CREATE_ROLE:
+          serviceImpl.createRole((com.trizo1104.auth.proto.CreateRoleRequest) request,
+              (io.grpc.stub.StreamObserver<com.trizo1104.auth.proto.RoleResponse>) responseObserver);
+          break;
+        case METHODID_DELETE_ROLE:
+          serviceImpl.deleteRole((com.trizo1104.auth.proto.DeleteRoleRequest) request,
+              (io.grpc.stub.StreamObserver<com.trizo1104.auth.proto.DeleteRoleResponse>) responseObserver);
           break;
         case METHODID_ASSIGN_ROLE_TO_USER:
           serviceImpl.assignRoleToUser((com.trizo1104.auth.proto.AssignRoleToUserRequest) request,
@@ -1274,6 +1406,20 @@ public final class AuthServiceGrpc {
               com.trizo1104.auth.proto.ListRolesRequest,
               com.trizo1104.auth.proto.ListRolesResponse>(
                 service, METHODID_LIST_ROLES)))
+        .addMethod(
+          getCreateRoleMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              com.trizo1104.auth.proto.CreateRoleRequest,
+              com.trizo1104.auth.proto.RoleResponse>(
+                service, METHODID_CREATE_ROLE)))
+        .addMethod(
+          getDeleteRoleMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              com.trizo1104.auth.proto.DeleteRoleRequest,
+              com.trizo1104.auth.proto.DeleteRoleResponse>(
+                service, METHODID_DELETE_ROLE)))
         .addMethod(
           getAssignRoleToUserMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -1386,6 +1532,8 @@ public final class AuthServiceGrpc {
               .addMethod(getDeleteUserMethod())
               .addMethod(getListUsersMethod())
               .addMethod(getListRolesMethod())
+              .addMethod(getCreateRoleMethod())
+              .addMethod(getDeleteRoleMethod())
               .addMethod(getAssignRoleToUserMethod())
               .addMethod(getRemoveRoleFromUserMethod())
               .addMethod(getAssignPermissionToRoleMethod())

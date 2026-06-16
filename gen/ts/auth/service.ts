@@ -20,6 +20,9 @@ import {
   AssignPermissionToRoleRequest,
   AssignRoleToUserRequest,
   AssignRoleToUserResponse,
+  CreateRoleRequest,
+  DeleteRoleRequest,
+  DeleteRoleResponse,
   GetRolePermissionsRequest,
   ListRolesRequest,
   ListRolesResponse,
@@ -61,6 +64,10 @@ export interface AuthServiceClient {
 
   listRoles(request: ListRolesRequest): Observable<ListRolesResponse>;
 
+  createRole(request: CreateRoleRequest): Observable<RoleResponse>;
+
+  deleteRole(request: DeleteRoleRequest): Observable<DeleteRoleResponse>;
+
   assignRoleToUser(request: AssignRoleToUserRequest): Observable<AssignRoleToUserResponse>;
 
   removeRoleFromUser(request: RemoveRoleFromUserRequest): Observable<RemoveRoleFromUserResponse>;
@@ -96,6 +103,12 @@ export interface AuthServiceController {
   listUsers(request: ListUsersRequest): Promise<ListUsersResponse> | Observable<ListUsersResponse> | ListUsersResponse;
 
   listRoles(request: ListRolesRequest): Promise<ListRolesResponse> | Observable<ListRolesResponse> | ListRolesResponse;
+
+  createRole(request: CreateRoleRequest): Promise<RoleResponse> | Observable<RoleResponse> | RoleResponse;
+
+  deleteRole(
+    request: DeleteRoleRequest,
+  ): Promise<DeleteRoleResponse> | Observable<DeleteRoleResponse> | DeleteRoleResponse;
 
   assignRoleToUser(
     request: AssignRoleToUserRequest,
@@ -141,6 +154,8 @@ export function AuthServiceControllerMethods() {
       "deleteUser",
       "listUsers",
       "listRoles",
+      "createRole",
+      "deleteRole",
       "assignRoleToUser",
       "removeRoleFromUser",
       "assignPermissionToRole",
@@ -237,6 +252,24 @@ export const AuthServiceService = {
     requestDeserialize: (value: Buffer): ListRolesRequest => ListRolesRequest.decode(value),
     responseSerialize: (value: ListRolesResponse): Buffer => Buffer.from(ListRolesResponse.encode(value).finish()),
     responseDeserialize: (value: Buffer): ListRolesResponse => ListRolesResponse.decode(value),
+  },
+  createRole: {
+    path: "/auth.AuthService/CreateRole" as const,
+    requestStream: false as const,
+    responseStream: false as const,
+    requestSerialize: (value: CreateRoleRequest): Buffer => Buffer.from(CreateRoleRequest.encode(value).finish()),
+    requestDeserialize: (value: Buffer): CreateRoleRequest => CreateRoleRequest.decode(value),
+    responseSerialize: (value: RoleResponse): Buffer => Buffer.from(RoleResponse.encode(value).finish()),
+    responseDeserialize: (value: Buffer): RoleResponse => RoleResponse.decode(value),
+  },
+  deleteRole: {
+    path: "/auth.AuthService/DeleteRole" as const,
+    requestStream: false as const,
+    responseStream: false as const,
+    requestSerialize: (value: DeleteRoleRequest): Buffer => Buffer.from(DeleteRoleRequest.encode(value).finish()),
+    requestDeserialize: (value: Buffer): DeleteRoleRequest => DeleteRoleRequest.decode(value),
+    responseSerialize: (value: DeleteRoleResponse): Buffer => Buffer.from(DeleteRoleResponse.encode(value).finish()),
+    responseDeserialize: (value: Buffer): DeleteRoleResponse => DeleteRoleResponse.decode(value),
   },
   assignRoleToUser: {
     path: "/auth.AuthService/AssignRoleToUser" as const,
@@ -335,6 +368,8 @@ export interface AuthServiceServer extends UntypedServiceImplementation {
   deleteUser: handleUnaryCall<DeleteUserRequest, DeleteUserResponse>;
   listUsers: handleUnaryCall<ListUsersRequest, ListUsersResponse>;
   listRoles: handleUnaryCall<ListRolesRequest, ListRolesResponse>;
+  createRole: handleUnaryCall<CreateRoleRequest, RoleResponse>;
+  deleteRole: handleUnaryCall<DeleteRoleRequest, DeleteRoleResponse>;
   assignRoleToUser: handleUnaryCall<AssignRoleToUserRequest, AssignRoleToUserResponse>;
   removeRoleFromUser: handleUnaryCall<RemoveRoleFromUserRequest, RemoveRoleFromUserResponse>;
   assignPermissionToRole: handleUnaryCall<AssignPermissionToRoleRequest, RoleResponse>;

@@ -27,7 +27,7 @@ public final class AuthServiceProto {
       "\n\022auth/service.proto\022\004auth\032\027auth/auth_me" +
       "ssage.proto\032\035auth/permission_message.pro" +
       "to\032\027auth/role_message.proto\032\027auth/user_m" +
-      "essage.proto2\375\010\n\013AuthService\0220\n\005Login\022\022." +
+      "essage.proto2\371\t\n\013AuthService\0220\n\005Login\022\022." +
       "auth.LoginRequest\032\023.auth.LoginResponse\022\'" +
       "\n\002Me\022\017.auth.MeRequest\032\020.auth.MeResponse\022" +
       "9\n\nCreateUser\022\027.auth.CreateUserRequest\032\022" +
@@ -39,25 +39,28 @@ public final class AuthServiceProto {
       "nse\022<\n\tListUsers\022\026.auth.ListUsersRequest" +
       "\032\027.auth.ListUsersResponse\022<\n\tListRoles\022\026" +
       ".auth.ListRolesRequest\032\027.auth.ListRolesR" +
-      "esponse\022Q\n\020AssignRoleToUser\022\035.auth.Assig" +
-      "nRoleToUserRequest\032\036.auth.AssignRoleToUs" +
-      "erResponse\022W\n\022RemoveRoleFromUser\022\037.auth." +
-      "RemoveRoleFromUserRequest\032 .auth.RemoveR" +
-      "oleFromUserResponse\022Q\n\026AssignPermissionT" +
-      "oRole\022#.auth.AssignPermissionToRoleReque" +
-      "st\032\022.auth.RoleResponse\022U\n\030RemovePermissi" +
-      "onFromRole\022%.auth.RemovePermissionFromRo" +
-      "leRequest\032\022.auth.RoleResponse\022O\n\025UpdateR" +
-      "olePermissions\022\".auth.UpdateRolePermissi" +
-      "onsRequest\032\022.auth.RoleResponse\022S\n\022GetRol" +
-      "ePermissions\022\037.auth.GetRolePermissionsRe" +
-      "quest\032\034.auth.PermissionListResponse\022N\n\017L" +
-      "istPermissions\022\034.auth.ListPermissionsReq" +
-      "uest\032\035.auth.ListPermissionsResponse\022W\n\022G" +
-      "etUserPermissions\022\037.auth.GetUserPermissi" +
-      "onsRequest\032 .auth.GetUserPermissionsResp" +
-      "onseB.\n\030com.trizo1104.auth.protoB\020AuthSe" +
-      "rviceProtoP\001b\006proto3"
+      "esponse\0229\n\nCreateRole\022\027.auth.CreateRoleR" +
+      "equest\032\022.auth.RoleResponse\022?\n\nDeleteRole" +
+      "\022\027.auth.DeleteRoleRequest\032\030.auth.DeleteR" +
+      "oleResponse\022Q\n\020AssignRoleToUser\022\035.auth.A" +
+      "ssignRoleToUserRequest\032\036.auth.AssignRole" +
+      "ToUserResponse\022W\n\022RemoveRoleFromUser\022\037.a" +
+      "uth.RemoveRoleFromUserRequest\032 .auth.Rem" +
+      "oveRoleFromUserResponse\022Q\n\026AssignPermiss" +
+      "ionToRole\022#.auth.AssignPermissionToRoleR" +
+      "equest\032\022.auth.RoleResponse\022U\n\030RemovePerm" +
+      "issionFromRole\022%.auth.RemovePermissionFr" +
+      "omRoleRequest\032\022.auth.RoleResponse\022O\n\025Upd" +
+      "ateRolePermissions\022\".auth.UpdateRolePerm" +
+      "issionsRequest\032\022.auth.RoleResponse\022S\n\022Ge" +
+      "tRolePermissions\022\037.auth.GetRolePermissio" +
+      "nsRequest\032\034.auth.PermissionListResponse\022" +
+      "N\n\017ListPermissions\022\034.auth.ListPermission" +
+      "sRequest\032\035.auth.ListPermissionsResponse\022" +
+      "W\n\022GetUserPermissions\022\037.auth.GetUserPerm" +
+      "issionsRequest\032 .auth.GetUserPermissions" +
+      "ResponseB.\n\030com.trizo1104.auth.protoB\020Au" +
+      "thServiceProtoP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

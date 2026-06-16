@@ -26,6 +26,22 @@ message RoleResponse {
   Role role = 1;
 }
 
+message CreateRoleRequest {
+  string code = 1;
+  string name = 2;
+  string description = 3;
+  repeated string permission_ids = 4;
+}
+
+message DeleteRoleRequest {
+  string role_id = 1;
+}
+
+message DeleteRoleResponse {
+  bool success = 1;
+  string message = 2;
+}
+
 message AssignRoleToUserRequest {
   string user_id = 1;
   string role_id = 2;
