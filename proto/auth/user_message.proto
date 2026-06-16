@@ -8,6 +8,7 @@ option java_outer_classname = "UserMessageProto";
 
 import "auth/role_message.proto";
 import "google/protobuf/timestamp.proto";
+import "auth/permission_message.proto";
 
 enum UserStatus {
   USER_STATUS_UNSPECIFIED = 0;
