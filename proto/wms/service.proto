@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package wms;
+
+option java_multiple_files = true;
+option java_package = "com.trizo1104.wms.proto";
+option java_outer_classname = "WmsServiceProto";
+
+import "wms/product_message.proto";
+import "wms/warehouse_message.proto";
+import "wms/inventory_message.proto";
+
+service WmsService {
+  rpc CreateProduct(CreateProductRequest) returns (ProductResponse);
+  rpc GetProductById(GetProductByIdRequest) returns (ProductResponse);
+  rpc GetProductBySku(GetProductBySkuRequest) returns (ProductResponse);
+  rpc UpdateProduct(UpdateProductRequest) returns (ProductResponse);
+  rpc DeleteProduct(DeleteProductRequest) returns (DeleteProductResponse);
+  rpc ListProducts(ListProductsRequest) returns (ListProductsResponse);
+
+  rpc CreateWarehouse(CreateWarehouseRequest) returns (WarehouseResponse);
+  rpc GetWarehouseById(GetWarehouseByIdRequest) returns (WarehouseResponse);
+  rpc GetWarehouseByCode(GetWarehouseByCodeRequest) returns (WarehouseResponse);
+  rpc UpdateWarehouse(UpdateWarehouseRequest) returns (WarehouseResponse);
+  rpc DeleteWarehouse(DeleteWarehouseRequest) returns (DeleteWarehouseResponse);
+  rpc ListWarehouses(ListWarehousesRequest) returns (ListWarehousesResponse);
+
+  rpc GetInventory(GetInventoryRequest) returns (InventoryResponse);
+  rpc ListInventories(ListInventoriesRequest) returns (ListInventoriesResponse);
+  rpc ListInventoriesByWarehouse(ListInventoriesByWarehouseRequest) returns (ListInventoriesResponse);
+  rpc ListInventoriesByProduct(ListInventoriesByProductRequest) returns (ListInventoriesResponse);
+}

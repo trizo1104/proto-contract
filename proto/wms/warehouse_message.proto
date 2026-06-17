@@ -1,0 +1,63 @@
+syntax = "proto3";
+
+package wms;
+
+option java_multiple_files = true;
+option java_package = "com.trizo1104.wms.proto";
+option java_outer_classname = "WarehouseMessageProto";
+
+message Warehouse {
+  string id = 1;
+  string code = 2;
+  string name = 3;
+  string address = 4;
+  string status = 5;
+  string created_at = 6;
+  string updated_at = 7;
+}
+
+message CreateWarehouseRequest {
+  string code = 1;
+  string name = 2;
+  string address = 3;
+  string status = 4;
+}
+
+message GetWarehouseByIdRequest {
+  string id = 1;
+}
+
+message GetWarehouseByCodeRequest {
+  string code = 1;
+}
+
+message UpdateWarehouseRequest {
+  string id = 1;
+  string code = 2;
+  string name = 3;
+  string address = 4;
+  string status = 5;
+}
+
+message DeleteWarehouseRequest {
+  string id = 1;
+}
+
+message DeleteWarehouseResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message WarehouseResponse {
+  Warehouse warehouse = 1;
+}
+
+message ListWarehousesRequest {
+  int32 page = 1;
+  int32 limit = 2;
+}
+
+message ListWarehousesResponse {
+  repeated Warehouse warehouses = 1;
+  int64 total = 2;
+}

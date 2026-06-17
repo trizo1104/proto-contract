@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package wms;
+
+option java_multiple_files = true;
+option java_package = "com.trizo1104.wms.proto";
+option java_outer_classname = "InventoryMessageProto";
+
+message Inventory {
+  string id = 1;
+  string warehouse_id = 2;
+  string product_id = 3;
+  int64 quantity = 4;
+  string created_at = 5;
+  string updated_at = 6;
+}
+
+message GetInventoryRequest {
+  string id = 1;
+}
+
+message InventoryResponse {
+  Inventory inventory = 1;
+}
+
+message ListInventoriesRequest {
+  int32 page = 1;
+  int32 limit = 2;
+}
+
+message ListInventoriesByWarehouseRequest {
+  string warehouse_id = 1;
+  int32 page = 2;
+  int32 limit = 3;
+}
+
+message ListInventoriesByProductRequest {
+  string product_id = 1;
+  int32 page = 2;
+  int32 limit = 3;
+}
+
+message ListInventoriesResponse {
+  repeated Inventory inventories = 1;
+  int64 total = 2;
+}

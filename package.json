@@ -1,6 +1,6 @@
 {
   "name": "@trizo1104/proto-contracts",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Private protobuf contracts for microservices",
   "files": [
     "proto",
@@ -12,7 +12,7 @@
   "scripts": {
     "gen": "pnpm run gen:java && pnpm run gen:ts",
     "gen:java": "gradlew.bat generateProto",
-    "gen:ts": "pnpm exec protoc --plugin=protoc-gen-ts_proto=.\\node_modules\\.bin\\protoc-gen-ts_proto.cmd --ts_proto_out=gen/ts --ts_proto_opt=nestJs=true,outputServices=grpc-js --proto_path=proto proto/auth/service.proto"
+    "gen:ts": "pnpm exec protoc --plugin=protoc-gen-ts_proto=.\\node_modules\\.bin\\protoc-gen-ts_proto.cmd --ts_proto_out=gen/ts --ts_proto_opt=nestJs=true,outputServices=grpc-js --proto_path=proto proto/auth/service.proto proto/wms/service.proto"
   },
   "devDependencies": {
     "protoc": "^25.9.0",
